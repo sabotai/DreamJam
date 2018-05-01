@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	public float jumpAmt = 10f;
 	public KeyCode fwdKey, backKey, rKey, lKey, jump;
 	bool jumped = false;
-	public Material myMat;
+	Material myMat;
 	float myMass;
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,8 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
+		myMat = GetComponent<Renderer>().material;
 
 		if (Input.GetKey(fwdKey)){
 			rb.AddForce(Vector3.forward * forceAmt * rb.mass);
@@ -72,7 +73,7 @@ public class Player : MonoBehaviour {
      }
 	void OnTriggerEnter(Collider other) {
          if (other.gameObject.name == "net") {
-            //SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0);
          }
      }
 }
