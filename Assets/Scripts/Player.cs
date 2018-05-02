@@ -12,10 +12,12 @@ public class Player : MonoBehaviour {
 	bool jumped = false;
 	Material myMat;
 	float myMass;
+	GameObject mySpawner;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		myMass = rb.mass;
+		mySpawner = GameObject.Find(gameObject.name + "Spawner");
 	}
 	
 	// Update is called once per frame
@@ -73,7 +75,9 @@ public class Player : MonoBehaviour {
      }
 	void OnTriggerEnter(Collider other) {
          if (other.gameObject.name == "net") {
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            transform.position = mySpawner.transform.position;
+            GetComponent<Rigidbody>().velocity = Vector3.down;
          }
      }
 }

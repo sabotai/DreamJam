@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShiftMats : MonoBehaviour {
 
 	public Material[] playerMats;
 	public GameObject[] players;
+	public Text[] pScore;
+
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < playerMats.Length; i++){
@@ -24,6 +27,7 @@ public class ShiftMats : MonoBehaviour {
 					} else {
 						playerMats[i] = firstMat;
 					}
+				pScore[i].color = playerMats[i].color;
 				players[i].GetComponent<Renderer>().material = playerMats[i];
 				for (int j = 0; j < players[i].transform.childCount; j++){
 					players[i].transform.GetChild(j).gameObject.GetComponent<Renderer>().material = playerMats[i];

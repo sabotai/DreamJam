@@ -5,6 +5,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour {
 	public Vector3 rotDir;
 	public float rotSpeed;
+	public bool autoSlow = true;
 
 	// Use this for initialization
 	void Start () {
@@ -12,10 +13,12 @@ public class Platform : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		Rotate(rotDir, rotSpeed);
 
 		if (Input.GetKeyDown(KeyCode.Space)) Reverse();
+
+		if (autoSlow && Mathf.Abs(rotDir.y) > 1f) rotDir *= 0.9975f;
 	}
 
 	void Rotate(Vector3 dir, float speed){

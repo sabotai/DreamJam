@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Pieces : MonoBehaviour {
 
-	public GameObject[] players;
+	GameObject[] players = new GameObject[2];
 	GameObject manager;
-	float fuseMag = 1.5f;
+	public float fuseMag = 1.15f;
+	public float maxScale = 0.8f;
 	// Use this for initialization
 	void Start () {
 		manager = GameObject.Find("Manager");
+		players[0] = GameObject.Find("P1");
+		players[1] = GameObject.Find("P2");
 	}
 	
 	// Update is called once per frame
@@ -20,9 +23,11 @@ public class Pieces : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
          if (other.gameObject.name == "net") {
          	for (int i = 0; i < players.Length; i++){
+         		if (other.gameObject && players[i]){
             	if (GetComponent<Renderer>().material.color == players[i].GetComponent<Renderer>().material.color){
-            		manager.GetComponent<Score>().playerScore[i]++;
+            		manager.GetComponent<Score>().playerScore[i] += (int)(transform.lossyScale.x * 20f);
             	}
+            }
  	       }
          }
      }
@@ -33,7 +38,8 @@ public class Pieces : MonoBehaviour {
              //other.transform.parent = transform;
 	         	if (other.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > fuseMag){
 	         		//Debug.Log("BOOM");
-	         		if (other.transform.lossyScale.sqrMagnitude >= transform.lossyScale.sqrMagnitude){
+	         		if (other.transform.lossyScale.sqrMagnitude >= transform.lossyScale.sqrMagnitude && other.transform.lossyScale.sqrMagnitude < maxScale){
+
 		             	other.transform.localScale += transform.localScale;
 		             	other.gameObject.GetComponent<Rigidbody>().mass += gameObject.GetComponent<Rigidbody>().mass;
 		             	other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
