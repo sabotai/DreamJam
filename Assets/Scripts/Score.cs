@@ -7,6 +7,7 @@ public class Score : MonoBehaviour {
 	public float[] playerScore;
 	public bool debugScore = false;
 	public Text[] pScore;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,7 +18,9 @@ public class Score : MonoBehaviour {
 		if (debugScore) Debug.Log("P1 = " + playerScore[0] + ", P2 = " + playerScore[1]);
 
 		for (int i = 0; i < playerScore.Length; i++){
+			
 			pScore[i].text = playerScore[i].ToString();
+			pScore[i].fontSize = (int)playerScore[i] * 5 + 300;
 		}
 	}
 }
