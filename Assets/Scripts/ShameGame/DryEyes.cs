@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DryEyes : MonoBehaviour {
 	Transform lTarget, rTarget;
-	Material rBlinder, lBlinder;
+	Material rBlinderMat, lBlinderMat;
+	Transform rBlinder, lBlinder;
 	float initialDist, eyeDist, pEyeDist;
 	public float speed = 1f;
 	Vector3 lOrigPos, rOrigPos;
@@ -17,12 +18,17 @@ public class DryEyes : MonoBehaviour {
 	RawImage lScreen, rScreen;
 	public bool autoDry = false;
 	public bool blinkAvgPos = false;
+	public float blinkZScale = 0.021f;
+	float origBlinkZ;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
 		rTarget = GameObject.Find("RTarget").transform;
-		rBlinder = GameObject.Find("RBlinder").GetComponent<Renderer>().material;
-		lBlinder = GameObject.Find("LBlinder").GetComponent<Renderer>().material;
+		rBlinder = GameObject.Find("RBlinder").transform;
+		lBlinder = GameObject.Find("LBlinder").transform;
+		rBlinderMat = GameObject.Find("RBlinder").GetComponent<Renderer>().material;
+		lBlinderMat = GameObject.Find("LBlinder").GetComponent<Renderer>().material;
+		origBlinkZ = GameObject.Find("RBlinder").transform.localScale.z;
 		initialDist = Vector3.Distance(rTarget.position, lTarget.position);
 		lOrigPos = lTarget.localPosition;
 		rOrigPos = rTarget.localPosition;
@@ -38,7 +44,7 @@ public class DryEyes : MonoBehaviour {
 		eyeDist = Vector3.Distance(rTarget.position, lTarget.position) - initialDist;
 		//Debug.Log("eyeDist = " + eyeDist);
 		if (eyeDist > 5f){
-			newA = rBlinder.color.a + speed * Time.deltaTime;
+			newA = rBlinderMat.color.a + speed * Time.deltaTime;
 
 		} else {
 			//if (rBlinder.color.a > 0f)	newA = rBlinder.color.a - speed * Time.deltaTime;
@@ -49,9 +55,10 @@ public class DryEyes : MonoBehaviour {
 		audSrcR.volume = newA * 0.5f;
 		audSrcL.volume = newA * 0.5f;
 
-		rBlinder.color = new Color(rBlinder.color.r, rBlinder.color.g, rBlinder.color.b, newA);
-		lBlinder.color = new Color(rBlinder.color.r, rBlinder.color.g, rBlinder.color.b, newA);
+		//rBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
+		//lBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
 		if (Input.GetKeyDown(KeyCode.Space)) newA = blink();
+		if (Input.GetKeyUp(KeyCode.Space)) 		StartCoroutine (BlinkUp (0.3f, origBlinkZ, blinkZScale));
 
 
 		if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f) updateRes();
@@ -89,8 +96,49 @@ public class DryEyes : MonoBehaviour {
 		}
 		lTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		rTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-		rBlinder.color = new Color(rBlinder.color.r, rBlinder.color.g, rBlinder.color.b, 1f);
-		lBlinder.color = new Color(rBlinder.color.r, rBlinder.color.g, rBlinder.color.b, 1f);
+		//rBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, 1f);
+		//rBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, 1f);
+		StartCoroutine (BlinkDown (0.3f, origBlinkZ, blinkZScale));
 		return 0f;
+	}
+
+	public static IEnumerator BlinkUp(float duration, float origScale, float targetScale) {
+
+		float elapsed = 0.0f;
+		Transform rBlinder = GameObject.Find("RBlinder").transform;
+		Transform lBlinder = GameObject.Find("LBlinder").transform;
+
+
+		while (elapsed < duration) {
+
+			elapsed += Time.deltaTime;   
+ 
+			if (elapsed < duration){
+
+				rBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), (elapsed) / duration );
+				lBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), (elapsed) / duration );
+	
+			}
+			yield return null;
+		}
+	}
+	public static IEnumerator BlinkDown(float duration, float origScale, float targetScale) {
+
+		float elapsed = 0.0f;
+		Transform rBlinder = GameObject.Find("RBlinder").transform;
+		Transform lBlinder = GameObject.Find("LBlinder").transform;
+
+
+		while (elapsed < duration) {
+
+			elapsed += Time.deltaTime;   
+ 
+			if (elapsed < duration){
+				rBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), (elapsed) / duration );
+				lBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), (elapsed) / duration );
+			}
+
+			yield return null;
+		}
 	}
 }
