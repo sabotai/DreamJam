@@ -19,6 +19,7 @@ public class EyePlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, orig.z);
 		if (Vector3.Distance(orig, transform.localPosition) < maxStray){
 			if (Input.GetKey(fwdKey)){
 				rb.AddForce(Vector3.up * forceAmt * rb.mass);
@@ -34,10 +35,14 @@ public class EyePlayer : MonoBehaviour {
 			}
 		} else {
 			Debug.Log("slow down!");
-			
-			rb.velocity *= -1f;
-			//rb.velocity *= 0.85f;
+			//transform.localPosition -= rb.velocity;
+			//rb.velocity *= -1f;
+			//keep it inside the range
+			transform.localPosition = orig + Vector3.Normalize(transform.localPosition - orig) * maxStray;
+			rb.velocity = Vector3.Normalize(orig - transform.localPosition) * 2f;
+
 		}
+		rb.velocity =  Vector3.ClampMagnitude(rb.velocity, 4f);
 	}
 
 }

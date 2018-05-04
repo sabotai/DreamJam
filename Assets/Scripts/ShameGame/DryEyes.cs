@@ -15,6 +15,8 @@ public class DryEyes : MonoBehaviour {
 	public RenderTexture lTexture, rTexture;
 	Camera lCam, rCam;
 	RawImage lScreen, rScreen;
+	public bool autoDry = false;
+	public bool blinkAvgPos = false;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
@@ -42,7 +44,7 @@ public class DryEyes : MonoBehaviour {
 			//if (rBlinder.color.a > 0f)	newA = rBlinder.color.a - speed * Time.deltaTime;
 			//else newA = 0f;
 			//degrade automatically to reward blink
-			newA += (speed / 30f) * Time.deltaTime;
+			if (autoDry) newA += (speed / 30f) * Time.deltaTime;
 		}
 		audSrcR.volume = newA * 0.5f;
 		audSrcL.volume = newA * 0.5f;
@@ -78,11 +80,13 @@ public class DryEyes : MonoBehaviour {
 		//rTarget.localPosition = rOrigPos;
 		audSrc.PlayOneShot(blinkSound);
 
-		//reset to average position
-		Vector3 avgOffset = ((lTarget.localPosition - lOrigPos) + (rTarget.localPosition - rOrigPos));
-		Debug.Log("avgOffset = " + avgOffset);
-		lTarget.localPosition = lOrigPos + avgOffset;
-		rTarget.localPosition = rOrigPos + avgOffset;
+		if (blinkAvgPos){
+			//reset to average position
+			Vector3 avgOffset = ((lTarget.localPosition - lOrigPos) + (rTarget.localPosition - rOrigPos));
+			//Debug.Log("avgOffset = " + avgOffset);
+			lTarget.localPosition = lOrigPos + avgOffset;
+			rTarget.localPosition = rOrigPos + avgOffset;
+		}
 		lTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		rTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		rBlinder.color = new Color(rBlinder.color.r, rBlinder.color.g, rBlinder.color.b, 1f);
