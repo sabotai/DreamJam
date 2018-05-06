@@ -20,8 +20,11 @@ public class ShameMove : MonoBehaviour {
 			Vector3 lDir = Vector3.Normalize(lTarget.position - lEye.position);
 			Vector3 rDir = Vector3.Normalize(rTarget.position - rEye.position);
 			Vector3 avgDir = Vector3.Normalize(lDir + rDir);
-			//Debug.Log("avgDir = " + avgDir);
+			Debug.Log("avgDir = " + avgDir + " ; middleDir = " + dirIndicator.eulerAngles);
+
+			//dirIndicator.localRotation = Quaternion.LookRotation(new Vector3 (0f, avgDir.y, 0f));
 			dirIndicator.rotation = Quaternion.LookRotation(avgDir);
+			dirIndicator.eulerAngles = new Vector3(0f, dirIndicator.eulerAngles.y, 0f);
 			//transform.position += new Vector3(avgDir.x, 0f, avgDir.z) * rate;
 
 

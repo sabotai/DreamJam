@@ -52,9 +52,9 @@ public class EyePlayer : MonoBehaviour {
 
 		if (CheckGaze()) {
 		if (gameObject.name == "LTarget"){
-			StartCoroutine (ScreenShake.Shake (lCam, 0.2f, 0.3f));
+			StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
 		} else if (gameObject.name == "RTarget"){
-			StartCoroutine (ScreenShake.Shake (rCam, 0.2f, 0.3f));
+			StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
 		}
 			audSrc.PlayOneShot(clip_GazeMake);
 		}
@@ -69,11 +69,13 @@ public class EyePlayer : MonoBehaviour {
 		}
 		Ray beam = new Ray(transform.position, Vector3.Normalize(transform.position - origin));
 
-		Debug.DrawRay (beam.origin, beam.direction * 500f);
+		float dist = 500f;
+		if (DryEyes.blinking) dist = 50f;
+		Debug.DrawRay (beam.origin, beam.direction * dist);
 
 		RaycastHit beamHit = new RaycastHit ();
 
-		if (Physics.Raycast(beam, out beamHit, 1000f)){
+		if (Physics.Raycast(beam, out beamHit, dist)){
 			if (beamHit.transform.CompareTag("Stranger")){
 				return true;
 			}

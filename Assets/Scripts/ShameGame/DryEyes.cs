@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DryEyes : MonoBehaviour {
 	Transform lTarget, rTarget;
-	Material rBlinderMat, lBlinderMat;
+	Material rBlinderMat, lBlinderMat, rBlinderMatBlack, lBlinderMatBlack;
 	Transform rBlinder, lBlinder;
 	float initialDist, eyeDist, pEyeDist;
 	public float speed = 1f;
@@ -20,7 +20,9 @@ public class DryEyes : MonoBehaviour {
 	public bool autoDry = false;
 	public bool blinkAvgPos = false;
 	public float blinkZScale = 0.021f;
+	public float blinkDarkness = 0.2f;
 	float origBlinkZ;
+	public static bool blinking = false;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
@@ -29,6 +31,8 @@ public class DryEyes : MonoBehaviour {
 		lBlinder = GameObject.Find("LBlinder").transform;
 		rBlinderMat = GameObject.Find("RBlinder").GetComponent<Renderer>().material;
 		lBlinderMat = GameObject.Find("LBlinder").GetComponent<Renderer>().material;
+		rBlinderMatBlack = GameObject.Find("RBlinderBlack").GetComponent<Renderer>().material;
+		lBlinderMatBlack = GameObject.Find("LBlinderBlack").GetComponent<Renderer>().material;
 		origBlinkZ = GameObject.Find("RBlinder").transform.localScale.z;
 		initialDist = Vector3.Distance(rTarget.position, lTarget.position);
 		lOrigPos = lTarget.localPosition;
@@ -61,10 +65,13 @@ public class DryEyes : MonoBehaviour {
 		audSrcR.volume = newA * 0.5f;
 		audSrcL.volume = newA * 0.5f;
 
-		//rBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
-		//lBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
+		//rBlinderMatBlack.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
+		//lBlinderMatBlack.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
 		if (Input.GetKeyDown(KeyCode.Space)) newA = blink();
-		if (Input.GetKeyUp(KeyCode.Space)) 		StartCoroutine (BlinkUp (0.3f, origBlinkZ, blinkZScale));
+		if (Input.GetKeyUp(KeyCode.Space)) {
+			StartCoroutine (BlinkUp (0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
+			blinking = false;
+		}
 
 
 		if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f && !GetComponent<PixelIntroOutro>().enabled) updateRes();
@@ -92,6 +99,7 @@ public class DryEyes : MonoBehaviour {
 		//lTarget.localPosition = lOrigPos;
 		//rTarget.localPosition = rOrigPos;
 		audSrc.PlayOneShot(blinkSound);
+		blinking = true;
 
 		if (blinkAvgPos){
 			//reset to average position
@@ -102,13 +110,12 @@ public class DryEyes : MonoBehaviour {
 		}
 		lTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		rTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-		//rBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, 1f);
-		//rBlinderMat.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, 1f);
-		StartCoroutine (BlinkDown (0.3f, origBlinkZ, blinkZScale));
+		//resets to visible?
+		StartCoroutine (BlinkDown (0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
 		return 0f;
 	}
 
-	public static IEnumerator BlinkUp(float duration, float origScale, float targetScale) {
+	public static IEnumerator BlinkUp(float duration, float origScale, float targetScale, Material left, Material right, float blinkDarkness) {
 
 		float elapsed = 0.0f;
 		Transform rBlinder = GameObject.Find("RBlinder").transform;
@@ -123,12 +130,13 @@ public class DryEyes : MonoBehaviour {
 
 				rBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), (elapsed) / duration );
 				lBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), (elapsed) / duration );
-	
+				right.color = new Color(right.color.r, right.color.g, right.color.b, 1f - (elapsed) / duration - blinkDarkness);	//0.1 to keep it a little bit visible
+				left.color = new Color(left.color.r, left.color.g, left.color.b, 1f - (elapsed) / duration - blinkDarkness);	
 			}
 			yield return null;
 		}
 	}
-	public static IEnumerator BlinkDown(float duration, float origScale, float targetScale) {
+	public static IEnumerator BlinkDown(float duration, float origScale, float targetScale, Material left, Material right, float blinkDarkness) {
 
 		float elapsed = 0.0f;
 		Transform rBlinder = GameObject.Find("RBlinder").transform;
@@ -142,6 +150,8 @@ public class DryEyes : MonoBehaviour {
 			if (elapsed < duration){
 				rBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), (elapsed) / duration );
 				lBlinder.localScale = Vector3.Slerp(new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale), new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale), (elapsed) / duration );
+				right.color = new Color(right.color.r, right.color.g, right.color.b,(elapsed) / duration - blinkDarkness);	
+				left.color = new Color(left.color.r, left.color.g, left.color.b,  (elapsed) / duration - blinkDarkness);	
 			}
 
 			yield return null;

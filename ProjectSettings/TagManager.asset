@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Players
   - Stranger
+  - Obstacle
   layers:
   - Default
   - TransparentFX
