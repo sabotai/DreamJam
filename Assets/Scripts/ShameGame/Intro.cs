@@ -36,22 +36,22 @@ public class Intro : MonoBehaviour {
 				textObjects[i].SetActive(false);
 			}
 		} else if(state == 2){
+			bag.SetActive(false);
+			if (audSrc.clip != clipBag){
+				audSrc.clip = clipBag;
+				audSrc.Play();
+			}
+		} else if (state == 3){
 			insideLight.SetActive(false);
 			if (audSrc.clip != clipSwitch){
 				audSrc.clip = clipSwitch;
 				audSrc.Play();
 			}
-		} else if (state == 3){
-			bag.SetActive(false);
-			if (audSrc.clip != clipBag){
-			audSrc.clip = clipBag;
-			audSrc.Play();
-		}
 		} else if (state >= 4){
 			if (audSrc.clip != clipDissolve){
-			audSrc.clip = clipDissolve;
-			audSrc.Play();
-		}
+				audSrc.clip = clipDissolve;
+				audSrc.Play();
+			}
 			updateRes(2, 1, 1024, 576, pct);
 			//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
 			sky.color = Color.Lerp(Color.red, origSky, pct);

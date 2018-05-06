@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: fa503b63da901d345aaf4f2518d8fce8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: WC ROUGHTRAD Bta
+  fontNames:
+  - WC ROUGHTRAD Bta
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 05f8a5703ff31d64aa9dc1a7afc89101, type: 3}
+  - {fileID: 12800000, guid: 2343d2f2f0141264ca7b33362252462c, type: 3}
+  - {fileID: 12800000, guid: 958f2724ad4f1ab459ef5e1e1a3770e8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

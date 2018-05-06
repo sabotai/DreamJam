@@ -7,6 +7,7 @@ TagManager:
   - Pieces
   - Platform
   - Players
+  - Stranger
   layers:
   - Default
   - TransparentFX

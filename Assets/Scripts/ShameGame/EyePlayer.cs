@@ -10,11 +10,17 @@ public class EyePlayer : MonoBehaviour {
 	public KeyCode fwdKey, backKey, rKey, lKey, blink;
 	Vector3 orig;
 	public float maxStray = 10f;
+	AudioSource audSrc;
+	public AudioClip clip_GazeMake;
+	Transform lCam, rCam;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		orig = transform.localPosition;
+		audSrc = GetComponent<AudioSource>();
+		lCam = GameObject.Find("LCam").transform;
+		rCam = GameObject.Find("RCam").transform;
 	}
 	
 	// Update is called once per frame
@@ -34,7 +40,7 @@ public class EyePlayer : MonoBehaviour {
 				rb.AddForce(Vector3.right * forceAmt * rb.mass);
 			}
 		} else {
-			Debug.Log("slow down!");
+			//Debug.Log("slow down!");
 			//transform.localPosition -= rb.velocity;
 			//rb.velocity *= -1f;
 			//keep it inside the range
@@ -43,6 +49,36 @@ public class EyePlayer : MonoBehaviour {
 
 		}
 		rb.velocity =  Vector3.ClampMagnitude(rb.velocity, 4f);
+
+		if (CheckGaze()) {
+		if (gameObject.name == "LTarget"){
+			StartCoroutine (ScreenShake.Shake (lCam, 0.2f, 0.3f));
+		} else if (gameObject.name == "RTarget"){
+			StartCoroutine (ScreenShake.Shake (rCam, 0.2f, 0.3f));
+		}
+			audSrc.PlayOneShot(clip_GazeMake);
+		}
+	}
+
+	bool CheckGaze(){
+		Vector3 origin = Vector3.zero;
+		if (gameObject.name == "LTarget"){
+			origin = lCam.position;
+		} else if (gameObject.name == "RTarget"){
+			origin = rCam.position;
+		}
+		Ray beam = new Ray(transform.position, Vector3.Normalize(transform.position - origin));
+
+		Debug.DrawRay (beam.origin, beam.direction * 500f);
+
+		RaycastHit beamHit = new RaycastHit ();
+
+		if (Physics.Raycast(beam, out beamHit, 1000f)){
+			if (beamHit.transform.CompareTag("Stranger")){
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: e5d1a8419c7a2f04cb150d1c96e92cd1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Existence
+  fontNames:
+  - Existence
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7202b6b150f45f845bcf056c5062b8dc, type: 3}
+  - {fileID: 12800000, guid: cf130002c7f672b4e8d8df489f00fce9, type: 3}
+  - {fileID: 12800000, guid: 96ea3c27454b2ab489654f30815d831b, type: 3}
+  - {fileID: 12800000, guid: 00c60b38dcda0ca49b5ec4cb44ef62ea, type: 3}
+  - {fileID: 12800000, guid: 6cd2062f43cdbd442ab8a9a50d3604bb, type: 3}
+  - {fileID: 12800000, guid: b30e219f1b7bbe34aa40c1d8fdf60932, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,7 +13,8 @@ public class DryEyes : MonoBehaviour {
 	float newA;
 	public AudioClip blinkSound;
 	public AudioSource audSrc, audSrcL, audSrcR;
-	public RenderTexture lTexture, rTexture;
+	RenderTexture lTexture, rTexture;
+	float maxW, maxH;
 	Camera lCam, rCam;
 	RawImage lScreen, rScreen;
 	public bool autoDry = false;
@@ -37,6 +38,11 @@ public class DryEyes : MonoBehaviour {
 		rCam = GameObject.Find("RCam").GetComponent<Camera>();
 		lScreen = GameObject.Find("LScreen").GetComponent<RawImage>();
 		rScreen = GameObject.Find("RScreen").GetComponent<RawImage>();
+		lTexture = lCam.targetTexture;
+		rTexture = rCam.targetTexture;
+		maxW = lTexture.width;
+		maxH = lTexture.height;
+
 	}
 	
 	// Update is called once per frame
@@ -61,13 +67,13 @@ public class DryEyes : MonoBehaviour {
 		if (Input.GetKeyUp(KeyCode.Space)) 		StartCoroutine (BlinkUp (0.3f, origBlinkZ, blinkZScale));
 
 
-		if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f) updateRes();
+		if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f && !GetComponent<PixelIntroOutro>().enabled) updateRes();
 	}
 	void updateRes(){
 
-		float newW = 512f / Mathf.Clamp((1f + (4f * (eyeDist / 5f))), 1f, 4f);
-		float newH = 288f /  Mathf.Clamp((1f + (4f * (eyeDist / 5f))), 1f, 4f);
-		
+		float newW = maxW / Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f); //eye distance maxing out at 5
+		float newH = maxH /  Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f);
+		//Debug.Log("(" + newW + ", " + newH + ")");
 		//update resolution of render textures
 		RenderTexture newLeft = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );
 		RenderTexture newRight = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );

@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Base2.unity
     guid: 7bdcdd51904100a42a9d8904964c96a2
   - enabled: 1
-    path: Assets/Scenes/ShameIntro.unity
-    guid: 3e4b820a711c60e4da8ecc675b7fcf81
+    path: Assets/Scenes/ShameIntro2.unity
+    guid: 8838b1188ca2a444f877ead07830b25e
   - enabled: 1
-    path: Assets/Scenes/Shame5.unity
-    guid: 8254af8f31ec8a14da4f61308cc4e356
+    path: Assets/Scenes/Shame6.5.unity
+    guid: f989488e612482442919e60ea0a902f1
   m_configObjects: {}
