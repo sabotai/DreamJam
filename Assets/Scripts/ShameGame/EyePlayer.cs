@@ -13,6 +13,8 @@ public class EyePlayer : MonoBehaviour {
 	AudioSource audSrc;
 	public AudioClip clip_GazeMake;
 	Transform lCam, rCam;
+	public ShameMove moveScript;
+	float gazeEscalation = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -51,12 +53,14 @@ public class EyePlayer : MonoBehaviour {
 		rb.velocity =  Vector3.ClampMagnitude(rb.velocity, 4f);
 
 		if (CheckGaze()) {
-		if (gameObject.name == "LTarget"){
-			StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
-		} else if (gameObject.name == "RTarget"){
-			StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
-		}
-			audSrc.PlayOneShot(clip_GazeMake);
+			if (gameObject.name == "LTarget"){
+				StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
+			} else if (gameObject.name == "RTarget"){
+				StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
+			}
+			moveScript.rate += gazeEscalation * Time.deltaTime;
+			moveScript.rotSpeed = moveScript.rate / 10f;
+			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake);
 		}
 	}
 

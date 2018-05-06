@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 114440097862564688}
   - {fileID: 114203043784832014}
   - {fileID: 114305889110412580}
+  - {fileID: 114711676511822452}
 --- !u!114 &114191641115039020
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -370,7 +371,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.2
+    value: 0.3
   smoothness:
     overrideState: 1
     value: 1
@@ -420,6 +421,49 @@ MonoBehaviour:
   scale:
     overrideState: 1
     value: 0.64
+--- !u!114 &114711676511822452
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 4.87
+  threshold:
+    overrideState: 1
+    value: 0.98
+  softKnee:
+    overrideState: 0
+    value: 0.5
+  diffusion:
+    overrideState: 0
+    value: 7
+  anamorphicRatio:
+    overrideState: 0
+    value: 0
+  color:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 1
+    value: 1
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 0
 --- !u!114 &114778622054409628
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -458,13 +502,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 151.94
+    value: 88.9
   aperture:
     overrideState: 1
-    value: 0.05
+    value: 1.4
   focalLength:
     overrideState: 1
-    value: 18.98
+    value: 133.8
   kernelSize:
     overrideState: 1
-    value: 0
+    value: 3

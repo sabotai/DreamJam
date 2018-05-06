@@ -16,7 +16,10 @@ public class Intro : MonoBehaviour {
 	public Material sky;
 	public Color origSky;
 	public Light dirLight;
-	public GameObject[] textObjects;
+	public GameObject[] textObjects, textObjects2;
+	public GameObject room, laundromat;
+	Camera origCam, newCam;
+	int finalState = 6;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
@@ -25,12 +28,20 @@ public class Intro : MonoBehaviour {
 		dirLight = GameObject.Find("Directional Light").GetComponent<Light>();
 
 		state -= textObjects.Length;
+		origCam = Camera.main;
+		newCam = GameObject.Find("LaundryCam").GetComponent<Camera>();
+		laundromat.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (state > -textObjects.Length && state < 1){
-			textObjects[textObjects.Length + state - 1].SetActive(true);
+			if (state == -textObjects.Length + 1){
+				textObjects[textObjects.Length + state - 1].SetActive(true);
+			} else {
+				textObjects[0].SetActive(false);
+				textObjects[textObjects.Length + state - 1].SetActive(true);
+			}
 		} else if (state == 1){
 			for (int i = 0; i < textObjects.Length; i++){
 				textObjects[i].SetActive(false);
@@ -47,32 +58,65 @@ public class Intro : MonoBehaviour {
 				audSrc.clip = clipSwitch;
 				audSrc.Play();
 			}
-		} else if (state >= 4){
+		} else if (state == 4){
+				updateRes(origCam, 2, 1, 1024, 576, pct);
+				//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
+				pct -= (Time.deltaTime / 2f);
+				Debug.Log("pct = " + pct);
+		} else if (state == 5){
+				updateRes(newCam, 2, 1, 1024, 576, pct);
+				//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
+				//sky.color = Color.Lerp(Color.red, origSky, pct);
+				//dirLight.color = sky.color;
+				if (pct < 1f) pct += (Time.deltaTime / 2f);
+				Debug.Log("pct = " + pct);
+		} else if (state == 6){
+
+			textObjects2[0].SetActive(true);
+		} else if (state == 7){
+
+			textObjects2[1].SetActive(true);
+		} else if (state == 8){
+
+			textObjects2[0].SetActive(false);
+			textObjects2[1].SetActive(false);
+		} else if (state >= finalState){
 			if (audSrc.clip != clipDissolve){
+				pct = 1f;
 				audSrc.clip = clipDissolve;
 				audSrc.Play();
 			}
-			updateRes(2, 1, 1024, 576, pct);
-			//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
-			sky.color = Color.Lerp(Color.red, origSky, pct);
-			dirLight.color = sky.color;
-			pct -= (Time.deltaTime / 2f);
-			Debug.Log("pct = " + pct);
-
+				updateRes(newCam, 2, 1, 1024, 576, pct);
+				//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
+				sky.color = Color.Lerp(Color.red, origSky, pct);
+				dirLight.color = sky.color;
+				pct -= (Time.deltaTime / 2f);
+				Debug.Log("pct = " + pct);
 		}
 		if (Input.GetKeyDown(KeyCode.Space)){
 			state++;
 		}
 
 		if (pct < 0f) {
+
+			if (state < finalState){
+			
+				if (origCam.enabled){
+					room.SetActive(false); 
+					origCam.enabled = false;
+					laundromat.SetActive(true);
+					state++;
+				}
+			} else {
+
 			sky.color = origSky;
 			dirLight.color = sky.color;
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+			}
 		}
 	}
 
-		void updateRes(float minWidth, float minHeight, float maxWidth, float maxHeight, float pct){
+		void updateRes(Camera cam, float minWidth, float minHeight, float maxWidth, float maxHeight, float pct){
 
 		float newW = Mathf.Lerp(minWidth, maxWidth, pct);
 		float newH = Mathf.Lerp(minHeight, maxHeight, pct);
@@ -80,7 +124,7 @@ public class Intro : MonoBehaviour {
 		//update resolution of render textures
 		RenderTexture newRT = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );
 		newRT.filterMode = FilterMode.Point;
-		Camera.main.targetTexture = newRT;
+		cam.targetTexture = newRT;
 		canvasImage.texture = newRT;
 
 	}

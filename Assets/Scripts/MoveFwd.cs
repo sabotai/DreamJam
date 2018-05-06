@@ -6,12 +6,13 @@ public class MoveFwd : MonoBehaviour {
 
 	float speed;
 	Vector3 origin;
-	float resetTime, startTime;
+	public float resetTime = 10f;
+	float startTime;
+	public float speedMultiplier = -100f;
 	// Use this for initialization
 	void Start () {
-		speed = Random.Range(0.35f, 0.7f) * -100f;
+		speed = Random.Range(0.35f, 0.7f) * speedMultiplier;
 		origin = transform.position;
-		resetTime = 10f;
 		startTime = 0f;
 	}
 	

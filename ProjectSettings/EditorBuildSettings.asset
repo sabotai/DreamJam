@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Base2.unity
     guid: 7bdcdd51904100a42a9d8904964c96a2
   - enabled: 1
-    path: Assets/Scenes/ShameIntro2.unity
-    guid: 8838b1188ca2a444f877ead07830b25e
+    path: Assets/Scenes/ShameIntro3.unity
+    guid: 34eb324be0c7096429213f3664ab4a7b
   - enabled: 1
-    path: Assets/Scenes/Shame7.unity
-    guid: c7a28783d624a64448dc97e8c4f21add
+    path: Assets/Scenes/Shame7.5.unity
+    guid: a527489dfa876b84bb7e607123fa4e34
   m_configObjects: {}
