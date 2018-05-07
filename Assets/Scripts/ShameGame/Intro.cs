@@ -68,7 +68,9 @@ public class Intro : MonoBehaviour {
 				//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
 				//sky.color = Color.Lerp(Color.red, origSky, pct);
 				//dirLight.color = sky.color;
-				if (pct < 1f) pct += (Time.deltaTime / 2f);
+				if (pct < 1f) {
+					pct += (Time.deltaTime / 2f);
+					} else {state++;}
 				Debug.Log("pct = " + pct);
 		} else if (state == 6){
 
@@ -82,7 +84,7 @@ public class Intro : MonoBehaviour {
 			textObjects2[1].SetActive(false);
 		} else if (state >= finalState){
 			if (audSrc.clip != clipDissolve){
-				pct = 1f;
+				//pct = 1f;
 				audSrc.clip = clipDissolve;
 				audSrc.Play();
 			}
