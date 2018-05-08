@@ -33,7 +33,7 @@ public class Pieces : MonoBehaviour {
      }
 
     void OnCollisionEnter(Collision other) {
-         if (other.transform.tag == "Pieces"){
+         if (other.transform.tag == "Pieces" || other.transform.tag == "Players"){
          	if (GetComponent<Renderer>().material.color == other.gameObject.GetComponent<Renderer>().material.color) {
              //other.transform.parent = transform;
 	         	if (other.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > fuseMag){
