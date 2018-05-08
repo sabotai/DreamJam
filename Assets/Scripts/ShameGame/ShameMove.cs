@@ -16,7 +16,9 @@ public class ShameMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (move){
+		if (Input.GetKey(KeyCode.C) && Input.GetKey(KeyCode.N))	move = false; else move = true;
+		
+
 			Vector3 lDir = Vector3.Normalize(lTarget.position - lEye.position);
 			Vector3 rDir = Vector3.Normalize(rTarget.position - rEye.position);
 			Vector3 avgDir = Vector3.Normalize(lDir + rDir);
@@ -34,7 +36,8 @@ public class ShameMove : MonoBehaviour {
 	        Debug.DrawRay(transform.position, newDir, Color.red, 100f);
 	        // Move our position a step closer to the target.
 	        transform.rotation = Quaternion.LookRotation(newDir);
-	        transform.position += transform.forward * rate;
+		if (move){
+	        transform.position += transform.forward * rate * Time.deltaTime;
 		}
 	}
 }

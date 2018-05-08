@@ -37500,6 +37500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &619445086
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51460,6 +51462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &814896136
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54424,6 +54428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &868412322
 AudioSource:
   m_ObjectHideFlags: 0
@@ -55852,6 +55858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!65 &894282662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58718,6 +58726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &954311848
 AudioSource:
   m_ObjectHideFlags: 0
@@ -66875,6 +66885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &1093319287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -70859,6 +70871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!65 &1143282900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80311,7 +80325,7 @@ MeshCollider:
   m_GameObject: {fileID: 1325754232}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -80374,6 +80388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!65 &1326097489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -89823,6 +89839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!65 &1489917091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90073,7 +90091,7 @@ MeshCollider:
   m_GameObject: {fileID: 1490451393}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -92630,6 +92648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!65 &1531276475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -100234,6 +100254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &1658492494
 AudioSource:
   m_ObjectHideFlags: 0
@@ -102014,7 +102036,7 @@ MeshCollider:
   m_GameObject: {fileID: 1691087929}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -104534,6 +104556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &1744774800
 AudioSource:
   m_ObjectHideFlags: 0
@@ -116437,7 +116461,7 @@ MeshCollider:
   m_GameObject: {fileID: 1963606354}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -124103,6 +124127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!65 &2081112629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -125161,6 +125187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98116adcb5fe40049b22335156370ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetTime: 10
+  speedMultiplier: -100
 --- !u!82 &2096492477
 AudioSource:
   m_ObjectHideFlags: 0

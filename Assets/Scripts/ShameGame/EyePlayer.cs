@@ -14,7 +14,7 @@ public class EyePlayer : MonoBehaviour {
 	public AudioClip clip_GazeMake;
 	Transform lCam, rCam;
 	public ShameMove moveScript;
-	float gazeEscalation = 0.5f;
+	float gazeEscalation = 5f;
 
 	// Use this for initialization
 	void Start () {
@@ -59,7 +59,7 @@ public class EyePlayer : MonoBehaviour {
 				StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
 			}
 			moveScript.rate += gazeEscalation * Time.deltaTime;
-			moveScript.rotSpeed = moveScript.rate / 10f;
+			moveScript.rotSpeed = Mathf.Clamp(moveScript.rate / 600f, 0.15f, 0.35f);
 			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake);
 		}
 	}

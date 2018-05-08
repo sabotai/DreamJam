@@ -17,7 +17,7 @@ public class Pieces : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)) GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere + Vector3.up * 30f);
+		if (Input.GetKeyDown(KeyCode.Space) && Button.buttonAvailable) GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere + Vector3.up * 30f);
 	}
 
 	void OnTriggerEnter(Collider other) {

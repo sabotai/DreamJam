@@ -19,7 +19,9 @@ public class ShiftMats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)){
+		
+	}
+	public void ShiftTheMats(){
 			Material firstMat = playerMats[0];
 			for (int i = 0; i < playerMats.Length; i++){
 				if (i < playerMats.Length - 1)	{
@@ -33,8 +35,5 @@ public class ShiftMats : MonoBehaviour {
 					players[i].transform.GetChild(j).gameObject.GetComponent<Renderer>().material = playerMats[i];
 				}
 			}
-
-		}
-		
-	}
+}
 }

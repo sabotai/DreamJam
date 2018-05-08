@@ -6,19 +6,24 @@ public class Platform : MonoBehaviour {
 	public Vector3 rotDir;
 	public float rotSpeed;
 	public bool autoSlow = true;
+	float oldDir;
+
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (Button.direction != oldDir){
+			Reverse();
+		}
+		//if (Input.GetKeyDown(KeyCode.Space)) Reverse();
 		Rotate(rotDir, rotSpeed);
 
-		if (Input.GetKeyDown(KeyCode.Space)) Reverse();
-
 		if (autoSlow && Mathf.Abs(rotDir.y) > 1f) rotDir *= 0.9975f;
+
+		oldDir = Button.direction;
 	}
 
 	void Rotate(Vector3 dir, float speed){
@@ -27,8 +32,9 @@ public class Platform : MonoBehaviour {
 
 	}
 
-	void Reverse(){
-		rotDir *= -1.5f;
+	public void Reverse(){
+		rotDir *= -2f;
 	}
+
 
 }

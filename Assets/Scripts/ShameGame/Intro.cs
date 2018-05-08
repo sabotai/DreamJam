@@ -18,18 +18,18 @@ public class Intro : MonoBehaviour {
 	public Light dirLight;
 	public GameObject[] textObjects, textObjects2;
 	public GameObject room, laundromat;
-	Camera origCam, newCam;
+	public Camera origCam, newCam;
 	int finalState = 6;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
 		sky.color = new Color(245f/255f, 78f/255f, 78f/255f, 1f);
 		origSky = sky.color;
-		dirLight = GameObject.Find("Directional Light").GetComponent<Light>();
+		dirLight = GameObject.Find("Directional Light 2").GetComponent<Light>();
 
 		state -= textObjects.Length;
-		origCam = Camera.main;
-		newCam = GameObject.Find("LaundryCam").GetComponent<Camera>();
+		//origCam = Camera.main;
+		//newCam = GameObject.Find("LaundryCam").GetComponent<Camera>();
 		laundromat.SetActive(false);
 	}
 	
