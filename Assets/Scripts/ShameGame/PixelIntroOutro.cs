@@ -31,6 +31,7 @@ public class PixelIntroOutro : MonoBehaviour {
 			updateRes(minWidth, minHeight, maxW, maxH, pct);
 			pct += Time.deltaTime * speed;
 		} else {
+			GetComponent<ShameMove>().enabled = true;
 			enabled = false;
 		}
 	}

@@ -9,13 +9,15 @@ public class ShameMove : MonoBehaviour {
 	public float rotSpeed = 0.1f;
 	public Transform dirIndicator;
 	public Vector3 dirOffset;
+	public Vector2 rotSpeedRange = new Vector2(0.2f, 0.5f);
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKey(KeyCode.E)) GetComponent<BoxCollider>().enabled = !GetComponent<BoxCollider>().enabled;
 		if (Input.GetKey(KeyCode.C) && Input.GetKey(KeyCode.N))	move = false; else move = true;
 		
 

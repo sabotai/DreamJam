@@ -15,6 +15,9 @@ public class EyePlayer : MonoBehaviour {
 	Transform lCam, rCam;
 	public ShameMove moveScript;
 	float gazeEscalation = 5f;
+	public bool momentumBased = false;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -29,17 +32,35 @@ public class EyePlayer : MonoBehaviour {
 	void FixedUpdate () {
 		transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, orig.z);
 		if (Vector3.Distance(orig, transform.localPosition) < maxStray){
-			if (Input.GetKey(fwdKey)){
-				rb.AddForce(Vector3.up * forceAmt * rb.mass);
-			}
-			if (Input.GetKey(lKey)){
-				rb.AddForce(Vector3.left * forceAmt * rb.mass);
-			}
-			if (Input.GetKey(backKey)){
-				rb.AddForce(Vector3.down * forceAmt * rb.mass);
-			}
-			if (Input.GetKey(rKey)){
-				rb.AddForce(Vector3.right * forceAmt * rb.mass);
+			if (momentumBased){
+				if (Input.GetKey(fwdKey)){
+					rb.AddForce(Vector3.up * forceAmt * rb.mass);
+				}
+				if (Input.GetKey(lKey)){
+					rb.AddForce(Vector3.left * forceAmt * rb.mass);
+				}
+				if (Input.GetKey(backKey)){
+					rb.AddForce(Vector3.down * forceAmt * rb.mass);
+				}
+				if (Input.GetKey(rKey)){
+					rb.AddForce(Vector3.right * forceAmt * rb.mass);
+				}
+			} else {
+				Vector3 velo = Vector3.zero;	
+				if (Input.GetKey(fwdKey)){
+
+					velo += Vector3.up;
+				}
+				if (Input.GetKey(lKey)){
+					velo += Vector3.left;
+				}
+				if (Input.GetKey(backKey)){
+					velo += Vector3.down;
+				}
+				if (Input.GetKey(rKey)){
+					velo += Vector3.right;
+				} 
+				rb.velocity = velo * forceAmt * rb.mass;
 			}
 		} else {
 			//Debug.Log("slow down!");
@@ -59,7 +80,7 @@ public class EyePlayer : MonoBehaviour {
 				StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
 			}
 			moveScript.rate += gazeEscalation * Time.deltaTime;
-			moveScript.rotSpeed = Mathf.Clamp(moveScript.rate / 600f, 0.15f, 0.35f);
+			moveScript.rotSpeed = Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
 			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake);
 		}
 	}
