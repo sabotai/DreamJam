@@ -33,7 +33,8 @@ public class Pieces : MonoBehaviour {
      }
 
     void OnCollisionEnter(Collision other) {
-         if (other.transform.tag == "Pieces" || other.transform.tag == "Players"){
+         //if (other.transform.tag == "Pieces" || other.transform.tag == "Players"){
+         if (other.transform.tag == "Pieces"){
          	if (GetComponent<Renderer>().material.color == other.gameObject.GetComponent<Renderer>().material.color) {
              //other.transform.parent = transform;
 	         	if (other.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > fuseMag){
@@ -42,7 +43,7 @@ public class Pieces : MonoBehaviour {
 
 		             	other.transform.localScale += transform.localScale;
 		             	other.gameObject.GetComponent<Rigidbody>().mass += gameObject.GetComponent<Rigidbody>().mass;
-		             	other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		             	//other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		             	gameObject.SetActive(false);
 	             	}
 	         	}

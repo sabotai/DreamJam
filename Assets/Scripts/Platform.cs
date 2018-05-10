@@ -7,6 +7,7 @@ public class Platform : MonoBehaviour {
 	public float rotSpeed;
 	public bool autoSlow = true;
 	float oldDir;
+	float maxSpeed = 1000f;
 
 
 	// Use this for initialization
@@ -21,7 +22,7 @@ public class Platform : MonoBehaviour {
 		//if (Input.GetKeyDown(KeyCode.Space)) Reverse();
 		Rotate(rotDir, rotSpeed);
 
-		if (autoSlow && Mathf.Abs(rotDir.y) > 1f) rotDir *= 0.9975f;
+		if (autoSlow && Mathf.Abs(rotDir.y) > 1f) rotSpeed *= 0.9975f;
 
 		oldDir = Button.direction;
 	}
@@ -33,7 +34,10 @@ public class Platform : MonoBehaviour {
 	}
 
 	public void Reverse(){
-		rotDir *= -2f;
+		rotDir *= -1f;
+		rotSpeed *= 1.4f;
+		rotSpeed = Mathf.Clamp(rotSpeed, -maxSpeed, maxSpeed);
+		Debug.Log("rotSpeed = " + rotSpeed);
 	}
 
 

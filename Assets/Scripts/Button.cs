@@ -14,6 +14,7 @@ public class Button : MonoBehaviour {
 	public float refreshTime = 5f;
 	public static bool buttonAvailable;
 	public ShiftMats matShifter;
+	public ColorPulse pulser, pulser2;
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +35,8 @@ public class Button : MonoBehaviour {
 				buttonUp = false;
 				buttonAvailable = false;
 				matShifter.ShiftTheMats();
-			} else {
+
+			} else if (!buttonDown){
 				buttonPress(false, origAvailableY);
 			}
 		}
@@ -54,13 +56,21 @@ public class Button : MonoBehaviour {
 
 	void buttonPress(bool down, float target){
 		if (down){
+				pulser.dir = -1;
+				pulser2.dir = 1;
 			if (button.localPosition.y > target){
 				button.localPosition = new Vector3(button.localPosition.x, button.localPosition.y - (1.5f * pushSpeed * Time.deltaTime), button.localPosition.z);
 			} else {
+				if (!Input.GetKey(KeyCode.Space))	{
 				button.localPosition = new Vector3(button.localPosition.x, target, button.localPosition.z);
-				buttonDown = false;
+					buttonDown = false;
+				}
 			}
 			} else if (!down){
+				if (buttonAvailable) {
+					pulser.dir = 1;
+					pulser2.dir = -1;
+				}
 					if (button.localPosition.y < target){
 						button.localPosition = new Vector3(button.localPosition.x, button.localPosition.y + (pushSpeed * Time.deltaTime), button.localPosition.z);
 					} else {

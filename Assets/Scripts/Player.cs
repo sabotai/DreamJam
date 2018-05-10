@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 	Rigidbody rb;
 	public float forceAmt = 3f;
 	public float jumpAmt = 10f;
-	public KeyCode fwdKey, backKey, rKey, lKey, jump;
+	public KeyCode fwdKey, backKey, rKey, lKey, jump, resetKey;
 	bool jumped = false;
 	Material myMat;
 	float myMass;
@@ -39,6 +39,10 @@ public class Player : MonoBehaviour {
 		if (Input.GetKey(jump) && !jumped){
 			rb.AddForce(Vector3.up * jumpAmt * rb.mass);
 			jumped = true;
+		}
+
+		if (Input.GetKeyDown(resetKey)){
+			Respawn();
 		}
 	}
 
@@ -76,8 +80,14 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
          if (other.gameObject.name == "net") {
             //SceneManager.LoadScene(0);
+            Respawn();
+         }
+     }
+
+     void Respawn(){
+
             transform.position = mySpawner.transform.position;
             GetComponent<Rigidbody>().velocity = Vector3.down;
-         }
+            enabled = false;
      }
 }
