@@ -16,7 +16,7 @@ public class EyePlayer : MonoBehaviour {
 	public ShameMove moveScript;
 	float gazeEscalation = 5f;
 	public bool momentumBased = false;
-
+	public DryEyes eyeMan;
 
 
 	// Use this for initialization
@@ -26,12 +26,13 @@ public class EyePlayer : MonoBehaviour {
 		audSrc = GetComponent<AudioSource>();
 		lCam = GameObject.Find("LCam").transform;
 		rCam = GameObject.Find("RCam").transform;
+		if (eyeMan == null) eyeMan = GameObject.Find("Players").GetComponent<DryEyes>();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, orig.z);
-		if (Vector3.Distance(orig, transform.localPosition) < maxStray){
+		if (Vector3.Distance(orig, transform.localPosition) <= maxStray){
 			if (momentumBased){
 				if (Input.GetKey(fwdKey)){
 					rb.AddForce(Vector3.up * forceAmt * rb.mass);
@@ -63,9 +64,9 @@ public class EyePlayer : MonoBehaviour {
 				rb.velocity = velo * forceAmt * rb.mass;
 			}
 		} else {
-			//Debug.Log("slow down!");
+			Debug.Log("slow down " + gameObject.name + "!");
 			//transform.localPosition -= rb.velocity;
-			//rb.velocity *= -1f;
+			rb.velocity *= -2f;
 			//keep it inside the range
 			transform.localPosition = orig + Vector3.Normalize(transform.localPosition - orig) * maxStray;
 			rb.velocity = Vector3.Normalize(orig - transform.localPosition) * 2f;
@@ -73,15 +74,28 @@ public class EyePlayer : MonoBehaviour {
 		}
 		rb.velocity =  Vector3.ClampMagnitude(rb.velocity, 4f);
 
-		if (CheckGaze()) {
+		if (moveScript.enabled && CheckGaze()) {
 			if (gameObject.name == "LTarget"){
 				StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
+				if (!eyeMan.distBlur) {
+					eyeMan.xResL *= 1f - (Time.deltaTime);
+					eyeMan.yResL *= 1f - (Time.deltaTime);
+					eyeMan.updateRes(0, eyeMan.xResL, eyeMan.yResL);
+
+				}
 			} else if (gameObject.name == "RTarget"){
 				StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
+				if (!eyeMan.distBlur) {
+					eyeMan.xResR *= 1f - (0.05f * Time.deltaTime);
+					eyeMan.yResR *= 1f - (0.05f * Time.deltaTime);
+					eyeMan.updateRes(1, eyeMan.xResR, eyeMan.yResR);
+
+				}
 			}
 			moveScript.rate += gazeEscalation * Time.deltaTime;
 			moveScript.rotSpeed = Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
 			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake);
+
 		}
 	}
 
@@ -95,7 +109,7 @@ public class EyePlayer : MonoBehaviour {
 		Ray beam = new Ray(transform.position, Vector3.Normalize(transform.position - origin));
 
 		float dist = 500f;
-		if (DryEyes.blinking) dist = 50f;
+		if (eyeMan.blinking) dist = 50f;
 		Debug.DrawRay (beam.origin, beam.direction * dist);
 
 		RaycastHit beamHit = new RaycastHit ();

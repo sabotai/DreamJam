@@ -22,7 +22,13 @@ public class DryEyes : MonoBehaviour {
 	public float blinkZScale = 0.021f;
 	public float blinkDarkness = 0.2f;
 	float origBlinkZ;
-	public static bool blinking = false;
+	public bool blinking = false;
+	public bool distBlur = false;
+	public float xResL = 256f;
+	public float yResL = 288f;
+	public float xResR = 256f;
+	public float yResR = 288f;
+	public float minRes = 20f;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
@@ -67,23 +73,31 @@ public class DryEyes : MonoBehaviour {
 
 		//rBlinderMatBlack.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
 		//lBlinderMatBlack.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
-		if (Input.GetKeyDown(KeyCode.Space)) newA = blink();
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			newA = blink();
+			GetComponent<ShameMove>().move = false;
+		}
 		if (Input.GetKeyUp(KeyCode.Space)) {
 			StartCoroutine (BlinkUp (0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
 			blinking = false;
+			GetComponent<ShameMove>().move = true;
 		}
 
-
-		if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f && !GetComponent<PixelIntroOutro>().enabled) updateRes();
+		if (distBlur){
+			if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f && !GetComponent<PixelIntroOutro>().enabled) {
+				float newW = maxW / Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f); //eye distance maxing out at 5
+				float newH = maxH /  Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f);
+				Debug.Log("(" + newW + ", " + newH + ")");
+				updateRes(newW, newH);
+			}
+		}
 	}
-	void updateRes(){
+	public void updateRes(float w, float h){
 
-		float newW = maxW / Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f); //eye distance maxing out at 5
-		float newH = maxH /  Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f);
 		//Debug.Log("(" + newW + ", " + newH + ")");
 		//update resolution of render textures
-		RenderTexture newLeft = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );
-		RenderTexture newRight = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );
+		RenderTexture newLeft = new RenderTexture( (int)w, (int)h, 16, RenderTextureFormat.ARGBFloat );
+		RenderTexture newRight = new RenderTexture( (int)w, (int)h, 16, RenderTextureFormat.ARGBFloat );
 		newLeft.filterMode = FilterMode.Point;
 		newRight.filterMode = FilterMode.Point;
 		lCam.targetTexture = newLeft;
@@ -94,12 +108,40 @@ public class DryEyes : MonoBehaviour {
 		eyeDist = pEyeDist;
 
 	}
+	public void updateRes(int eyeIndex, float w, float h){
+
+		if (xResL < minRes || xResR < minRes || yResL < minRes || yResR < minRes) {
+			GetComponent<CollisionSound>().restartStuff();
+		} else {
+
+
+		RenderTexture newRend = new RenderTexture( (int)w, (int)h, 16, RenderTextureFormat.ARGBFloat );
+		newRend.filterMode = FilterMode.Point;
+		if (eyeIndex == 0){
+				lCam.targetTexture = newRend;
+				lScreen.texture = newRend;
+			} else if (eyeIndex == 1){
+				rCam.targetTexture = newRend;
+				rScreen.texture = newRend;
+			}
+		}
+	}
 	float blink(){
 		//reset to original position
 		//lTarget.localPosition = lOrigPos;
 		//rTarget.localPosition = rOrigPos;
 		audSrc.PlayOneShot(blinkSound);
 		blinking = true;
+		if (!distBlur){
+			xResL = (xResL + xResR) / 2f;
+			xResR = xResL;
+			yResL = (yResL + yResR) / 2f;
+			yResR = yResL;
+
+			updateRes(0, xResL, yResL);
+			updateRes(1, xResR, yResR);
+		} 
+
 
 		if (blinkAvgPos){
 			//reset to average position

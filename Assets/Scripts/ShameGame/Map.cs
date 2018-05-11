@@ -22,10 +22,10 @@ public class Map : MonoBehaviour {
 
 		if (Physics.Raycast(beam, out beamHit, Mathf.Infinity, LayerMask.GetMask("Map")) && beamHit.transform == wayPoints[currentPoint]){
 			PhoneChange(true);
-			Debug.Log("GOOD");
+			//Debug.Log("GOOD");
 		} else {
 			PhoneChange(false);
-			Debug.Log("BAD");
+			//Debug.Log("BAD");
 		}
 
 		//if (currentPoint
@@ -33,7 +33,7 @@ public class Map : MonoBehaviour {
 
 	void PhoneChange(bool up){
 		Color col = phone.material.GetColor("_EmissionColor");
-		Debug.Log(col);
+		//Debug.Log(col);
 		float amt = col.r;
 		if (up){
 			if (col.r < 1f)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PixelIntroOutro : MonoBehaviour {
 
@@ -16,7 +17,7 @@ public class PixelIntroOutro : MonoBehaviour {
 	float maxW, maxH;
 	// Use this for initialization
 	void Start () {
-		if (intro) pct = 0f;
+		if (intro) pct = 0f; else pct = 1f;
 		lTexture = cams[0].targetTexture;
 		rTexture = cams[1].targetTexture;
 		
@@ -27,12 +28,24 @@ public class PixelIntroOutro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (pct < 1f){
-			updateRes(minWidth, minHeight, maxW, maxH, pct);
-			pct += Time.deltaTime * speed;
+		if (intro){
+			if (pct < 1f){
+				updateRes(minWidth, minHeight, maxW, maxH, pct);
+				pct += Time.deltaTime * speed;
+			} else {
+				GetComponent<ShameMove>().enabled = true;
+				intro = false;
+				enabled = false;
+			}
 		} else {
-			GetComponent<ShameMove>().enabled = true;
-			enabled = false;
+			if (pct > 0f){
+				updateRes(minWidth, minHeight, maxW, maxH, pct);
+				updateRes(minWidth, minHeight, maxW, maxH, pct);
+				pct -= Time.deltaTime * speed;
+			} else {
+				
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			}
 		}
 	}
 
@@ -45,11 +58,16 @@ public class PixelIntroOutro : MonoBehaviour {
 
 		for (int i = 0; i < cams.Length; i++){
 		//update resolution of render textures
-			RenderTexture newRT = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );
-			newRT.filterMode = FilterMode.Point;
-			cams[i].targetTexture = newRT;
-			canvasImages[i].texture = newRT;
+
+			//prevent it from restarting cycle at high res
+			if (cams[i].targetTexture.width >= newW || intro){// && cams[i].targetTexture.height >= newH){
+				RenderTexture newRT = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );
+				newRT.filterMode = FilterMode.Point;
+				cams[i].targetTexture = newRT;
+				canvasImages[i].texture = newRT;
+			}
 		}
 
 	}
+
 }

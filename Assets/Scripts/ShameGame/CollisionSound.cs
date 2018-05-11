@@ -34,7 +34,7 @@ public class CollisionSound : MonoBehaviour {
 			}
 			*/
 			if (Time.time > startTime + timerAmt) {
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+				GetComponent<PixelIntroOutro>().enabled = true;
 			}
 		}
 	}
@@ -43,7 +43,12 @@ public class CollisionSound : MonoBehaviour {
 		if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
 			audSrc.PlayOneShot(clip_collision);
 
-			if (col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
+			//if (col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
+			restartStuff();
+		  //  }
+		}
+	}
+	public void restartStuff(){
 				GetComponent<ShameMove>().enabled = false;
 				startTime = Time.time;
 			        if (!audSrc2.isPlaying)      {
@@ -51,12 +56,7 @@ public class CollisionSound : MonoBehaviour {
 			            audSrc2.clip = clip_restart;
 			            audSrc2.Play();
 			        }
-		    }
-		}
 	}
-	void OnCollisionExit(Collision col){
-	}
-
 
 
 }
