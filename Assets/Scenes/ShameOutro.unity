@@ -1016,13 +1016,13 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 715770170}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b8c69daa6f82bfd4c9085ac8f3805cc0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.135
+  m_Pitch: 0.5
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -1792,6 +1792,7 @@ GameObject:
   - component: {fileID: 1209686804}
   - component: {fileID: 1209686803}
   - component: {fileID: 1209686805}
+  - component: {fileID: 1209686806}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2072,6 +2073,17 @@ Skybox:
   m_GameObject: {fileID: 1209686796}
   m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: 89f53ee85dfc6d346adfbdda02da2e66, type: 2}
+--- !u!114 &1209686806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1209686796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286e9eeabd3b6664ba4169c167a936ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1343834897 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}

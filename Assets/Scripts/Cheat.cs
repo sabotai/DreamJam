@@ -20,5 +20,7 @@ public class Cheat : MonoBehaviour {
 			SceneManager.LoadScene(2);
 		if (Input.GetKey(KeyCode.Alpha4))
 			SceneManager.LoadScene(3);
+		if (Input.GetKey(KeyCode.Alpha5))
+			SceneManager.LoadScene(4);
 	}
 }

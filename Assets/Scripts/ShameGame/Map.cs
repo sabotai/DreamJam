@@ -17,10 +17,11 @@ public class Map : MonoBehaviour {
 		Ray beam = new Ray(transform.position, transform.forward);
 
 		Debug.DrawRay (beam.origin, beam.direction * Mathf.Infinity, Color.green);
+		Debug.DrawRay (beam.origin, beam.direction * 99999999f);
 
 		RaycastHit beamHit = new RaycastHit ();
 
-		if (Physics.Raycast(beam, out beamHit, Mathf.Infinity, LayerMask.GetMask("Map")) && beamHit.transform == wayPoints[currentPoint]){
+		if (Physics.Raycast(beam, out beamHit, 99999999f, LayerMask.GetMask("Map")) && beamHit.transform == wayPoints[currentPoint]){
 			PhoneChange(true);
 			//Debug.Log("GOOD");
 		} else {

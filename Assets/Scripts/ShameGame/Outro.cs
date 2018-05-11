@@ -68,8 +68,11 @@ public class Outro : MonoBehaviour {
 				DynamicGI.UpdateEnvironment();
 				dirLight.transform.rotation = Quaternion.Slerp(dirDay.rotation, dirLate.rotation, skyPct);
 				//dirLight.GetComponent<Light>().color = newColor;
-				skyPct += (Time.deltaTime / 12f);
-			} 
+				skyPct += (Time.deltaTime / 120f);
+
+			}  else {
+				state++;
+			}
 		} else if (state == 3){
 				audSrc.Stop();
 			textObjects[1].SetActive(true);
@@ -85,10 +88,11 @@ public class Outro : MonoBehaviour {
 			for (int i = 0; i < textObjects.Length; i++){
 				textObjects[i].SetActive(false);
 			}
-		} else {	
+		} else {
+			SceneManager.LoadScene(0);	
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.GetKeyDown(KeyCode.Space) && state != 2) {
 			state++;
 		}
 

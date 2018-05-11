@@ -1412,6 +1412,46 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 18.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114878182468616660, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: resetTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114039065470547204, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: resetTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114244789144387946, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: resetTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789573552040318, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: resetTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114039065470547204, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: speedMultiplier
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114244789144387946, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: speedMultiplier
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114789573552040318, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: speedMultiplier
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114878182468616660, guid: 4581d5af25ab4584ca855cce0205db35,
+        type: 2}
+      propertyPath: speedMultiplier
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4581d5af25ab4584ca855cce0205db35, type: 2}
   m_IsPrefabParent: 0
@@ -1724,6 +1764,7 @@ GameObject:
   - component: {fileID: 1209686801}
   - component: {fileID: 1209686804}
   - component: {fileID: 1209686803}
+  - component: {fileID: 1209686805}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2002,6 +2043,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1209686805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1209686796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286e9eeabd3b6664ba4169c167a936ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1286570358
 GameObject:
   m_ObjectHideFlags: 0

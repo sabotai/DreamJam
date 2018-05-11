@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.716
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1130369436}
-  m_IndirectSpecularColor: {r: 0.82849747, g: 0.25879782, b: 0.25879782, a: 0.716}
+  m_IndirectSpecularColor: {r: 0.8629084, g: 0, b: 0, a: 0.716}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1900,6 +1900,7 @@ MonoBehaviour:
   - {fileID: 2085530204}
   - {fileID: 249296397}
   - {fileID: 1136772892}
+  - {fileID: 1286570358}
   - {fileID: 1977638104}
   - {fileID: 1448068700}
   room: {fileID: 1343834897}
@@ -2332,7 +2333,7 @@ GameObject:
   - component: {fileID: 1448068703}
   - component: {fileID: 1448068702}
   m_Layer: 5
-  m_Name: LaundryPanel6
+  m_Name: LaundryPanel7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3101,7 +3102,7 @@ GameObject:
   - component: {fileID: 1977638107}
   - component: {fileID: 1977638106}
   m_Layer: 5
-  m_Name: LaundryPanel5
+  m_Name: LaundryPanel6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

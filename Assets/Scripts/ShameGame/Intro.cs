@@ -120,7 +120,7 @@ public class Intro : MonoBehaviour {
 
 		if (pct < 0f) {
 
-			if (state < finalState){
+			if (state < finalState - 1){
 			
 				if (origCam.enabled){
 					room.SetActive(false); 

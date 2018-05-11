@@ -11,11 +11,15 @@ public class ShameMove : MonoBehaviour {
 	public Vector3 dirOffset;
 	public Vector2 rotSpeedRange = new Vector2(0.2f, 0.5f);
 	public float minRotThresh = 0.1f;
+
+	float walkSpeed, normalSpeed, slowSpeed;
 	Rigidbody rb;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-
+		normalSpeed = rate;
+		walkSpeed = rate / 2f;
+		slowSpeed = rate/4f;
 		
 		Quaternion lRot = lEye.localRotation;
 		Quaternion rRot = rEye.localRotation;
@@ -84,6 +88,10 @@ public class ShameMove : MonoBehaviour {
 	        //rb.AddForce(transform.forward * rate * Time.deltaTime);
 	        //rb.velocity = transform.forward * rate * Time.deltaTime;
 			//rb.velocity = Vector3.ClampMagnitude(rb.velocity, rate);
+
+			if (GetComponent<DryEyes>().blinking) rate = slowSpeed;
+			 else if (RaisePhone.phoneRaised) rate = walkSpeed;
+			 else rate = normalSpeed;
 	        transform.position += transform.forward * rate * Time.deltaTime;
 		}
 	}

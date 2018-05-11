@@ -18,7 +18,7 @@ public class MoveFwd : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += -transform.forward * speed;
+		transform.position += -transform.forward * speed * (Time.deltaTime * 60f);
 		if (Time.time > resetTime + startTime){
 			transform.position = origin;
 			startTime += resetTime;

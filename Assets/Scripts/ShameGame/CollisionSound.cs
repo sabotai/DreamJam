@@ -10,6 +10,7 @@ public class CollisionSound : MonoBehaviour {
 	public bool restart = true;
 	public float timerAmt = 2f;
 	float startTime;
+	public Rigidbody phone;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent<AudioSource>();
@@ -42,6 +43,7 @@ public class CollisionSound : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
 			audSrc.PlayOneShot(clip_collision);
+			phone.gameObject.GetComponent<AudioSource>().PlayOneShot(clip_collision);
 
 			//if (col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
 			restartStuff();
@@ -50,6 +52,8 @@ public class CollisionSound : MonoBehaviour {
 	}
 	public void restartStuff(){
 				GetComponent<ShameMove>().enabled = false;
+				phone.isKinematic = false;
+				RaisePhone.dir = -1;
 				startTime = Time.time;
 			        if (!audSrc2.isPlaying)      {
 						Debug.Log("play restart sound");

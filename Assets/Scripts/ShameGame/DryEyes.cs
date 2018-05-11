@@ -75,12 +75,12 @@ public class DryEyes : MonoBehaviour {
 		//lBlinderMatBlack.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			newA = blink();
-			GetComponent<ShameMove>().move = false;
+			//GetComponent<ShameMove>().move = false;
 		}
 		if (Input.GetKeyUp(KeyCode.Space)) {
 			StartCoroutine (BlinkUp (rLid, lLid, 0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
 			blinking = false;
-			GetComponent<ShameMove>().move = true;
+			//GetComponent<ShameMove>().move = true;
 		}
 
 		if (distBlur){
