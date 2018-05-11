@@ -1,0 +1,110 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class Outro : MonoBehaviour {
+
+	
+	public GameObject insideLight;
+	public RawImage canvasImage;
+	int state = 0;
+	public float pct = 0f;
+	AudioSource audSrc;
+	public AudioClip clipSwitch, clipDissolve, clipCrying;
+	public Material sky, origSky, redSky;
+	public Cubemap skyCube;
+	Color skyColor;
+	public GameObject dirLight;
+	public Transform dirDay, dirLate;
+	public GameObject[] textObjects;
+	public Camera origCam;
+	int finalState = 14;
+	public float skyPct = 0f;
+	// Use this for initialization
+	void Start () {
+		audSrc = GetComponent< AudioSource>();
+		skyColor = new Color(0f, 0.5f, 1f);//245f/255f, 78f/255f, 78f/255f, 1f);
+		//sky = redSky;
+		RenderSettings.skybox.Lerp(redSky, origSky, 0f);
+		DynamicGI.UpdateEnvironment();
+		//origSky = sky.color;
+		state = -1;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (state == -1){
+
+			if (pct < 1f){
+				pct += (Time.deltaTime / 2f);
+				updateRes(origCam, 2, 1, 1024, 576, pct);
+			}
+		} else if (state == 0){ 
+				if (audSrc.clip != clipSwitch){
+					audSrc.clip = clipSwitch;
+					audSrc.Play();
+				}
+				insideLight.SetActive(true);
+			
+			
+		} else if (state == 1){
+			textObjects[0].SetActive(true);
+			
+		} else if (state == 2){
+			textObjects[0].SetActive(false);
+			if (audSrc.clip != clipCrying){
+				audSrc.clip = clipCrying;
+				audSrc.loop = true;
+				audSrc.Play();
+			}
+			if (skyPct < 1f){
+				Color newColor = Color.Lerp(Color.red, skyColor, skyPct);
+				//RenderSettings.skybox = sky;
+                //RenderSettings.customReflection = skyCube;
+				//sky.SetColor ("_TintColor", newColor);
+				RenderSettings.skybox.Lerp(redSky, origSky, skyPct);
+				DynamicGI.UpdateEnvironment();
+				dirLight.transform.rotation = Quaternion.Slerp(dirDay.rotation, dirLate.rotation, skyPct);
+				//dirLight.GetComponent<Light>().color = newColor;
+				skyPct += (Time.deltaTime / 12f);
+			} 
+		} else if (state == 3){
+				audSrc.Stop();
+			textObjects[1].SetActive(true);
+		} else if (state == 4){
+			textObjects[2].SetActive(true);
+		} else if (state == 5){
+			textObjects[3].SetActive(true);
+		} else if (state == 6){
+			textObjects[4].SetActive(true);
+		} else if (state == 7){
+			textObjects[5].SetActive(true);
+		}  else if (state == 7){
+			for (int i = 0; i < textObjects.Length; i++){
+				textObjects[i].SetActive(false);
+			}
+		} else {	
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			state++;
+		}
+
+		
+	}
+
+		void updateRes(Camera cam, float minWidth, float minHeight, float maxWidth, float maxHeight, float pct){
+
+		float newW = Mathf.Lerp(minWidth, maxWidth, pct);
+		float newH = Mathf.Lerp(minHeight, maxHeight, pct);
+		
+		//update resolution of render textures
+		RenderTexture newRT = new RenderTexture( (int)newW, (int)newH, 16, RenderTextureFormat.ARGBFloat );
+		newRT.filterMode = FilterMode.Point;
+		cam.targetTexture = newRT;
+		canvasImage.texture = newRT;
+
+	}
+}
