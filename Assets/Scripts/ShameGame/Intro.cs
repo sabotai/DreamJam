@@ -12,14 +12,14 @@ public class Intro : MonoBehaviour {
 	int state = 0;
 	public float pct = 1f;
 	AudioSource audSrc;
-	public AudioClip clipSwitch, clipBag, clipDissolve;
+	public AudioClip clipSwitch, clipBag, clipDissolve, clipChime;
 	public Material sky;
 	public Color origSky;
 	public Light dirLight;
 	public GameObject[] textObjects, textObjects2;
 	public GameObject room, laundromat;
 	public Camera origCam, newCam;
-	int finalState = 6;
+	int finalState = 14;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
@@ -79,9 +79,28 @@ public class Intro : MonoBehaviour {
 
 			textObjects2[1].SetActive(true);
 		} else if (state == 8){
+			textObjects2[2].SetActive(true);
+		} else if (state == 9){
+			textObjects2[3].SetActive(true);
+		} else if (state == 10){
 
 			textObjects2[0].SetActive(false);
 			textObjects2[1].SetActive(false);
+			textObjects2[2].SetActive(false);
+			textObjects2[3].SetActive(false);
+			textObjects2[4].SetActive(true);
+		} else if (state == 11){
+			textObjects2[5].SetActive(true);
+		} else if (state == 12){
+			textObjects2[6].SetActive(true);
+		} else if (state == 13){
+			for (int i = 0; i < textObjects2.Length; i++){
+				textObjects2[i].SetActive(false);
+			}
+			if (audSrc.clip != clipChime){
+				audSrc.clip = clipChime;
+				audSrc.Play();
+			}
 		} else if (state >= finalState){
 			if (audSrc.clip != clipDissolve){
 				//pct = 1f;

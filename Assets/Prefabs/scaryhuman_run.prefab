@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 95115796826016106}
   - component: {fileID: 111389011338952616}
   - component: {fileID: 114279554724172054}
+  - component: {fileID: 114775702943137186}
   m_Layer: 0
   m_Name: scaryhuman_run
   m_TagString: Stranger
@@ -2037,6 +2038,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c3f954db1a8fe4e89623daac3added, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114775702943137186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516042171968482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c93a6b58b61464d967c91d0fc0dfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 15
 --- !u!114 &114949598807271244
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -34,6 +34,7 @@ public class PixelIntroOutro : MonoBehaviour {
 				pct += Time.deltaTime * speed;
 			} else {
 				GetComponent<ShameMove>().enabled = true;
+				GetComponent<ShameMove>().move = true;
 				intro = false;
 				enabled = false;
 			}

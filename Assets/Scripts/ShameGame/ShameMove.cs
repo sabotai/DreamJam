@@ -15,6 +15,24 @@ public class ShameMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+
+		
+		Quaternion lRot = lEye.localRotation;
+		Quaternion rRot = rEye.localRotation;
+
+		Quaternion avgRot = Quaternion.Slerp(lRot, rRot, 0.5f);// Quaternion.Slerp(lRot, rRot, 0.5f);
+		//Debug.Log(avgRot);
+
+
+        //float step = rotSpeed * Time.deltaTime;
+		Vector3 avgEuler = avgRot.eulerAngles;
+		Vector3 myEuler = transform.rotation.eulerAngles;
+        Quaternion target = Quaternion.Euler(myEuler.x,avgEuler.y,myEuler.z);//Quaternion.RotateTowards(transform.rotation, avgRot, step);
+		
+		dirIndicator.localRotation = target;
+      	float step = rotSpeed *  Time.deltaTime;
+      	transform.localRotation = target;
+
 	}
 	
 	// Update is called once per frame

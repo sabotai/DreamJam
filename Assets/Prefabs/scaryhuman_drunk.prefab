@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 95891104465997504}
   - component: {fileID: 82199230800298454}
   - component: {fileID: 114841181873211244}
+  - component: {fileID: 114174533922178824}
   m_Layer: 0
   m_Name: scaryhuman_drunk
   m_TagString: Stranger
@@ -1619,7 +1620,7 @@ Transform:
   - {fileID: 4972167114145856}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 263.958, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 170.906, z: 0}
 --- !u!4 &4699809456212986
 Transform:
   m_ObjectHideFlags: 1
@@ -2107,13 +2108,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114174533922178824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469904450488210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c93a6b58b61464d967c91d0fc0dfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 60
 --- !u!114 &114313626804684346
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980923896189546}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc4db1df43135434bbe1013d07e3ad67, type: 3}
   m_Name: 
@@ -2179,10 +2192,10 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0.04, y: 0, z: 0}
-  - {x: 0, y: 100, z: -5}
+  - {x: 0, y: 50, z: 0}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 200
+    widthMultiplier: 1.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -2238,7 +2251,7 @@ LineRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 90
-    alignment: 0
+    alignment: 1
     textureMode: 1
     generateLightingData: 0
   m_UseWorldSpace: 0

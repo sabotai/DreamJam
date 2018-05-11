@@ -400,6 +400,8 @@ GameObject:
   - component: {fileID: 114076834131181824}
   - component: {fileID: 135717905424852448}
   - component: {fileID: 136064541725020130}
+  - component: {fileID: 136555565770730006}
+  - component: {fileID: 135835736044911018}
   m_Layer: 0
   m_Name: HeadMod
   m_TagString: Stranger
@@ -764,6 +766,8 @@ GameObject:
   - component: {fileID: 95122810675916342}
   - component: {fileID: 111101538457663798}
   - component: {fileID: 114119219463657994}
+  - component: {fileID: 114073265075700842}
+  - component: {fileID: 114224154777428100}
   m_Layer: 0
   m_Name: scaryhuman_walk
   m_TagString: Stranger
@@ -1934,7 +1938,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1753582725919356}
   m_LocalRotation: {x: -0, y: 0.9997995, z: -0, w: 0.02002381}
-  m_LocalPosition: {x: 102, y: -338.3962, z: 1866}
+  m_LocalPosition: {x: 238.9219, y: -338.3962, z: 9713.477}
   m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children:
   - {fileID: 4200948365983836}
@@ -2029,6 +2033,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114073265075700842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753582725919356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c93a6b58b61464d967c91d0fc0dfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 30
 --- !u!114 &114076834131181824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2042,6 +2058,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
 --- !u!114 &114119219463657994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753582725919356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c3f954db1a8fe4e89623daac3added, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114224154777428100
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2278,7 +2305,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135835736044911018
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361101054638924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136064541725020130
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1361101054638924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.46
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136555565770730006
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
