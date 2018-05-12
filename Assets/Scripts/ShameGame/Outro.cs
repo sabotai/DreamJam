@@ -22,6 +22,8 @@ public class Outro : MonoBehaviour {
 	public Camera origCam;
 	int finalState = 14;
 	public float skyPct = 0f;
+	public float openingSpeed = 0.1f;
+	float fastSpeed;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
@@ -31,6 +33,7 @@ public class Outro : MonoBehaviour {
 		DynamicGI.UpdateEnvironment();
 		//origSky = sky.color;
 		state = -1;
+		fastSpeed = openingSpeed * 15f;
 	}
 	
 	// Update is called once per frame
@@ -38,8 +41,9 @@ public class Outro : MonoBehaviour {
 		if (state == -1){
 
 			if (pct < 1f){
-				pct += (Time.deltaTime / 2f);
-				updateRes(origCam, 2, 1, 1024, 576, pct);
+				pct += (Time.deltaTime * openingSpeed);
+				if (pct > 0.08875f) openingSpeed = fastSpeed;
+				updateRes(origCam, 2, 1f, 1600f, 900f, pct);//1024f, 576f, pct);
 			}
 		} else if (state == 0){ 
 				if (audSrc.clip != clipSwitch){
