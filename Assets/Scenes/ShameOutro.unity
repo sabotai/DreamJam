@@ -1318,7 +1318,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'J: I just can''t stop thinking ... about them'
+  m_Text: 'J: I just can''t stop thinking ... about them ... '
 --- !u!222 &798135495
 CanvasRenderer:
   m_ObjectHideFlags: 0

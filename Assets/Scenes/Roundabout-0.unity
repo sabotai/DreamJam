@@ -1430,7 +1430,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: -1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1001 &109075276
 Prefab:
   m_ObjectHideFlags: 0
@@ -2965,7 +2969,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &197828612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3453,7 +3461,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &244625438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4964,7 +4976,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &378493553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5252,7 +5268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &383833820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5272,6 +5292,8 @@ MonoBehaviour:
   matShifter: {fileID: 1921681199}
   pulser: {fileID: 1872912563}
   pulser2: {fileID: 1047531529}
+  score: {fileID: 1921681197}
+  plat: {fileID: 1063029655}
 --- !u!1 &393729444
 GameObject:
   m_ObjectHideFlags: 0
@@ -7610,7 +7632,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1 &567127894
 GameObject:
   m_ObjectHideFlags: 0
@@ -8229,7 +8255,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1 &651898457
 GameObject:
   m_ObjectHideFlags: 0
@@ -8980,7 +9010,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: -1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1 &697097817
 GameObject:
   m_ObjectHideFlags: 0
@@ -9366,7 +9400,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1 &779945704
 GameObject:
   m_ObjectHideFlags: 0
@@ -9986,7 +10024,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1 &894138105
 GameObject:
   m_ObjectHideFlags: 0
@@ -10146,7 +10188,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &912448624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12554,7 +12600,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 0.1
+  randomize: 0
 --- !u!1 &1080720177
 GameObject:
   m_ObjectHideFlags: 0
@@ -14459,7 +14509,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: -1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1 &1367453722
 GameObject:
   m_ObjectHideFlags: 0
@@ -15905,6 +15959,7 @@ GameObject:
   - component: {fileID: 1523547960}
   - component: {fileID: 1523547961}
   - component: {fileID: 1523547962}
+  - component: {fileID: 1523547957}
   m_Layer: 0
   m_Name: Cylinder_008
   m_TagString: Platform
@@ -15925,6 +15980,35 @@ Transform:
   m_Father: {fileID: 244625436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!146 &1523547957
+WheelCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1523547955}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_Enabled: 0
 --- !u!23 &1523547958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15977,7 +16061,7 @@ MeshCollider:
   m_GameObject: {fileID: 1523547955}
   m_Material: {fileID: 13400000, guid: dc835137f298baf43a44afb286dbc990, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -16056,7 +16140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &1523753334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17220,7 +17308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4237217502013600, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 54968749614013994, guid: 48cd1ffb08abe514d8d1930aacb41e65,
         type: 2}
@@ -17248,6 +17336,11 @@ Prefab:
         type: 2}
       propertyPath: m_ReceiveShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54968749614013994, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
@@ -17296,7 +17389,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &1630242786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17352,7 +17449,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: -1, z: 0}
   rotSpeed: 5
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!1 &1633727643
 GameObject:
   m_ObjectHideFlags: 0
@@ -17513,7 +17614,7 @@ Prefab:
     - target: {fileID: 54964638857173432, guid: ee2ebc1269069374582a44f690e48cdc,
         type: 2}
       propertyPath: m_CollisionDetection
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23312503807229780, guid: ee2ebc1269069374582a44f690e48cdc,
         type: 2}
@@ -17523,6 +17624,11 @@ Prefab:
     - target: {fileID: 23312503807229780, guid: ee2ebc1269069374582a44f690e48cdc,
         type: 2}
       propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 54964638857173432, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: m_Interpolate
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -19243,7 +19349,7 @@ Transform:
   - {fileID: 1063029654}
   - {fileID: 383833818}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1744976572
 GameObject:
@@ -20372,6 +20478,7 @@ GameObject:
   - component: {fileID: 1872912566}
   - component: {fileID: 1872912567}
   - component: {fileID: 1872912563}
+  - component: {fileID: 1872912568}
   m_Layer: 0
   m_Name: Cylinder_007
   m_TagString: Platform
@@ -20479,6 +20586,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f91ad05667ac014c923a30ffab23c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1872912568
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872912561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 5.76
+  m_Height: 6.1
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1897519926
 GameObject:
   m_ObjectHideFlags: 0
@@ -20703,7 +20823,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotDir: {x: 0, y: 1, z: 0}
   rotSpeed: 15
+  origSpeed: 0
   autoSlow: 1
+  waves: 0
+  scale: 1
+  randomize: 0
 --- !u!114 &1911411520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20983,6 +21107,11 @@ MonoBehaviour:
   - {fileID: 794851776}
   - {fileID: 1633727645}
   scoreCap: 100
+  roundScore:
+  - {fileID: 1727655446}
+  - {fileID: 958340545}
+  currentRound: 2
+  plat: {fileID: 1063029655}
 --- !u!4 &1921681198
 Transform:
   m_ObjectHideFlags: 0

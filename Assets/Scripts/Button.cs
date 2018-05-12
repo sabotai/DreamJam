@@ -15,6 +15,8 @@ public class Button : MonoBehaviour {
 	public static bool buttonAvailable;
 	public ShiftMats matShifter;
 	public ColorPulse pulser, pulser2;
+	public Score score;
+	public Platform plat;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +37,7 @@ public class Button : MonoBehaviour {
 				buttonUp = false;
 				buttonAvailable = false;
 				matShifter.ShiftTheMats();
+				if (score.currentRound == 2) plat.randomizePlats();
 
 			} else if (!buttonDown){
 				buttonPress(false, origAvailableY);
