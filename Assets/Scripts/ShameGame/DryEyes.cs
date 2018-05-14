@@ -111,11 +111,15 @@ public class DryEyes : MonoBehaviour {
 	public void updateRes(int eyeIndex, float w, float h){
 
 		if (xResL < minRes || xResR < minRes || yResL < minRes || yResR < minRes) {
+			//if the resolution gets really bad, player loses
 			GetComponent<CollisionSound>().restartStuff();
 		} else {
 
+		//ScalableBufferManager.ResizeBuffers(w / maxW, h / maxH);
+		
 
-		RenderTexture newRend = new RenderTexture( (int)w, (int)h, 16, RenderTextureFormat.ARGBFloat );
+		//RenderTexture newRend = new RenderTexture( (int)w, (int)h, 16, RenderTextureFormat.ARGBFloat );
+		RenderTexture newRend = new RenderTexture( (int)w, (int)h, 16, RenderTextureFormat.ARGB32 );
 		newRend.filterMode = FilterMode.Point;
 		if (eyeIndex == 0){
 				lCam.targetTexture = newRend;
@@ -124,7 +128,9 @@ public class DryEyes : MonoBehaviour {
 				rCam.targetTexture = newRend;
 				rScreen.texture = newRend;
 			}
+		
 		}
+
 	}
 	float blink(){
 		//reset to original position

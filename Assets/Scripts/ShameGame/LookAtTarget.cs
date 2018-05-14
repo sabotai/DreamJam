@@ -7,7 +7,7 @@ public class LookAtTarget : MonoBehaviour {
 	float distThresh = 100f;
 	// Use this for initialization
 	void Start () {
-		distThresh = 100f;
+		distThresh = 300f;
 	}
 	
 	// Update is called once per frame

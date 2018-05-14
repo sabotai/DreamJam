@@ -108,9 +108,9 @@ public class EyePlayer : MonoBehaviour {
 		}
 		Ray beam = new Ray(transform.position, Vector3.Normalize(transform.position - origin));
 
-		float dist = 500f;
-		if (eyeMan.blinking) dist = 50f;
-		if (RaisePhone.phoneRaised) dist = 75f;
+		float dist = 100f;
+		if (eyeMan.blinking) dist = 10f;
+		if (RaisePhone.phoneRaised) dist = 50f;
 		Debug.DrawRay (beam.origin, beam.direction * dist);
 
 		RaycastHit beamHit = new RaycastHit ();

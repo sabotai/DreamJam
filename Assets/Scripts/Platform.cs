@@ -27,7 +27,7 @@ public class Platform : MonoBehaviour {
 		//if (Input.GetKeyDown(KeyCode.Space)) Reverse();
 		Rotate(rotDir, rotSpeed);
 
-		if (autoSlow && Mathf.Abs(rotSpeed) > 1f) rotSpeed *= 0.999f;
+		if (autoSlow && Mathf.Abs(rotSpeed) > 1f) rotSpeed *= 0.9995f;
 
 		oldDir = Button.direction;
 
