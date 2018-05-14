@@ -31,35 +31,36 @@ public class EyePlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		//transform.forward = Vector3.Normalize(transform.localPosition - lCam.localPosition);
 		transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, orig.z);
 		if (Vector3.Distance(orig, transform.localPosition) <= maxStray){
 			if (momentumBased){
 				if (Input.GetKey(fwdKey)){
-					rb.AddForce(Vector3.up * forceAmt * rb.mass);
+					rb.AddForce(transform.up * forceAmt * rb.mass);
 				}
 				if (Input.GetKey(lKey)){
-					rb.AddForce(Vector3.left * forceAmt * rb.mass);
+					rb.AddForce(-transform.right * forceAmt * rb.mass);
 				}
 				if (Input.GetKey(backKey)){
-					rb.AddForce(Vector3.down * forceAmt * rb.mass);
+					rb.AddForce(-transform.up * forceAmt * rb.mass);
 				}
 				if (Input.GetKey(rKey)){
-					rb.AddForce(Vector3.right * forceAmt * rb.mass);
+					rb.AddForce(transform.right * forceAmt * rb.mass);
 				}
 			} else {
 				Vector3 velo = Vector3.zero;	
 				if (Input.GetKey(fwdKey)){
 
-					velo += Vector3.up;
+					velo += transform.up;
 				}
 				if (Input.GetKey(lKey)){
-					velo += Vector3.left;
+					velo += -transform.right;
 				}
 				if (Input.GetKey(backKey)){
-					velo += Vector3.down;
+					velo += -transform.up;
 				}
 				if (Input.GetKey(rKey)){
-					velo += Vector3.right;
+					velo += transform.right;
 				} 
 				rb.velocity = velo * forceAmt * rb.mass;
 			}
@@ -92,8 +93,9 @@ public class EyePlayer : MonoBehaviour {
 
 				}
 			}
+			float pct = (gazeEscalation * Time.deltaTime) / moveScript.rate;
 			moveScript.rate += gazeEscalation * Time.deltaTime;
-			moveScript.rotSpeed = Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
+			moveScript.rotSpeed *= (1f + pct); //Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
 			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake);
 
 		}

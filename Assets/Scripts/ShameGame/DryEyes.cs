@@ -29,6 +29,7 @@ public class DryEyes : MonoBehaviour {
 	public float xResR = 256f;
 	public float yResR = 288f;
 	public float minRes = 20f;
+	public float eyeDistThresh = 0.5f;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
@@ -59,7 +60,7 @@ public class DryEyes : MonoBehaviour {
 	void Update () {
 		eyeDist = Vector3.Distance(rTarget.position, lTarget.position) - initialDist;
 		//Debug.Log("eyeDist = " + eyeDist);
-		if (eyeDist > 5f){
+		if (eyeDist > eyeDistThresh){
 			newA = rBlinderMat.color.a + speed * Time.deltaTime;
 
 		} else {
@@ -85,10 +86,15 @@ public class DryEyes : MonoBehaviour {
 
 		if (distBlur){
 			if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f && !GetComponent<PixelIntroOutro>().enabled) {
-				float newW = maxW / Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f); //eye distance maxing out at 5
-				float newH = maxH /  Mathf.Clamp((1f + (7f * (eyeDist / 5f))), 1f, 8f);
-				Debug.Log("(" + newW + ", " + newH + ")");
-				updateRes(newW, newH);
+				float newW = xResL / Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f); //eye distance maxing out at 5
+				float newH = yResL /  Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f);
+				Debug.Log("DistBlur LEFT (" + newW + ", " + newH + ")");
+				updateRes(0, newW, newH);
+
+				newW = xResR / Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f); //eye distance maxing out at 5
+				newH = yResR /  Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f);
+				Debug.Log("DistBlur RIGHT (" + newW + ", " + newH + ")");
+				updateRes(1, newW, newH);
 			}
 		}
 	}
@@ -138,7 +144,7 @@ public class DryEyes : MonoBehaviour {
 		//rTarget.localPosition = rOrigPos;
 		audSrc.PlayOneShot(blinkSound);
 		blinking = true;
-		if (!distBlur){
+		//if (!distBlur){
 			xResL = (xResL + xResR) / 2f;
 			xResR = xResL;
 			yResL = (yResL + yResR) / 2f;
@@ -146,7 +152,7 @@ public class DryEyes : MonoBehaviour {
 
 			updateRes(0, xResL, yResL);
 			updateRes(1, xResR, yResR);
-		} 
+		//} 
 
 
 		if (blinkAvgPos){

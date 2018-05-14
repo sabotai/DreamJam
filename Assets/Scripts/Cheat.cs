@@ -22,5 +22,13 @@ public class Cheat : MonoBehaviour {
 			SceneManager.LoadScene(3);
 		if (Input.GetKey(KeyCode.Alpha5))
 			SceneManager.LoadScene(4);
+		if (Input.GetKey(KeyCode.Alpha6))
+			SceneManager.LoadScene(5);
+		if (Input.GetKey(KeyCode.Alpha7))
+			SceneManager.LoadScene(6);
+		if (Input.GetKey(KeyCode.Alpha8))
+			SceneManager.LoadScene(7);
+		if (Input.GetKeyDown(KeyCode.T))
+			Time.timeScale *= 1.2f;
 	}
 }
