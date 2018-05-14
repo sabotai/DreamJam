@@ -14,7 +14,7 @@ public class ScreenShake : MonoBehaviour {
 	}
 
 	public static IEnumerator Shake(Transform obj, float duration, float magnitude) {
-		Debug.Log ("shaking...");
+		Debug.Log ("shaking..." + obj);
 
 
 		float elapsed = 0.0f;

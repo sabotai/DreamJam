@@ -7,6 +7,10 @@ public class Map : MonoBehaviour {
 	public int currentPoint = 0;
 	public float colorSpeed = 0.05f;
 	public Renderer phone;
+	public Transform arrow;
+	public Transform target;
+	public  bool useBrightness = false;
+
 	// Use this for initialization
 	void Start () {
 		currentPoint = 0;
@@ -20,24 +24,26 @@ public class Map : MonoBehaviour {
 		Debug.DrawRay (beam.origin, beam.direction * 99999999f);
 
 		RaycastHit beamHit = new RaycastHit ();
-
-		if (Physics.Raycast(beam, out beamHit, 99999999f, LayerMask.GetMask("Map")) && beamHit.transform == wayPoints[currentPoint]){
-			PhoneChange(true);
-			//Debug.Log("GOOD");
-		} else {
-			PhoneChange(false);
-			//Debug.Log("BAD");
+		if (useBrightness){
+			if (Physics.Raycast(beam, out beamHit, 99999999f, LayerMask.GetMask("Map")) && beamHit.transform == wayPoints[currentPoint]){
+				PhoneChange(true);
+				//Debug.Log("GOOD");
+			} else {
+				PhoneChange(false);
+				//Debug.Log("BAD");
+			}
 		}
 
-		//if (currentPoint
+		arrow.LookAt(target);
+
 	}
 
-	void PhoneChange(bool up){
+	public void PhoneChange(bool up){
 		Color col = phone.material.GetColor("_EmissionColor");
 		//Debug.Log(col);
 		float amt = col.r;
 		if (up){
-			if (col.r < 1f)
+			if (col.r < 1.3f)
 				amt += colorSpeed * Time.deltaTime;
 			
 		} else {

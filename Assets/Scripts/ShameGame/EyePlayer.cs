@@ -17,7 +17,7 @@ public class EyePlayer : MonoBehaviour {
 	float gazeEscalation = 5f;
 	public bool momentumBased = false;
 	public DryEyes eyeMan;
-
+	Vector3 origPosL, origPosR;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +26,8 @@ public class EyePlayer : MonoBehaviour {
 		audSrc = GetComponent<AudioSource>();
 		lCam = GameObject.Find("LCam").transform;
 		rCam = GameObject.Find("RCam").transform;
+		origPosL = lCam.localPosition;
+		origPosR = rCam.localPosition;
 		if (eyeMan == null) eyeMan = GameObject.Find("Players").GetComponent<DryEyes>();
 	}
 	
@@ -70,14 +72,14 @@ public class EyePlayer : MonoBehaviour {
 			rb.velocity *= -2f;
 			//keep it inside the range
 			transform.localPosition = orig + Vector3.Normalize(transform.localPosition - orig) * maxStray;
-			rb.velocity = Vector3.Normalize(orig - transform.localPosition) * 2f;
+			//rb.velocity = Vector3.Normalize(orig - transform.localPosition) * 2f;
 
 		}
 		rb.velocity =  Vector3.ClampMagnitude(rb.velocity, 4f);
 
 		if (moveScript.enabled && CheckGaze()) {
 			if (gameObject.name == "LTarget"){
-				StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
+				if (lCam.localPosition == origPosL)	StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
 				if (!eyeMan.distBlur) {
 					eyeMan.xResL *= 1f - (Time.deltaTime);
 					eyeMan.yResL *= 1f - (Time.deltaTime);
@@ -85,7 +87,7 @@ public class EyePlayer : MonoBehaviour {
 
 				}
 			} else if (gameObject.name == "RTarget"){
-				StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
+				if (rCam.localPosition == origPosR)	StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
 				if (!eyeMan.distBlur) {
 					eyeMan.xResR *= 1f - (0.05f * Time.deltaTime);
 					eyeMan.yResR *= 1f - (0.05f * Time.deltaTime);
