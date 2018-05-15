@@ -9,7 +9,7 @@ public class RaisePhone : MonoBehaviour {
 	public static float dir = 1f;
 	public Transform up, down;
 	public static bool phoneRaised = true;
-	public float batteryAmt = 5f;
+	public float batteryAmt = 10f;
 	float startTime = 0f;
 	public Map phoneMap;
 	bool phoneOn = false;
