@@ -9,10 +9,11 @@ public class Score : MonoBehaviour {
 	public bool debugScore = false;
 	public Text[] pScore;
 	int startSize;
-	public int scoreCap = 100;
+	public float scoreCap = 100f;
 	public GameObject[] roundScore;
 	int[] roundsWon;
 	int numRounds = 3;
+	public float maxFont = 260;
 	bool nextRound = false;
 	public int currentRound = 0;
 	public Platform plat;
@@ -31,7 +32,7 @@ public class Score : MonoBehaviour {
 		for (int i = 0; i < playerScore.Length; i++){
 			
 			pScore[i].text = playerScore[i].ToString();
-			pScore[i].fontSize = (int)playerScore[i] * 4 + startSize;
+			pScore[i].fontSize = startSize + (int)( (playerScore[i] / scoreCap) * (maxFont - startSize));
 
 			if (playerScore[i] > scoreCap) roundWin(i); 
 		}

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: d2a69f2346404e840888ee6c237d059b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f356c3b38fcd9ce48a0b80db464877b1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.716
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1130369436}
-  m_IndirectSpecularColor: {r: 0.82849747, g: 0.25879782, b: 0.25879782, a: 0.716}
+  m_IndirectSpecularColor: {r: 0.9219016, g: 0.24307874, b: 0.24307874, a: 0.716}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1035,10 +1035,10 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 715770170}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 4
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1493,6 +1493,10 @@ Prefab:
         type: 2}
       propertyPath: speedMultiplier
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164923951996830, guid: 4581d5af25ab4584ca855cce0205db35, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4581d5af25ab4584ca855cce0205db35, type: 2}
