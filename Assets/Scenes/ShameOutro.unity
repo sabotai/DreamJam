@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.011
   m_CustomReflection: {fileID: 8900000, guid: b139af44edbe36e4f834e721f7dc3bba, type: 3}
   m_Sun: {fileID: 1130369436}
-  m_IndirectSpecularColor: {r: 0.018010192, g: 0.11619484, b: 0.13418561, a: 0.011}
+  m_IndirectSpecularColor: {r: 0.13461176, g: 0, b: 0.00026016138, a: 0.011}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -981,7 +981,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 715770170}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
@@ -1667,7 +1667,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1098674166}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1

@@ -6,6 +6,7 @@ public class ShameMove : MonoBehaviour {
 	public bool move = true;
 	public Transform lTarget, rTarget, lEye, rEye;
 	public float rate = 1f;
+	public float maxRot = 20f;
 	public float rotSpeed = 0.1f;
 	public Transform dirIndicator;
 	public Vector3 dirOffset;
@@ -41,6 +42,7 @@ public class ShameMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		rotSpeed = Mathf.Min(rotSpeed, maxRot);
 		if (Input.GetKey(KeyCode.E)) GetComponent<BoxCollider>().enabled = false;
 		if (Input.GetKey(KeyCode.R)) GetComponent<BoxCollider>().enabled = true;
 
