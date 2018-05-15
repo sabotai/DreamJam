@@ -72,7 +72,7 @@ public class Outro : MonoBehaviour {
 				DynamicGI.UpdateEnvironment();
 				dirLight.transform.rotation = Quaternion.Slerp(dirDay.rotation, dirLate.rotation, skyPct);
 				//dirLight.GetComponent<Light>().color = newColor;
-				skyPct += (Time.deltaTime / 12f);
+				skyPct += (Time.deltaTime / 120f);
 
 			}  else {
 				state++;

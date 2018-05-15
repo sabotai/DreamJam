@@ -50,6 +50,14 @@ public class CollisionSound : MonoBehaviour {
 		  //  }
 		}
 	}
+
+	void OnTriggerEnter(Collider col){
+		if (col.name == "destination"){
+			
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		}
+
+	}
 	public void restartStuff(){
 				GetComponent<ShameMove>().enabled = false;
 				phone.isKinematic = false;
