@@ -13,9 +13,14 @@ public class Player : MonoBehaviour {
 	Material myMat;
 	float myMass;
 	GameObject mySpawner;
+	AudioSource aud;
+	public AudioClip[] jumpClip; 
+	public float bumpAmt = 1000f;
+	public float minPitch, maxPitch;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		aud = GetComponent<AudioSource>();
 		myMass = rb.mass;
 		mySpawner = GameObject.Find(gameObject.name + "Spawner");
 	}
@@ -23,6 +28,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		myMat = GetComponent<Renderer>().material;
+		if (Input.GetKeyDown(KeyCode.Space) && Button.buttonDown) GetComponent<Rigidbody>().AddForce( Vector3.up * bumpAmt + Random.insideUnitSphere);
+
 
 		if (Input.GetKey(fwdKey)){
 			rb.AddForce(Vector3.forward * forceAmt * rb.mass);
@@ -38,6 +45,8 @@ public class Player : MonoBehaviour {
 		}
 		if (Input.GetKey(jump) && !jumped){
 			rb.AddForce(Vector3.up * jumpAmt * rb.mass);
+			aud.pitch = Mathf.Clamp(rb.velocity.y, minPitch, maxPitch);
+			aud.PlayOneShot(jumpClip[Random.Range(0, jumpClip.Length)]);
 			jumped = true;
 		}
 

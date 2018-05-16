@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Button : MonoBehaviour {
-	bool buttonDown, buttonUp;
+	public static bool buttonDown, buttonUp;
 	public float targetY = -0.1f;
 	float origY;
 	public float origAvailableY;
@@ -17,6 +17,8 @@ public class Button : MonoBehaviour {
 	public ColorPulse pulser, pulser2;
 	public Score score;
 	public Platform plat;
+	AudioSource aud;
+	public AudioClip upClip, downClip;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +26,7 @@ public class Button : MonoBehaviour {
 		buttonDown = false;
 		buttonUp = false;
 		origY = button.localPosition.y;
+		aud = GetComponent<AudioSource>();
 		
 		if (button == null)	button = transform;
 	}
@@ -37,13 +40,15 @@ public class Button : MonoBehaviour {
 				buttonUp = false;
 				buttonAvailable = false;
 				matShifter.ShiftTheMats();
-				if (score.currentRound == 2) plat.randomizePlats();
+				aud.PlayOneShot(downClip);
+				if (score.gameObject.activeSelf && score.currentRound == 2) plat.randomizePlats();
 
 			} else if (!buttonDown){
 				buttonPress(false, origAvailableY);
 			}
 		}
 		if (Input.GetKeyUp(KeyCode.Space)) {
+			if (buttonDown) aud.PlayOneShot(upClip);
 			buttonUp = true;
 			buttonDown = false;
 		}
@@ -53,6 +58,7 @@ public class Button : MonoBehaviour {
 		if (Time.time > startTime + refreshTime){
 			buttonAvailable = true;
 			startTime = Time.time;
+			aud.PlayOneShot(upClip);
 		}
 		
 	}

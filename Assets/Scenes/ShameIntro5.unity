@@ -2117,11 +2117,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 400024, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_RootOrder
@@ -2149,7 +2149,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400038, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_RootOrder
@@ -2161,7 +2161,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2300022, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2242,6 +2242,10 @@ Prefab:
     - target: {fileID: 2300000, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
       propertyPath: m_CastShadows
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38611b5cecbd6e340947f43ade697d35, type: 3}
@@ -3213,7 +3217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1561327495
 Light:
   m_ObjectHideFlags: 0

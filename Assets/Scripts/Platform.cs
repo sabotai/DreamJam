@@ -12,11 +12,13 @@ public class Platform : MonoBehaviour {
 	public bool waves = false;
 	public float scale = 1f;
 	public bool randomize = false;
+	AudioSource aud;
 
 
 	// Use this for initialization
 	void Start () {
 		origSpeed = rotSpeed;
+		aud = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +40,7 @@ public class Platform : MonoBehaviour {
 	void Rotate(Vector3 dir, float speed){
 		// Rotate the object around its local X axis at 1 degree per second
         transform.Rotate(dir * Time.deltaTime * speed);
+		aud.pitch = rotDir.y * (rotSpeed / maxSpeed) * 8f;
 
 	}
 
@@ -45,7 +48,7 @@ public class Platform : MonoBehaviour {
 		rotDir *= -1f;
 		rotSpeed *= 1.5f;
 		rotSpeed = Mathf.Clamp(rotSpeed, -maxSpeed, maxSpeed);
-		Debug.Log("rotSpeed = " + rotSpeed);
+		//Debug.Log("rotSpeed = " + rotSpeed);
 	}
 
 	public void makeWaves(){

@@ -50,7 +50,8 @@ public class Score : MonoBehaviour {
 		roundsWon[player]++;
 	}
 
-	void advanceRound(){
+	public void advanceRound(){
+		Timer.startTime += Time.time;
 
 		for (int i = 0; i < playerScore.Length; i++){
 			playerScore[i] = 0f;
@@ -65,15 +66,28 @@ public class Score : MonoBehaviour {
 		             	plat.randomize = true;
              			break;
              		case 2:
-		             	SceneManager.LoadScene(0);	
-             			break;
-             		case 3:
-		             	
+		             	reset();
              			break;
 
 		}
 		plat.rotSpeed = plat.origSpeed;
 		currentRound++;
 		nextRound = false;
+	}
+
+	void reset(){
+		for (int i = 0; i < playerScore.Length; i++){
+			roundScore[i].transform.GetChild(0).gameObject.SetActive(false);
+			roundScore[i].transform.GetChild(1).gameObject.SetActive(false);
+			roundScore[i].transform.GetChild(2).gameObject.SetActive(false);
+
+			roundScore[i].transform.GetChild(3).gameObject.SetActive(true);
+			roundScore[i].transform.GetChild(4).gameObject.SetActive(true);
+			roundScore[i].transform.GetChild(5).gameObject.SetActive(true);
+		}
+		plat.waves = false;
+		plat.randomize = false;
+		DemoMode.menuReset = true;	
+		SceneManager.LoadScene(0);
 	}
 }
