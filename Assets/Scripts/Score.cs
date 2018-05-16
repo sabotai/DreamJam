@@ -52,6 +52,11 @@ public class Score : MonoBehaviour {
 
 	public void advanceRound(){
 		Timer.startTime += Time.time;
+		GameObject[] pieces = GameObject.FindGameObjectsWithTag("Pieces");
+		foreach (GameObject piece in pieces)
+        {
+            Destroy(piece);
+        }
 
 		for (int i = 0; i < playerScore.Length; i++){
 			playerScore[i] = 0f;

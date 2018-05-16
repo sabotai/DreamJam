@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ColorPulse : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class ColorPulse : MonoBehaviour {
 	public bool speedBind = true;
 	public Platform plat;
 	float maxSpeed = 8f;
+	public bool ui;
 	// Use this for initialization
 	void Start () {
 		if (dir == 0) dir = 1;
@@ -23,7 +25,11 @@ public class ColorPulse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Renderer>().material.color = Color.Lerp(c1, c2, current);
+		if (ui){
+				GetComponent<Text>().material.color = Color.Lerp(c1, c2, current);
+			} else {
+				GetComponent<Renderer>().material.color = Color.Lerp(c1, c2, current);
+			}
 		current += speed * dir * Time.deltaTime;
 		if ((current > 1f || current < 0f) && pulse) dir *= -1;
 

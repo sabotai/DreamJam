@@ -9,9 +9,11 @@ public class MoveFwd : MonoBehaviour {
 	public float resetTime = 10f;
 	float startTime;
 	public float speedMultiplier = -100f;
+	public bool speedMultIsSpeed = false;
 	// Use this for initialization
 	void Start () {
 		speed = Random.Range(0.35f, 0.7f) * speedMultiplier;
+		if (speedMultIsSpeed) speed = speedMultiplier;
 		origin = transform.position;
 		startTime = 0f;
 	}

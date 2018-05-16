@@ -850,6 +850,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7dbaff489334918478391257e45e61ca, type: 3}
   - {fileID: 8300000, guid: c59518010607afa43b7ba5cfa8bce218, type: 3}
   - {fileID: 8300000, guid: a327aaa5a6afbed4f81fa14c69726958, type: 3}
+  hitClip:
+  - {fileID: 8300000, guid: ceb45dadafe29614ea26f2ebd88e4e52, type: 3}
+  - {fileID: 8300000, guid: da0b226b9651c7e4eac9cc45e15d35a9, type: 3}
+  - {fileID: 8300000, guid: 8aedda8520a4efa468b4ee56124b0bab, type: 3}
+  - {fileID: 8300000, guid: 0e0485afad0ec8840b48d5a227f6a604, type: 3}
+  bumpAmt: 1000
   minPitch: 0.8
   maxPitch: 1.5
 --- !u!114 &114173449698742116

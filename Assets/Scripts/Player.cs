@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 	GameObject mySpawner;
 	AudioSource aud;
 	public AudioClip[] jumpClip; 
+	public AudioClip[] hitClip;
 	public float bumpAmt = 1000f;
 	public float minPitch, maxPitch;
 	// Use this for initialization
@@ -56,10 +57,13 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other) {
-         if (other.transform.tag == "Platform" || other.transform.tag == "Pieces") {
+		aud.pitch = Mathf.Clamp(rb.velocity.magnitude, minPitch, maxPitch);
+		aud.PlayOneShot(hitClip[Random.Range(0, hitClip.Length)]);
+
+        if (other.transform.tag == "Platform" || other.transform.tag == "Pieces") {
             jumped = false;
          }
-         if (other.transform.tag == "Pieces") {
+        if (other.transform.tag == "Pieces") {
 	         if (other.gameObject.GetComponent<Renderer>().material.color == myMat.color){
 	         	//Debug.Log("my block");
 	         	Reset(other.gameObject);
