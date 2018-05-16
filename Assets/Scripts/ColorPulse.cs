@@ -17,8 +17,9 @@ public class ColorPulse : MonoBehaviour {
 	public bool ui;
 	// Use this for initialization
 	void Start () {
-		if (dir == 0) dir = 1;
 		current = 0f;
+		if (dir == 0) dir = 1;
+		else if (dir == -1) current = 1f;
 		initSpeed = speed;
 		if (!plat) plat = GameObject.Find("PlatParent").GetComponent<Platform>();
 	}
@@ -30,7 +31,7 @@ public class ColorPulse : MonoBehaviour {
 			} else {
 				GetComponent<Renderer>().material.color = Color.Lerp(c1, c2, current);
 			}
-		current += speed * dir * Time.deltaTime;
+		current += (speed * dir * Time.deltaTime);
 		if ((current > 1f || current < 0f) && pulse) dir *= -1;
 
 		if (pulse && speedBind) speed = 0.1f * (plat.rotSpeed / initSpeed);

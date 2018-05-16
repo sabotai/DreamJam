@@ -12,7 +12,7 @@ public class BounceTitle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		float offset = Mathf.Sin(Time.time * Time.deltaTime * speed) * mag;
+		float offset = Mathf.Sin(Time.time * speed) * mag;
 
 		transform.Translate(offset, offset, 0);
 	}
