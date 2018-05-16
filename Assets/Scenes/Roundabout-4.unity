@@ -6680,6 +6680,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114138554136802166, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+        type: 2}
+      propertyPath: bumpAmt
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
   m_IsPrefabParent: 0
@@ -6697,7 +6702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1596695042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6958,6 +6963,11 @@ Prefab:
     - target: {fileID: 4416295501661296, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: bumpAmt
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
@@ -7993,6 +8003,7 @@ MonoBehaviour:
   - {fileID: 1596695041}
   - {fileID: 1116823178}
   - {fileID: 1496082524}
+  - {fileID: 2082460649}
   disableThese:
   - {fileID: 1936986190}
   - {fileID: 940542433}
@@ -8913,13 +8924,14 @@ GameObject:
   - component: {fileID: 2082460650}
   - component: {fileID: 2082460652}
   - component: {fileID: 2082460651}
+  - component: {fileID: 2082460653}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2082460650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8935,7 +8947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -28.04}
+  m_AnchoredPosition: {x: 0, y: -28.039978}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2082460651
@@ -8950,7 +8962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8958,8 +8970,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3269af4624cc2fa459039b2708611d31, type: 3}
-    m_FontSize: 80
+    m_Font: {fileID: 12800000, guid: 2bb7fb3181479bd4293cd3dcefb010fe, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -8977,6 +8989,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2082460649}
+--- !u!114 &2082460653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2082460649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18285603f89ba1644a9c151d2b404b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundTime: 10
+  scoreMan: {fileID: 335384496}
 --- !u!1 &2093879680
 GameObject:
   m_ObjectHideFlags: 0
