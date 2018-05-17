@@ -17,8 +17,8 @@ public class ShameMove : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		normalSpeed = rate;
-		walkSpeed = rate / 4f;
-		slowSpeed = rate / 8f;
+		walkSpeed = rate / 3.5f;
+		slowSpeed = rate / 10f;
 		
 
 		Quaternion lRot = lEye.rotation;

@@ -88,12 +88,12 @@ public class DryEyes : MonoBehaviour {
 			if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f && !GetComponent<PixelIntroOutro>().enabled) {
 				float newW = xResL / Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f); //eye distance maxing out at 5
 				float newH = yResL /  Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f);
-				Debug.Log("DistBlur LEFT (" + newW + ", " + newH + ")");
+				//Debug.Log("DistBlur LEFT (" + newW + ", " + newH + ")");
 				updateRes(0, newW, newH);
 
 				newW = xResR / Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f); //eye distance maxing out at 5
 				newH = yResR /  Mathf.Clamp((1f + (7f * (eyeDist / eyeDistThresh))), 1f, 8f);
-				Debug.Log("DistBlur RIGHT (" + newW + ", " + newH + ")");
+				//Debug.Log("DistBlur RIGHT (" + newW + ", " + newH + ")");
 				updateRes(1, newW, newH);
 			}
 		}

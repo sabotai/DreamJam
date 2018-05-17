@@ -123,12 +123,15 @@ public class EyePlayer : MonoBehaviour {
 
 		if (Physics.Raycast(beam, out beamHit, dist)){
 			if (beamHit.transform.CompareTag("Stranger")){
-				Debug.Log("gazed at ... " + beamHit.transform.name);
-				DirectedAgent agent = beamHit.transform.gameObject.GetComponent<DirectedAgent>();
-				if (agent != null){
-					beamHit.transform.gameObject.GetComponent<DirectedAgent>().target = transform;
+				LookAtTarget[] look = beamHit.transform.gameObject.GetComponentsInChildren<LookAtTarget>();
+				if (look != null && (look[0].gazing || look[1].gazing)){
+					Debug.Log("gazed at ... " + beamHit.transform.name);
+					DirectedAgent agent = beamHit.transform.gameObject.GetComponent<DirectedAgent>();
+					if (agent != null){
+						beamHit.transform.gameObject.GetComponent<DirectedAgent>().target = transform;
+					}
+					return true;
 				}
-				return true;
 			}
 		}
 		return false;
