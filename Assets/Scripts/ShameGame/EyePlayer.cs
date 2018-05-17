@@ -114,7 +114,7 @@ public class EyePlayer : MonoBehaviour {
 		}
 		Ray beam = new Ray(transform.position, Vector3.Normalize(transform.position - origin));
 
-		float dist = 100f;
+		float dist = 250f;
 		if (eyeMan.blinking) dist = 10f;
 		if (RaisePhone.phoneRaised) dist = 50f;
 		Debug.DrawRay (beam.origin, beam.direction * dist);
@@ -127,7 +127,6 @@ public class EyePlayer : MonoBehaviour {
 				DirectedAgent agent = beamHit.transform.gameObject.GetComponent<DirectedAgent>();
 				if (agent != null){
 					beamHit.transform.gameObject.GetComponent<DirectedAgent>().target = transform;
-					Debug.Log("set eye as target...");
 				}
 				return true;
 			}

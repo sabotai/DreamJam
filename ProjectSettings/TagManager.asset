@@ -12,6 +12,7 @@ TagManager:
   - Point
   - Hazard
   - Label
+  - Target
   layers:
   - Default
   - TransparentFX
