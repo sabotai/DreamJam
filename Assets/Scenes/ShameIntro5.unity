@@ -2563,6 +2563,7 @@ MonoBehaviour:
   clipBag: {fileID: 8300000, guid: 0e1dac68f6cc8804aa86e53d4b8daa5e, type: 3}
   clipDissolve: {fileID: 8300000, guid: fba7a99a96eb9474e989c19293d17df7, type: 3}
   clipChime: {fileID: 8300000, guid: 1b8d16c1c89526549b5b3e336c0cc495, type: 3}
+  clipMenu: {fileID: 8300000, guid: 35b784e2255c9ec45ad3469aedd1e6c7, type: 3}
   sky: {fileID: 2100000, guid: d2a69f2346404e840888ee6c237d059b, type: 2}
   origSky: {r: 0, g: 0, b: 0, a: 0}
   dirLight: {fileID: 1130369436}

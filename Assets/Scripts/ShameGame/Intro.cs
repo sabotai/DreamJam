@@ -12,7 +12,7 @@ public class Intro : MonoBehaviour {
 	int state = 0;
 	public float pct = 1f;
 	AudioSource audSrc;
-	public AudioClip clipSwitch, clipBag, clipDissolve, clipChime;
+	public AudioClip clipSwitch, clipBag, clipDissolve, clipChime, clipMenu;
 	public Material sky;
 	public Color origSky;
 	public Light dirLight;
@@ -116,6 +116,7 @@ public class Intro : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.Space)){
 			state++;
+			if (state != 2 && state != 3 && state != 13 && state != 14) audSrc.PlayOneShot(clipMenu, 0.2f);
 		}
 
 		if (pct < 0f) {

@@ -2250,6 +2250,8 @@ MonoBehaviour:
   eyeMan: {fileID: 0}
   dist: 250
   phoneDist: 50
+  damageAmt: 2
+  phoneDmgPct: 0.5
 --- !u!54 &83067082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6020,12 +6022,14 @@ MonoBehaviour:
   lKey: 276
   blink: 0
   maxStray: 8
-  clip_GazeMake: {fileID: 8300000, guid: 448584817d837c841bdf575bd7024308, type: 3}
+  clip_GazeMake: {fileID: 8300000, guid: 92890292f83dc0a44a1f5b7b3628d9a3, type: 3}
   moveScript: {fileID: 957101255}
   momentumBased: 0
   eyeMan: {fileID: 0}
   dist: 250
   phoneDist: 50
+  damageAmt: 2
+  phoneDmgPct: 0.5
 --- !u!1 &181299011
 GameObject:
   m_ObjectHideFlags: 0
@@ -42329,12 +42333,14 @@ MonoBehaviour:
   lKey: 97
   blink: 0
   maxStray: 8
-  clip_GazeMake: {fileID: 8300000, guid: 448584817d837c841bdf575bd7024308, type: 3}
+  clip_GazeMake: {fileID: 8300000, guid: 92890292f83dc0a44a1f5b7b3628d9a3, type: 3}
   moveScript: {fileID: 957101255}
   momentumBased: 0
   eyeMan: {fileID: 0}
   dist: 250
   phoneDist: 50
+  damageAmt: 2
+  phoneDmgPct: 0.5
 --- !u!23 &1216851376
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51844,6 +51850,8 @@ MonoBehaviour:
   eyeMan: {fileID: 0}
   dist: 250
   phoneDist: 50
+  damageAmt: 2
+  phoneDmgPct: 0.5
 --- !u!23 &1523246991
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59053,6 +59061,8 @@ MonoBehaviour:
   eyeMan: {fileID: 0}
   dist: 250
   phoneDist: 50
+  damageAmt: 2
+  phoneDmgPct: 0.5
 --- !u!23 &1712788583
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59819,6 +59829,8 @@ MonoBehaviour:
   eyeMan: {fileID: 0}
   dist: 250
   phoneDist: 50
+  damageAmt: 2
+  phoneDmgPct: 0.5
 --- !u!23 &1737472499
 MeshRenderer:
   m_ObjectHideFlags: 0

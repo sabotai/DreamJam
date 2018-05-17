@@ -12,7 +12,7 @@ public class Outro : MonoBehaviour {
 	int state = 0;
 	public float pct = 0f;
 	AudioSource audSrc;
-	public AudioClip clipSwitch, clipDissolve, clipCrying;
+	public AudioClip clipSwitch, clipDissolve, clipCrying, clipMenu;
 	public Material sky, origSky, redSky;
 	public Cubemap skyCube;
 	Color skyColor;
@@ -98,6 +98,7 @@ public class Outro : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space) && state != 2) {
 			state++;
+			audSrc.PlayOneShot(clipMenu, 0.15f);
 		}
 
 		

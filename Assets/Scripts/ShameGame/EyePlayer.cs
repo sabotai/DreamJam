@@ -89,7 +89,7 @@ public class EyePlayer : MonoBehaviour {
 			float dmg = damageAmt;
 			if (RaisePhone.phoneRaised) dmg *= phoneDmgPct; //half damage while using phone
 			if (gameObject.name == "LTarget"){
-				if (lCam.localPosition == origPosL)	StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.05f * dmg));
+				if (lCam.localPosition == origPosL)	StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f * dmg));
 				//if (!eyeMan.distBlur) {
 					eyeMan.xResL *= (1f - (dmg * Time.deltaTime));
 					eyeMan.yResL *= (1f - (dmg * Time.deltaTime));
@@ -97,7 +97,7 @@ public class EyePlayer : MonoBehaviour {
 
 				//}
 			} else if (gameObject.name == "RTarget"){
-				if (rCam.localPosition == origPosR)	StartCoroutine (ScreenShake.Shake (rCam, 0.05f,  0.05f * dmg));
+				if (rCam.localPosition == origPosR)	StartCoroutine (ScreenShake.Shake (rCam, 0.05f,  0.1f * dmg));
 				//if (!eyeMan.distBlur) {
 					eyeMan.xResR *= (1f - (dmg * Time.deltaTime));
 					eyeMan.yResR *= (1f - (dmg * Time.deltaTime));
@@ -110,7 +110,7 @@ public class EyePlayer : MonoBehaviour {
 			float speedPct = (gazeEscalation * Time.deltaTime) / moveScript.rate;
 			moveScript.rate += gazeEscalation * Time.deltaTime;
 			moveScript.rotSpeed *= (1f + speedPct); //Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
-			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake);
+			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake, dmg / damageAmt);
 
 		}
 	}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.011
   m_CustomReflection: {fileID: 8900000, guid: b139af44edbe36e4f834e721f7dc3bba, type: 3}
   m_Sun: {fileID: 1130369436}
-  m_IndirectSpecularColor: {r: 0.13461176, g: 0, b: 0.00026016138, a: 0.011}
+  m_IndirectSpecularColor: {r: 0.018010192, g: 0.11619484, b: 0.13418561, a: 0.011}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2015,6 +2015,7 @@ MonoBehaviour:
   clipSwitch: {fileID: 8300000, guid: b108c1a9490fcb24f9defaf8ca112565, type: 3}
   clipDissolve: {fileID: 8300000, guid: 558e0626759530a4daffc56cf7ea410e, type: 3}
   clipCrying: {fileID: 8300000, guid: 3e6bebfee332c6345b14feaaef1bb0d4, type: 3}
+  clipMenu: {fileID: 8300000, guid: 35b784e2255c9ec45ad3469aedd1e6c7, type: 3}
   sky: {fileID: 2100000, guid: 89f53ee85dfc6d346adfbdda02da2e66, type: 2}
   origSky: {fileID: 2100000, guid: ad12140c04e28bf4fa5fcf5bd846153c, type: 2}
   redSky: {fileID: 2100000, guid: 5526e4de56c3008418554ad7f52ecd05, type: 2}
