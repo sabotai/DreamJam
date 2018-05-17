@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaisePhone : MonoBehaviour {
 
-	float pct = 1f;
+	public static float pct = 1f;
 	public float speed = 1f;
 	public static float dir = 1f;
 	public Transform up, down;
@@ -25,9 +25,11 @@ public class RaisePhone : MonoBehaviour {
 		if (dir == 1){
 			phoneRaised = true; 
 			batteryAmt -= Time.deltaTime;
+			SetLaserA.pAlpha = 0f; //update beam alpha
 		} else {
 			phoneRaised = false;
 			batteryAmt += Time.deltaTime;
+			SetLaserA.pAlpha = 0f; //update beam alpha
 		}
 		pct += dir * speed * Time.deltaTime;
 		pct = Mathf.Clamp(pct, 0f, 1f);

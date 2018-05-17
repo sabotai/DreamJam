@@ -24,10 +24,10 @@ public class LookAtTarget : MonoBehaviour {
        			Quaternion rotation = Quaternion.LookRotation(relativePos);
 				float angle = Quaternion.Angle(transform.parent.rotation, rotation);
 					if (angle < limit) {
-						Debug.Log("angle met ... " + angle);
+						//Debug.Log("angle met ... " + angle);
 						gazing = true;
 					} else {
-						Debug.Log("angle NOT met ... " + angle);
+						//Debug.Log("angle NOT met ... " + angle);
 						gazing = false;
 						transform.localRotation = origRot;
 					}

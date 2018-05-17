@@ -19,9 +19,13 @@ public class EyePlayer : MonoBehaviour {
 	public DryEyes eyeMan;
 	Vector3 origPosL, origPosR;
 	GameObject playersObj;
+	public float dist = 250f;
+	public float phoneDist = 50f;
 
 	// Use this for initialization
 	void Start () {
+		dist = 250f;
+		phoneDist = 100f;
 		rb = GetComponent<Rigidbody>();
 		orig = transform.localPosition;
 		audSrc = GetComponent<AudioSource>();
@@ -82,21 +86,23 @@ public class EyePlayer : MonoBehaviour {
 		if (moveScript.enabled && CheckGaze()) {
 			if (gameObject.name == "LTarget"){
 				if (lCam.localPosition == origPosL)	StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
-				if (!eyeMan.distBlur) {
+				//if (!eyeMan.distBlur) {
 					eyeMan.xResL *= 1f - (Time.deltaTime);
 					eyeMan.yResL *= 1f - (Time.deltaTime);
 					eyeMan.updateRes(0, eyeMan.xResL, eyeMan.yResL);
 
-				}
+				//}
 			} else if (gameObject.name == "RTarget"){
 				if (rCam.localPosition == origPosR)	StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
-				if (!eyeMan.distBlur) {
-					eyeMan.xResR *= 1f - (0.05f * Time.deltaTime);
-					eyeMan.yResR *= 1f - (0.05f * Time.deltaTime);
+				//if (!eyeMan.distBlur) {
+					eyeMan.xResR *= 1f - (Time.deltaTime);
+					eyeMan.yResR *= 1f - (Time.deltaTime);
 					eyeMan.updateRes(1, eyeMan.xResR, eyeMan.yResR);
 
-				}
+				//}
 			}
+
+			//SetLaserA.alpha = 1f - DryEyes.lifeAmt;
 			float pct = (gazeEscalation * Time.deltaTime) / moveScript.rate;
 			moveScript.rate += gazeEscalation * Time.deltaTime;
 			moveScript.rotSpeed *= (1f + pct); //Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
@@ -114,14 +120,14 @@ public class EyePlayer : MonoBehaviour {
 		}
 		Ray beam = new Ray(transform.position, Vector3.Normalize(transform.position - origin));
 
-		float dist = 250f;
-		if (eyeMan.blinking) dist = 10f;
-		if (RaisePhone.phoneRaised) dist = 50f;
-		Debug.DrawRay (beam.origin, beam.direction * dist);
+		float currentDist = dist;
+		if (DryEyes.blinking) currentDist = 0f;
+		if (RaisePhone.phoneRaised) currentDist = phoneDist;
+		Debug.DrawRay (beam.origin, beam.direction * currentDist);
 
 		RaycastHit beamHit = new RaycastHit ();
 
-		if (Physics.Raycast(beam, out beamHit, dist)){
+		if (Physics.Raycast(beam, out beamHit, currentDist)){
 			if (beamHit.transform.CompareTag("Stranger")){
 				LookAtTarget[] look = beamHit.transform.gameObject.GetComponentsInChildren<LookAtTarget>();
 				if (look != null && (look[0].gazing || look[1].gazing)){

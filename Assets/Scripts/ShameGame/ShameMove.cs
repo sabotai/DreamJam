@@ -11,6 +11,7 @@ public class ShameMove : MonoBehaviour {
 	public Transform dirIndicator;
 	public Vector3 dirOffset;
 
+
 	float walkSpeed, normalSpeed, slowSpeed;
 	Rigidbody rb;
 	// Use this for initialization
@@ -67,7 +68,7 @@ public class ShameMove : MonoBehaviour {
 
 		if (move){
 
-			if (GetComponent<DryEyes>().blinking) rate = slowSpeed;
+			if (DryEyes.blinking) rate = slowSpeed;
 			 else if (RaisePhone.phoneRaised) rate = walkSpeed;
 			 else rate = normalSpeed;
 	        transform.position += transform.forward * rate * Time.deltaTime;

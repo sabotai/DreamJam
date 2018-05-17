@@ -22,7 +22,7 @@ public class DryEyes : MonoBehaviour {
 	public float blinkZScale = 0.021f;
 	public float blinkDarkness = 0.2f;
 	float origBlinkZ;
-	public bool blinking = false;
+	public static bool blinking = false;
 	public bool distBlur = false;
 	public float xResL = 256f;
 	public float yResL = 288f;
@@ -30,6 +30,8 @@ public class DryEyes : MonoBehaviour {
 	public float yResR = 288f;
 	public float minRes = 20f;
 	public float eyeDistThresh = 0.5f;
+	public static float lifeAmt = 1f;
+	public static float minLife = 0.03f;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
@@ -58,6 +60,12 @@ public class DryEyes : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float lifeL =  ((xResL / (maxW - minRes)) + (yResL / (maxH - minRes))) / 2f;
+		float lifeR = ((xResR / (maxW - minRes)) + (yResR / (maxH - minRes))) / 2f;
+		lifeAmt = (Mathf.Min(lifeL, lifeR) * 2f) - minLife;
+		Debug.Log("lifeAmt = " + lifeAmt + " LLife = " + lifeL + " RLife = " + lifeR);
+		if (lifeAmt < 0f) GetComponent<CollisionSound>().restartStuff();
+
 		eyeDist = Vector3.Distance(rTarget.position, lTarget.position) - initialDist;
 		//Debug.Log("eyeDist = " + eyeDist);
 		if (eyeDist > eyeDistThresh){
@@ -116,10 +124,10 @@ public class DryEyes : MonoBehaviour {
 	}
 	public void updateRes(int eyeIndex, float w, float h){
 
-		if (xResL < minRes || xResR < minRes || yResL < minRes || yResR < minRes) {
+		//if (xResL < minRes || xResR < minRes || yResL < minRes || yResR < minRes) {
 			//if the resolution gets really bad, player loses
-			GetComponent<CollisionSound>().restartStuff();
-		} else {
+		//	GetComponent<CollisionSound>().restartStuff();
+		//} else {
 
 		//ScalableBufferManager.ResizeBuffers(w / maxW, h / maxH);
 		
@@ -135,7 +143,7 @@ public class DryEyes : MonoBehaviour {
 				rScreen.texture = newRend;
 			}
 		
-		}
+		
 
 	}
 	float blink(){
