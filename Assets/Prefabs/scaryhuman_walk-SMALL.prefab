@@ -628,6 +628,9 @@ GameObject:
   - component: {fileID: 114029510514980468}
   - component: {fileID: 114217650462383350}
   - component: {fileID: 114690736445016568}
+  - component: {fileID: 114373639193119034}
+  - component: {fileID: 195692253254928820}
+  - component: {fileID: 136279595506327798}
   m_Layer: 0
   m_Name: scaryhuman_walk-SMALL
   m_TagString: Stranger
@@ -827,10 +830,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4186024421061902}
   - component: {fileID: 114230923063295676}
-  - component: {fileID: 135443716190368988}
-  - component: {fileID: 136000448332919796}
-  - component: {fileID: 136253096792256770}
-  - component: {fileID: 135125270557680626}
   m_Layer: 0
   m_Name: HeadMod
   m_TagString: Stranger
@@ -1779,7 +1778,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1633708508203088}
   m_LocalRotation: {x: -0.0906284, y: -0.8937962, z: 0.20997299, w: 0.38577998}
-  m_LocalPosition: {x: 0.054917052, y: -0.005024333, z: 0.10900742}
+  m_LocalPosition: {x: 0.09280431, y: -0.008856325, z: 0.10130167}
   m_LocalScale: {x: 0.0011666669, y: 0.0011666667, z: 0.0011666669}
   m_Children:
   - {fileID: 4004437393822710}
@@ -2263,7 +2262,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1633708508203088}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13c93a6b58b61464d967c91d0fc0dfaa, type: 3}
   m_Name: 
@@ -2282,6 +2281,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   useDistThresh: 1
+--- !u!114 &114373639193119034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633708508203088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece5733a7c6dfe14b898e5e28d568b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &114690736445016568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2799,56 +2810,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!135 &135125270557680626
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816931654154972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135443716190368988
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816931654154972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136000448332919796
+--- !u!136 &136279595506327798
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816931654154972}
+  m_GameObject: {fileID: 1633708508203088}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.46
+  m_Radius: 0.74
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136253096792256770
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816931654154972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.46
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.43, z: 0}
 --- !u!137 &137280961310466058
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -3010,3 +2984,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00017882884, y: 0.03571832, z: 0.09780385}
     m_Extent: {x: 0.05799348, y: 0.017673621, z: 0.01583258}
   m_DirtyAABB: 0
+--- !u!195 &195692253254928820
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633708508203088}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

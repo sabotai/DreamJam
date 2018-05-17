@@ -368,8 +368,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4753575032651668}
   - component: {fileID: 114403213491385014}
-  - component: {fileID: 135338612238228616}
-  - component: {fileID: 136642501276109490}
   m_Layer: 0
   m_Name: HeadMod
   m_TagString: Stranger
@@ -794,6 +792,9 @@ GameObject:
   - component: {fileID: 95917652474383868}
   - component: {fileID: 114526927034955468}
   - component: {fileID: 114469428232831836}
+  - component: {fileID: 114584142657786026}
+  - component: {fileID: 195732619098277916}
+  - component: {fileID: 136959598386855220}
   m_Layer: 0
   m_Name: scaryhuman_run-SMALL
   m_TagString: Stranger
@@ -1137,16 +1138,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1722828393886588}
-  m_LocalRotation: {x: -0.21174563, y: 0.36780542, z: -0.08640578, w: 0.9013418}
-  m_LocalPosition: {x: -0.01080516, y: -0.03333341, z: 0.052080736}
-  m_LocalScale: {x: 0.0013333336, y: 0.0013333334, z: 0.0013333336}
+  m_LocalRotation: {x: -0.21255727, y: -0.3592217, z: 0.084389366, w: 0.90479696}
+  m_LocalPosition: {x: 0.068728685, y: -0.007202525, z: 0.104627304}
+  m_LocalScale: {x: 0.00083333394, y: 0.00083333335, z: 0.00083333394}
   m_Children:
   - {fileID: 4911672702472248}
   - {fileID: 4004222157144074}
   - {fileID: 4698618789125266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 177.705, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4096848831288156
 Transform:
   m_ObjectHideFlags: 1
@@ -2216,7 +2217,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1722828393886588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13c93a6b58b61464d967c91d0fc0dfaa, type: 3}
   m_Name: 
@@ -2233,6 +2234,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c3f954db1a8fe4e89623daac3added, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114584142657786026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722828393886588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece5733a7c6dfe14b898e5e28d568b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &114961315693539932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2650,31 +2663,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!135 &135338612238228616
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1277713973720130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136642501276109490
+--- !u!136 &136959598386855220
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1277713973720130}
+  m_GameObject: {fileID: 1722828393886588}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.46
+  m_Radius: 0.74
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.35, z: 0}
 --- !u!137 &137407336615031578
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2836,3 +2837,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00017882884, y: 0.03571832, z: 0.09780385}
     m_Extent: {x: 0.05799348, y: 0.017673621, z: 0.01583258}
   m_DirtyAABB: 0
+--- !u!195 &195732619098277916
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722828393886588}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

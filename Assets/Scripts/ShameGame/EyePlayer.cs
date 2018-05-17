@@ -18,6 +18,7 @@ public class EyePlayer : MonoBehaviour {
 	public bool momentumBased = false;
 	public DryEyes eyeMan;
 	Vector3 origPosL, origPosR;
+	GameObject playersObj;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,7 @@ public class EyePlayer : MonoBehaviour {
 		rCam = GameObject.Find("RCam").transform;
 		origPosL = lCam.localPosition;
 		origPosR = rCam.localPosition;
+		playersObj = GameObject.Find("Players");
 		if (eyeMan == null) eyeMan = GameObject.Find("Players").GetComponent<DryEyes>();
 	}
 	
@@ -121,6 +123,12 @@ public class EyePlayer : MonoBehaviour {
 
 		if (Physics.Raycast(beam, out beamHit, dist)){
 			if (beamHit.transform.CompareTag("Stranger")){
+				Debug.Log("gazed at ... " + beamHit.transform.name);
+				DirectedAgent agent = beamHit.transform.gameObject.GetComponent<DirectedAgent>();
+				if (agent != null){
+					beamHit.transform.gameObject.GetComponent<DirectedAgent>().target = transform;
+					Debug.Log("set eye as target...");
+				}
 				return true;
 			}
 		}
