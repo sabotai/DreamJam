@@ -21,6 +21,8 @@ public class EyePlayer : MonoBehaviour {
 	GameObject playersObj;
 	public float dist = 250f;
 	public float phoneDist = 50f;
+	public float damageAmt = 2f;
+	public float phoneDmgPct = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -84,28 +86,30 @@ public class EyePlayer : MonoBehaviour {
 		rb.velocity =  Vector3.ClampMagnitude(rb.velocity, 4f);
 
 		if (moveScript.enabled && CheckGaze()) {
+			float dmg = damageAmt;
+			if (RaisePhone.phoneRaised) dmg *= phoneDmgPct; //half damage while using phone
 			if (gameObject.name == "LTarget"){
-				if (lCam.localPosition == origPosL)	StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.1f));
+				if (lCam.localPosition == origPosL)	StartCoroutine (ScreenShake.Shake (lCam, 0.05f, 0.05f * dmg));
 				//if (!eyeMan.distBlur) {
-					eyeMan.xResL *= 1f - (Time.deltaTime);
-					eyeMan.yResL *= 1f - (Time.deltaTime);
+					eyeMan.xResL *= (1f - (dmg * Time.deltaTime));
+					eyeMan.yResL *= (1f - (dmg * Time.deltaTime));
 					eyeMan.updateRes(0, eyeMan.xResL, eyeMan.yResL);
 
 				//}
 			} else if (gameObject.name == "RTarget"){
-				if (rCam.localPosition == origPosR)	StartCoroutine (ScreenShake.Shake (rCam, 0.05f, 0.1f));
+				if (rCam.localPosition == origPosR)	StartCoroutine (ScreenShake.Shake (rCam, 0.05f,  0.05f * dmg));
 				//if (!eyeMan.distBlur) {
-					eyeMan.xResR *= 1f - (Time.deltaTime);
-					eyeMan.yResR *= 1f - (Time.deltaTime);
+					eyeMan.xResR *= (1f - (dmg * Time.deltaTime));
+					eyeMan.yResR *= (1f - (dmg * Time.deltaTime));
 					eyeMan.updateRes(1, eyeMan.xResR, eyeMan.yResR);
 
 				//}
 			}
 
 			//SetLaserA.alpha = 1f - DryEyes.lifeAmt;
-			float pct = (gazeEscalation * Time.deltaTime) / moveScript.rate;
+			float speedPct = (gazeEscalation * Time.deltaTime) / moveScript.rate;
 			moveScript.rate += gazeEscalation * Time.deltaTime;
-			moveScript.rotSpeed *= (1f + pct); //Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
+			moveScript.rotSpeed *= (1f + speedPct); //Mathf.Clamp(moveScript.rate / 600f, moveScript.rotSpeedRange.x, moveScript.rotSpeedRange.y);
 			if (!audSrc.isPlaying) audSrc.PlayOneShot(clip_GazeMake);
 
 		}
