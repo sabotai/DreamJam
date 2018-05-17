@@ -9,9 +9,9 @@ public class Platform : MonoBehaviour {
 	public bool autoSlow = true;
 	float oldDir;
 	float maxSpeed = 1000f;
-	public bool waves = false;
+	public static bool waves = false;
 	public float scale = 1f;
-	public bool randomize = false;
+	public static bool randomize = false;
 	AudioSource aud;
 
 

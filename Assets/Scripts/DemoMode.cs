@@ -10,14 +10,15 @@ public class DemoMode : MonoBehaviour {
 	GameObject enableThisOne;
 	public static bool menuReset = false;
 	public static bool demoMode = true;
-	public Platform plat;
+	//public Platform plat;
 	// Use this for initialization
 	void Start () {
+		demoMode = true;
 		float rando = Random.value;
 		if (rando > 0.5f) {
-			plat.waves = true; 
+			Platform.waves = true; 
 			} else {
-				plat.waves = false;
+				Platform.waves = false;
 			}
 		enableThisOne = enableOneOfThese[Random.Range(0, enableOneOfThese.Length)];
 

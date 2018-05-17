@@ -22,8 +22,15 @@ public class Score : MonoBehaviour {
 	void Start () {
 		startSize = pScore[0].fontSize;
 		roundsWon = new int[playerScore.Length];
+		plat = GameObject.Find("PlatParent").GetComponent<Platform>();
+		Platform.waves = false;
+		Platform.randomize = false;
 	}
 	
+	void OnEnable () {
+		Platform.waves = false;
+		Platform.randomize = false;
+	}
 	// Update is called once per frame
 	void Update () {
 		//if (debugScore) Debug.Log("P1 = " + playerScore[0] + ", P2 = " + playerScore[1]);
@@ -64,11 +71,11 @@ public class Score : MonoBehaviour {
 
 		switch (currentRound){
              		case 0:
-		             	plat.waves = true;
+		             	Platform.waves = true;
              			break;
              		case 1:
-		             	plat.waves = false;
-		             	plat.randomize = true;
+		             	Platform.waves = false;
+		             	Platform.randomize = true;
              			break;
              		case 2:
 		             	reset();
@@ -90,8 +97,8 @@ public class Score : MonoBehaviour {
 			roundScore[i].transform.GetChild(4).gameObject.SetActive(true);
 			roundScore[i].transform.GetChild(5).gameObject.SetActive(true);
 		}
-		plat.waves = false;
-		plat.randomize = false;
+		Platform.waves = false;
+		Platform.randomize = false;
 		DemoMode.menuReset = true;	
 		SceneManager.LoadScene(0);
 	}
