@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Shame25.unity
     guid: 2521ebf936ae5a44dbbe265b69771942
   - enabled: 1
-    path: Assets/Scenes/ShameOutro.unity
-    guid: 5c57fc0ac3f37444694247b7c3b409b2
+    path: Assets/Scenes/ShameOutro2.unity
+    guid: 2b0822551233cdf4c803d3b989f4497c
   - enabled: 0
     path: Assets/Scenes/Shame22.unity
     guid: 07599337d2690974ba436c84d33e3bb3
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shame17.unity
     guid: fe3ea8983491c2940ad9616e04d05304
+  - enabled: 1
+    path: Assets/Scenes/ShameOutro.unity
+    guid: 5c57fc0ac3f37444694247b7c3b409b2
   - enabled: 0
     path: Assets/Scenes/Roundabout-7.unity
     guid: f6f327e71c4c3df40b5d9e3fa78f00a9
