@@ -14,31 +14,35 @@ public class SetLaserA : MonoBehaviour {
 	public EyePlayer eyeP;
 	// Use this for initialization
 	void Start () {
-		phoneA = eyeP.phoneDist / eyeP.dist;
-		if (minAlpha == 0f) minAlpha = (20f/255f);
-		alpha = minAlpha;
-		pAlpha = minAlpha;
-		laserMat.color = new Color(laserMat.color.r, laserMat.color.g, laserMat.color.b, alpha);
+		if (!GameModes.arcadeMode){
+			phoneA = eyeP.phoneDist / eyeP.dist;
+			if (minAlpha == 0f) minAlpha = (20f/255f);
+			alpha = minAlpha;
+			pAlpha = minAlpha;
+			laserMat.color = new Color(laserMat.color.r, laserMat.color.g, laserMat.color.b, alpha);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		alpha = 1f - DryEyes.lifeAmt;
-		if (alpha != pAlpha || DryEyes.blinking){
-			float a = alpha;
-			if (RaisePhone.phoneRaised){
-				a *= (phoneA / RaisePhone.pct);
-				//Debug.Log("new alpha = " + a);
-			} 
-			if (DryEyes.blinking) {
-				alpha = minAlpha;
-				a = minAlpha;
-			}	
-			a = Mathf.Clamp(a, minAlpha, maxAlpha);
-			alpha = a;
-			laserMat.color = new Color(laserMat.color.r, laserMat.color.g, laserMat.color.b, a);
+		if (!GameModes.arcadeMode){
+			alpha = 1f - DryEyes.lifeAmt;
+			if (alpha != pAlpha || DryEyes.blinking){
+				float a = alpha;
+				if (RaisePhone.phoneRaised){
+					a *= (phoneA / RaisePhone.pct);
+					//Debug.Log("new alpha = " + a);
+				} 
+				if (DryEyes.blinking) {
+					alpha = minAlpha;
+					a = minAlpha;
+				}	
+				a = Mathf.Clamp(a, minAlpha, maxAlpha);
+				alpha = a;
+				laserMat.color = new Color(laserMat.color.r, laserMat.color.g, laserMat.color.b, a);
 
-			pAlpha = alpha;
+				pAlpha = alpha;
+			}
 		}
 	}
 }
