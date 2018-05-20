@@ -17,13 +17,13 @@ public class ParentSwap : MonoBehaviour {
 	void OnCollisionEnter(Collision other) {
          if ( (other.transform.tag == "Pieces" || other.transform.tag == "Players")) {
              //other.transform.parent = transform;
-             other.transform.SetParent(transform.parent.parent);
+             other.transform.SetParent(transform.parent);
          }
      }
      void OnCollisionStay(Collision other) {
          if ( (other.transform.tag == "Pieces" || other.transform.tag == "Players")) {
              //other.transform.parent = transform;
-             other.transform.SetParent(transform.parent.parent);
+             other.transform.SetParent(transform.parent);
          }
      }
  

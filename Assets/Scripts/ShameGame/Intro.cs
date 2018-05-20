@@ -116,7 +116,7 @@ public class Intro : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.Space)){
 			state++;
-			if (state != 2 && state != 3 && state != 13 && state != 14) audSrc.PlayOneShot(clipMenu, 0.2f);
+			if (state != 2 && state != 3 && state != 13 && state != 14) audSrc.PlayOneShot(clipMenu, 0.5f);
 		}
 
 		if (pct < 0f) {

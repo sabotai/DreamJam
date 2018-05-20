@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
-	public static float roundTime = 10f;
+	public static float roundTime = 60f;
 	public static float startTime = 0f;
 	public Score scoreMan;
 	Text text;
