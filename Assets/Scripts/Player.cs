@@ -18,34 +18,36 @@ public class Player : MonoBehaviour {
 	public AudioClip[] hitClip;
 	public float bumpAmt = 1000f;
 	public float minPitch, maxPitch;
+	Transform myParent;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		aud = GetComponent<AudioSource>();
 		myMass = rb.mass;
 		mySpawner = GameObject.Find(gameObject.name + "Spawner");
+		myParent = transform.parent;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		myMat = GetComponent<Renderer>().material;
-		if (Input.GetKeyDown(KeyCode.Space) && Button.buttonDown) GetComponent<Rigidbody>().AddForce( Vector3.up * bumpAmt + Random.insideUnitSphere);
+		if (Input.GetKeyDown(KeyCode.Space) && Button.buttonDown) GetComponent<Rigidbody>().AddForce( (Vector3.up * bumpAmt + Random.insideUnitSphere) * (Time.deltaTime * 60f));
 
 
 		if (Input.GetKey(fwdKey)){
-			rb.AddForce(Vector3.forward * forceAmt * rb.mass);
+			rb.AddForce(Vector3.forward * forceAmt * rb.mass * (Time.deltaTime * 60f));
 		}
 		if (Input.GetKey(lKey)){
-			rb.AddForce(Vector3.left * forceAmt * rb.mass);
+			rb.AddForce(Vector3.left * forceAmt * rb.mass * (Time.deltaTime * 60f));
 		}
 		if (Input.GetKey(backKey)){
-			rb.AddForce(-Vector3.forward * forceAmt * rb.mass);
+			rb.AddForce(-Vector3.forward * forceAmt * rb.mass * (Time.deltaTime * 60f));
 		}
 		if (Input.GetKey(rKey)){
-			rb.AddForce(Vector3.right * forceAmt * rb.mass);
+			rb.AddForce(Vector3.right * forceAmt * rb.mass * (Time.deltaTime * 60f));
 		}
 		if (Input.GetKey(jump) && !jumped){
-			rb.AddForce(Vector3.up * jumpAmt * rb.mass);
+			rb.AddForce(Vector3.up * jumpAmt * rb.mass * (Time.deltaTime * 60f));
 			aud.pitch = Mathf.Clamp(rb.velocity.y, minPitch, maxPitch);
 			aud.PlayOneShot(jumpClip[Random.Range(0, jumpClip.Length)]);
 			jumped = true;
@@ -97,8 +99,8 @@ public class Player : MonoBehaviour {
          }
      }
 
-     void Respawn(){
-
+    public void Respawn(){
+    		transform.parent = myParent;
             transform.position = mySpawner.transform.position;
             GetComponent<Rigidbody>().velocity = Vector3.down;
             enabled = false;

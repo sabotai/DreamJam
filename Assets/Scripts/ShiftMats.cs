@@ -11,10 +11,20 @@ public class ShiftMats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//if (!players[0].activeSelf) players[0] = GameObject.Find("P1");
+		//if (!players[1].activeSelf) players[1] = GameObject.Find("P2");
+		players[0] = GameObject.Find("P1");
+		players[1] = GameObject.Find("P2");
+
+	}
+	void OnEnable(){
+		players[0] = GameObject.Find("P1");
+		players[1] = GameObject.Find("P2");
+		/*
 		for (int i = 0; i < playerMats.Length; i++){
 			playerMats[i] = players[i].GetComponent<Renderer>().material;
-				
-			}	
+		}
+		*/	
 	}
 	
 	// Update is called once per frame

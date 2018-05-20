@@ -4465,7 +4465,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4370309397762068, guid: 16f8dbdb8ed07f1488a683b7de10a6cb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -7.631
+      value: -1.593
       objectReference: {fileID: 0}
     - target: {fileID: 4370309397762068, guid: 16f8dbdb8ed07f1488a683b7de10a6cb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -37252,7 +37252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip_collision: {fileID: 8300000, guid: 50d8f9d05ed0eba4f8ac7a722ec2a08c, type: 3}
-  clip_restart: {fileID: 8300000, guid: 3e6bebfee332c6345b14feaaef1bb0d4, type: 3}
+  clip_restart: {fileID: 8300000, guid: 16644d4704ac10249b5cf511a19c2bd1, type: 3}
   audSrc2: {fileID: 1308404692}
   restart: 1
   timerAmt: 1.7
@@ -46840,7 +46840,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 57e9c389c32054c468a299f23087d598, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c67db7f4737bdfd4c819f82cd95f7274, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -52941,7 +52941,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4370309397762068, guid: 16f8dbdb8ed07f1488a683b7de10a6cb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.1099997
+      value: 6.035
       objectReference: {fileID: 0}
     - target: {fileID: 4370309397762068, guid: 16f8dbdb8ed07f1488a683b7de10a6cb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -76594,7 +76594,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4370309397762068, guid: 16f8dbdb8ed07f1488a683b7de10a6cb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.390001
+      value: -4.44
       objectReference: {fileID: 0}
     - target: {fileID: 4370309397762068, guid: 16f8dbdb8ed07f1488a683b7de10a6cb, type: 2}
       propertyPath: m_LocalRotation.x

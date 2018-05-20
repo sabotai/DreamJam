@@ -5,6 +5,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour {
 	public Vector3 rotDir;
 	public float rotSpeed;
+	float escalationRate = 1.2f;
 	public float origSpeed;
 	public bool autoSlow = true;
 	float oldDir;
@@ -29,7 +30,7 @@ public class Platform : MonoBehaviour {
 		//if (Input.GetKeyDown(KeyCode.Space)) Reverse();
 		Rotate(rotDir, rotSpeed);
 
-		if (autoSlow && Mathf.Abs(rotSpeed) > 1f) rotSpeed *= 0.9995f;
+		if (autoSlow && Mathf.Abs(rotSpeed) > 1f) rotSpeed *= 0.9991f;
 
 		oldDir = Button.direction;
 
@@ -46,7 +47,7 @@ public class Platform : MonoBehaviour {
 
 	public void Reverse(){
 		rotDir *= -1f;
-		rotSpeed *= 1.5f;
+		rotSpeed *= escalationRate;
 		rotSpeed = Mathf.Clamp(rotSpeed, -maxSpeed, maxSpeed);
 		//Debug.Log("rotSpeed = " + rotSpeed);
 	}

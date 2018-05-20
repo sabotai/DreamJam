@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ParentSwap : MonoBehaviour {
-
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -15,20 +15,20 @@ public class ParentSwap : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision other) {
-         if (other.transform.tag == "Pieces" || other.transform.tag == "Players") {
+         if ( (other.transform.tag == "Pieces" || other.transform.tag == "Players")) {
              //other.transform.parent = transform;
-             other.transform.SetParent(transform.parent);
+             other.transform.SetParent(transform.parent.parent);
          }
      }
      void OnCollisionStay(Collision other) {
-         if (other.transform.tag == "Pieces" || other.transform.tag == "Players") {
+         if ( (other.transform.tag == "Pieces" || other.transform.tag == "Players")) {
              //other.transform.parent = transform;
-             other.transform.SetParent(transform.parent);
+             other.transform.SetParent(transform.parent.parent);
          }
      }
  
     void OnCollisionExit(Collision other) {
-          if (other.transform.tag == "Pieces" || other.transform.tag == "Players") {
+         if ( (other.transform.tag == "Pieces" || other.transform.tag == "Players")) {
              other.transform.parent = null;
          }
      }

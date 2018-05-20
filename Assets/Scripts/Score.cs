@@ -58,11 +58,17 @@ public class Score : MonoBehaviour {
 	}
 
 	public void advanceRound(){
-		Timer.startTime += Time.time;
+		Timer.startTime += Timer.roundTime;
 		GameObject[] pieces = GameObject.FindGameObjectsWithTag("Pieces");
 		foreach (GameObject piece in pieces)
         {
             Destroy(piece);
+        }
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Players");
+		foreach (GameObject player in players)
+        {
+        	Debug.Log("respawning player ... " + player.name);
+            player.GetComponent<Player>().Respawn();
         }
 
 		for (int i = 0; i < playerScore.Length; i++){
