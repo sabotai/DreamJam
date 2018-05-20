@@ -5,16 +5,15 @@ using UnityEngine;
 public class Platform : MonoBehaviour {
 	public Vector3 rotDir;
 	public float rotSpeed;
-	float escalationRate = 1.2f;
+	float escalationRate = 1.4f;
 	public float origSpeed;
 	public bool autoSlow = true;
 	float oldDir;
 	float maxSpeed = 1000f;
-	public static bool waves = false;
+	public bool waves = false;
 	public float scale = 1f;
-	public static bool randomize = false;
+	public bool randomize = false;
 	AudioSource aud;
-
 
 	// Use this for initialization
 	void Start () {
@@ -30,12 +29,19 @@ public class Platform : MonoBehaviour {
 		//if (Input.GetKeyDown(KeyCode.Space)) Reverse();
 		Rotate(rotDir, rotSpeed);
 
-		if (autoSlow && Mathf.Abs(rotSpeed) > 1f) rotSpeed *= 0.9991f;
+		if (autoSlow && Mathf.Abs(rotSpeed) > 1f) rotSpeed *= 0.9993f;
 
 		oldDir = Button.direction;
 
 		if (waves) makeWaves(); 
-		if (randomize) randomizePlats();
+		if (Input.GetKeyDown(KeyCode.Space) && randomize) randomizePlats();
+	}
+
+	public void ResetPos(){
+
+		for (int i = 0; i < transform.childCount; i++){
+			transform.GetChild(i).localPosition = Vector3.zero;
+		}
 	}
 
 	void Rotate(Vector3 dir, float speed){
@@ -63,7 +69,7 @@ public class Platform : MonoBehaviour {
 			float offset = Random.Range(-2f, 2f) * scale;
 			transform.GetChild(i).position = new Vector3(transform.position.x, transform.position.y + offset, transform.position.z);
 		}
-		randomize = false;
+		//randomize = false;
 
 	}
 

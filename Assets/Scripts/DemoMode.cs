@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DemoMode : MonoBehaviour {
 
@@ -10,19 +11,22 @@ public class DemoMode : MonoBehaviour {
 	GameObject enableThisOne;
 	public static bool menuReset = false;
 	public static bool demoMode = true;
+	Platform demoPlat;
+	Spawner[] spawners;
 	//public Platform plat;
 	// Use this for initialization
 	void Start () {
+		demoPlat = GameObject.Find("PlatParent").GetComponent<Platform>();
 		demoMode = true;
 		float rando = Random.value;
 		if (rando > 0.5f) {
-			Platform.waves = true; 
+			demoPlat.waves = true; 
 			} else {
-				Platform.waves = false;
+				demoPlat.waves = false;
 			}
 		enableThisOne = enableOneOfThese[Random.Range(0, enableOneOfThese.Length)];
 
-		
+		spawners = GetComponents<Spawner>();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +42,30 @@ public class DemoMode : MonoBehaviour {
 				}
 				demoMode = false;
 			}	
+			if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
+				demoPlat.rotSpeed -= 0.5f;
+			}
+			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
+				demoPlat.rotSpeed += 0.5f;
+			}
+			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)){
+				foreach (Spawner spawn in spawners){
+					spawn.spawnTime -= 0.1f;
+				}
+			}
+			if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)){
+				foreach (Spawner spawn in spawners){
+					spawn.spawnTime += 0.1f;
+				}
+				
+			}
+			if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.N)){
+				demoPlat.Reverse();
+			}
+			if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.M)){
+				demoPlat.waves = !demoPlat.waves;
+				demoPlat.ResetPos();
+			}
 		}
 
 		if (menuReset && !demoMode){
@@ -51,6 +79,7 @@ public class DemoMode : MonoBehaviour {
 			}
 			menuReset = false;
 			demoMode = true;
+			SceneManager.LoadScene(0);
 
 		}
 	}

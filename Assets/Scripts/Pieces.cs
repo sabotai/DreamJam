@@ -58,7 +58,7 @@ public class Pieces : MonoBehaviour {
 		             	other.gameObject.GetComponent<Rigidbody>().mass += gameObject.GetComponent<Rigidbody>().mass;
 		             	//other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		             	aud = other.gameObject.GetComponent<AudioSource>();
-		             	Debug.Log("merge mag: " + other.transform.localScale.magnitude);
+		             	//Debug.Log("merge mag: " + other.transform.localScale.magnitude);
 						aud.pitch = 1.5f - other.transform.localScale.magnitude;
 						aud.PlayOneShot(mergeClips[Random.Range(0, mergeClips.Length)]);
 		             	gameObject.SetActive(false);

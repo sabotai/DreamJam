@@ -16,6 +16,6 @@ public class Music : MonoBehaviour {
 		if (aud.clip != tracks[score.currentRound]){
 			aud.clip = tracks[score.currentRound];
 			aud.Play();
-		};
+		}
 	}
 }

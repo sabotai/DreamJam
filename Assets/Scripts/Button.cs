@@ -41,7 +41,7 @@ public class Button : MonoBehaviour {
 				buttonAvailable = false;
 				matShifter.ShiftTheMats();
 				aud.PlayOneShot(downClip);
-				if (score.gameObject.activeSelf && score.currentRound == 2) plat.randomizePlats();
+				//if (score.gameObject.activeSelf && score.currentRound == 2) plat.randomizePlats();
 
 			} else if (!buttonDown){
 				buttonPress(false, origAvailableY);

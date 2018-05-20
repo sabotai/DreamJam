@@ -82,9 +82,6 @@ GameObject:
   - component: {fileID: 114138554136802166}
   - component: {fileID: 82742662625188640}
   - component: {fileID: 114539417797900484}
-  - component: {fileID: 65268432385776090}
-  - component: {fileID: 65426099332500994}
-  - component: {fileID: 65328369567669186}
   m_Layer: 0
   m_Name: P2
   m_TagString: Players
@@ -634,35 +631,11 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536814850525152}
-  m_Material: {fileID: 13400000, guid: 6d9ce7c1e8ff7274cb11d6218b2cfb1a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9, z: 0.9}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65268432385776090
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536814850525152}
-  m_Material: {fileID: 13400000, guid: 6d9ce7c1e8ff7274cb11d6218b2cfb1a, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1, y: 0.9, z: 0.9}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65328369567669186
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536814850525152}
-  m_Material: {fileID: 13400000, guid: 6d9ce7c1e8ff7274cb11d6218b2cfb1a, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9, z: 1.1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65351133063807468
 BoxCollider:
@@ -675,18 +648,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65426099332500994
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536814850525152}
-  m_Material: {fileID: 13400000, guid: 6d9ce7c1e8ff7274cb11d6218b2cfb1a, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 1.1, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65682814651087360
 BoxCollider:

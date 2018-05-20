@@ -14,50 +14,87 @@ public class Score : MonoBehaviour {
 	int[] roundsWon;
 	int numRounds = 3;
 	public float maxFont = 260;
-	bool nextRound = false;
+	public static bool nextRound = false;
 	public int currentRound = 0;
 	public Platform plat;
+	public Text announce, announceShadow;
+	public static bool gameOver = false;
 
 	// Use this for initialization
 	void Start () {
 		startSize = pScore[0].fontSize;
 		roundsWon = new int[playerScore.Length];
+		for (int i = 0; i < roundsWon.Length; i++){
+			roundsWon[i] = 0;
+		}
 		plat = GameObject.Find("PlatParent").GetComponent<Platform>();
-		Platform.waves = false;
-		Platform.randomize = false;
+		//Platform.waves = false;
+		//Platform.randomize = false;
+		announce.text = "";
+		announceShadow.text = "";
+		gameOver = false;
+		nextRound = false;
 	}
 	
 	void OnEnable () {
-		Platform.waves = false;
-		Platform.randomize = false;
+		//Platform.waves = false;
+		//Platform.randomize = false;
+		announce.text = "";
+		announceShadow.text = "";
 	}
 	// Update is called once per frame
 	void Update () {
 		//if (debugScore) Debug.Log("P1 = " + playerScore[0] + ", P2 = " + playerScore[1]);
 
+		if (!gameOver){
+			if (nextRound){
+				if (Input.GetKeyDown(KeyCode.Space)) advanceRound();
+			} else {
+				for (int i = 0; i < playerScore.Length; i++){
+					
+					pScore[i].text = playerScore[i].ToString();
+					pScore[i].fontSize = startSize + (int)( (playerScore[i] / scoreCap) * (maxFont - startSize));
 
-		for (int i = 0; i < playerScore.Length; i++){
-			
-			pScore[i].text = playerScore[i].ToString();
-			pScore[i].fontSize = startSize + (int)( (playerScore[i] / scoreCap) * (maxFont - startSize));
-
-			if (playerScore[i] > scoreCap) roundWin(i); 
+					if (playerScore[i] > scoreCap) roundWin(i); 
+				}
+			}
+		} else {
+			if (Input.GetKeyDown(KeyCode.Space)) reset();
 		}
 
-		if (nextRound){
-			advanceRound();
-		}
 	}
 
 	void roundWin(int player){
 		roundScore[player].transform.GetChild(roundsWon[player]).gameObject.SetActive(true);
 		roundScore[player].transform.GetChild(roundsWon[player] + numRounds).gameObject.SetActive(false);
-		
-		nextRound = true;
+
 		roundsWon[player]++;
+		nextRound = true;
+
+		if (roundsWon[player] >= numRounds){
+			playerWin(player);
+		} else {
+			int pWin = player + 1;
+			string announceMe = "PLAYER " + pWin + "\n WINS THE ROUND";
+			announce.text = announceMe.Replace("\\n", "\n");
+			announce.color = pScore[player].GetComponent<Text>().color;
+			announceShadow.text = announce.text;
+			//announceShadow = announce.color;
+		}
+	}
+
+	public void timerRoundWin(){
+		int roundWinner = -1;
+		int highestScore = 0;
+		for (int i = 0; i < playerScore.Length; i++){
+			if ((int)(playerScore[i]) > highestScore) roundWinner = i;
+		}
+		if (roundWinner != -1)	roundWin(roundWinner); else advanceRound();
 	}
 
 	public void advanceRound(){
+		announce.text = "";
+		announceShadow.text = "";
 		Timer.startTime += Timer.roundTime;
 		GameObject[] pieces = GameObject.FindGameObjectsWithTag("Pieces");
 		foreach (GameObject piece in pieces)
@@ -77,20 +114,41 @@ public class Score : MonoBehaviour {
 
 		switch (currentRound){
              		case 0:
-		             	Platform.waves = true;
-             			break;
+		             	//Platform.waves = true;
+             		break;
              		case 1:
-		             	Platform.waves = false;
-		             	Platform.randomize = true;
-             			break;
+		             	//Platform.waves = false;
+		             	//Platform.randomize = true;
+             		break;
              		case 2:
-		             	reset();
-             			break;
+		             	//Platform.randomize = false;
+		             	//plat.ResetPos();
+             			int winner = -1;
+		             	for (int i = 0; i < roundsWon.Length; i++){
+		             		if (roundsWon[i] >= numRounds) {
+		             			winner = i;
+		             		}
+		             	}
+		             	if (winner != -1) {
+		             		playerWin(winner);
+		             	} else {
+		             		currentRound = -1;
+		             	}
+             		break;
 
 		}
 		plat.rotSpeed = plat.origSpeed;
 		currentRound++;
 		nextRound = false;
+	}
+
+	void playerWin(int winner){
+		announce.color = pScore[winner].GetComponent<Text>().color;
+		winner++;
+		string announceMe = "PLAYER " + winner + "\n WINS!";
+		announce.text = announceMe.Replace("\\n", "\n");
+		announceShadow.text = announce.text;
+		gameOver = true;
 	}
 
 	void reset(){
@@ -103,9 +161,9 @@ public class Score : MonoBehaviour {
 			roundScore[i].transform.GetChild(4).gameObject.SetActive(true);
 			roundScore[i].transform.GetChild(5).gameObject.SetActive(true);
 		}
-		Platform.waves = false;
-		Platform.randomize = false;
+		//Platform.waves = false;
+		//Platform.randomize = false;
 		DemoMode.menuReset = true;	
-		SceneManager.LoadScene(0);
+		
 	}
 }

@@ -18,10 +18,12 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.time > startTime + spawnTime){
-			Instantiate(spawnObject, transform.position, Quaternion.identity);
-			startTime = Time.time;
+		if (!Score.nextRound){
+			if (Time.time > startTime + spawnTime){
+				Instantiate(spawnObject, transform.position, Quaternion.identity);
+				startTime = Time.time;
+			}
+			spawnTime = origSpawnTime / Mathf.Abs(man.GetComponent<Platform>().rotDir.y);
 		}
-		spawnTime = origSpawnTime / Mathf.Abs(man.GetComponent<Platform>().rotDir.y);
 	}
 }
