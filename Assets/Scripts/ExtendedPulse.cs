@@ -16,6 +16,8 @@ public class ExtendedPulse : MonoBehaviour {
 	public float awakeTime = 5f;
 	float startTime;
 	float timerAmt;
+	public AudioClip popSound;
+	AudioSource aud;
 	// Use this for initialization
 	void Start () {
 		startTime = Time.time;
@@ -24,6 +26,7 @@ public class ExtendedPulse : MonoBehaviour {
 		else if (dir == -1) current = 1f;
 		initSpeed = speed;
 		timerAmt = awakeTime;
+		aud = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -41,8 +44,15 @@ public class ExtendedPulse : MonoBehaviour {
 					startTime += timerAmt;
 					dir *= -1;
 
-					if (current > 1f) timerAmt = awakeTime;
-					if (current < 0f) timerAmt = sleepTime;
+					if (current > 1f) {
+						timerAmt = awakeTime;
+						if (popSound != null) aud.PlayOneShot(popSound);
+					}
+					if (current < 0f) {
+						timerAmt = sleepTime;
+						if (popSound != null) aud.PlayOneShot(popSound);
+
+					}
 				} 
 				
 			}

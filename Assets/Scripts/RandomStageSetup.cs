@@ -10,6 +10,7 @@ public class RandomStageSetup : MonoBehaviour {
 	public bool randomizeColor = true;
 	public bool randomizePlats = true;
 	public bool randomizeTextures = false;
+	public bool lerpColors = false;
 	public Texture[] texts;
 	public Renderer[] randoRends;
 
@@ -52,7 +53,7 @@ public class RandomStageSetup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (flash){
+		if (flash || lerpColors){
 			float pct = Mathf.PingPong(Time.time / 2f, 1);
 			c = Color.Lerp(c1, c2, pct);
 			myCam.backgroundColor = c;

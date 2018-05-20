@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveFwd : MonoBehaviour {
-
+	//public bool rotate = false;
+	public Vector3 rotate = Vector3.zero;
 	float speed;
 	Vector3 origin;
 	public float resetTime = 10f;
@@ -16,6 +17,8 @@ public class MoveFwd : MonoBehaviour {
 		if (speedMultIsSpeed) speed = speedMultiplier;
 		origin = transform.position;
 		startTime = 0f;
+
+		if (rotate != Vector3.zero) rotate = Vector3.Lerp(-rotate, rotate, Random.value);
 	}
 	
 	// Update is called once per frame
@@ -25,5 +28,6 @@ public class MoveFwd : MonoBehaviour {
 			transform.position = origin;
 			startTime += resetTime;
 		}
+		transform.Rotate(rotate * speed * (Time.deltaTime * 60f));
 	}
 }
