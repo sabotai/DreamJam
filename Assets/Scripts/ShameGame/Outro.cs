@@ -34,6 +34,7 @@ public class Outro : MonoBehaviour {
 		//origSky = sky.color;
 		state = -1;
 		fastSpeed = openingSpeed * 15f;
+		AudioListener.volume = 1f;
 	}
 	
 	// Update is called once per frame
