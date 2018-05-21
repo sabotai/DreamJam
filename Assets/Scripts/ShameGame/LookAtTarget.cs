@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LookAtTarget : MonoBehaviour {
 	public Transform target;
-	float distThresh = 100f;
+	public float distThresh = 300f;
 	public bool useDistThresh = true;
 	public bool limitForward = false;
 	Quaternion origRot;
@@ -13,7 +13,7 @@ public class LookAtTarget : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		origRot = transform.localRotation;
-		distThresh = 300f;
+		//distThresh = 300f;
 	}
 	
 	// Update is called once per frame

@@ -34,6 +34,10 @@ public class DryEyes : MonoBehaviour {
 	public static float minLife = 0.03f;
 	public bool autoRecovery = true;
 	public float autoRecoveryRate = 0.1f;
+	bool blinkDown = false;
+	float blinkStart = 0f;
+	float pct = 0f;
+	public float blinkSpeed = 30f;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
@@ -99,14 +103,32 @@ public class DryEyes : MonoBehaviour {
 		//rBlinderMatBlack.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
 		//lBlinderMatBlack.color = new Color(rBlinderMat.color.r, rBlinderMat.color.g, rBlinderMat.color.b, newA);
 		if (Input.GetKeyDown(KeyCode.Space)) {
+
+            //StopAllCoroutines();
+			//rLid.localScale = new Vector3 (rLid.transform.localScale.x, rLid.transform.localScale.y, origBlinkZ);
+			//lLid.localScale = new Vector3 (lLid.transform.localScale.x, lLid.transform.localScale.y, origBlinkZ);
 			newA = blink();
 			//GetComponent<ShameMove>().move = false;
 		}
 		if (Input.GetKeyUp(KeyCode.Space)) {
-			StartCoroutine (BlinkUp (rLid, lLid, 0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
+
+            //StopAllCoroutines();
+			//StartCoroutine (BlinkUp (rLid, lLid, 0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
 			blinking = false;
+			blinkDown = false;
 			//GetComponent<ShameMove>().move = true;
 		}
+
+
+		if (blinkDown) {
+			if (pct < 1f) pct += Time.deltaTime * blinkSpeed;
+		} else {
+			if (pct > 0f) pct -= Time.deltaTime * blinkSpeed;
+		}
+
+
+		newBlink(); 
+	
 
 		if (distBlur){
 			if (Mathf.Abs(eyeDist - pEyeDist) > 0.1f && !GetComponent<PixelIntroOutro>().enabled) {
@@ -121,6 +143,8 @@ public class DryEyes : MonoBehaviour {
 				updateRes(1, newW, newH);
 			}
 		}
+
+
 	}
 	public void updateRes(float w, float h){
 
@@ -189,7 +213,11 @@ public class DryEyes : MonoBehaviour {
 		lTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		rTarget.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		//resets to visible?
-		StartCoroutine (BlinkDown (rLid, lLid, 0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
+		//rLid.localScale = new Vector3 (rLid.transform.localScale.x, rLid.transform.localScale.y, origBlinkZ);
+		//lLid.localScale = new Vector3 (lLid.transform.localScale.x, lLid.transform.localScale.y, origBlinkZ);
+		blinkStart = Time.time;
+		blinkDown = true;
+		//StartCoroutine (BlinkDown (rLid, lLid, 0.3f, origBlinkZ, blinkZScale, rBlinderMatBlack, lBlinderMatBlack, blinkDarkness));
 		return 0f;
 	}
 
@@ -199,6 +227,8 @@ public class DryEyes : MonoBehaviour {
 		//Transform rBlinder = GameObject.Find("RLid").transform;
 		//Transform lBlinder = GameObject.Find("LLid").transform;
 
+		rBlinder.localScale = new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, targetScale);
+		lBlinder.localScale = new Vector3 (lBlinder.transform.localScale.x, lBlinder.transform.localScale.y, targetScale);
 
 		while (elapsed < duration) {
 
@@ -213,6 +243,16 @@ public class DryEyes : MonoBehaviour {
 			}
 			yield return null;
 		}
+
+	}
+
+	void newBlink(){
+  
+ 				rLid.localScale = Vector3.Lerp(new Vector3 (rLid.transform.localScale.x, rLid.transform.localScale.y, origBlinkZ), new Vector3 (rLid.transform.localScale.x, rLid.transform.localScale.y, blinkZScale), pct);
+				lLid.localScale = Vector3.Lerp(new Vector3 (lLid.transform.localScale.x, lLid.transform.localScale.y, origBlinkZ), new Vector3 (lLid.transform.localScale.x, lLid.transform.localScale.y, blinkZScale), pct);
+				rBlinderMatBlack.color = new Color(rBlinderMatBlack.color.r, rBlinderMatBlack.color.g, rBlinderMatBlack.color.b, pct - blinkDarkness);	
+				lBlinderMatBlack.color = new Color(lBlinderMatBlack.color.r, lBlinderMatBlack.color.g, lBlinderMatBlack.color.b, pct - blinkDarkness);	
+
 	}
 	public static IEnumerator BlinkDown(Transform rBlinder, Transform lBlinder, float duration, float origScale, float targetScale, Material left, Material right, float blinkDarkness) {
 
@@ -220,6 +260,8 @@ public class DryEyes : MonoBehaviour {
 		//Transform rBlinder = GameObject.Find("RBlinder").transform;
 		//Transform lBlinder = GameObject.Find("LBlinder").transform;
 
+		//rBlinder.localScale = new Vector3 (rBlinder.transform.localScale.x, rBlinder.transform.localScale.y, origScale);
+		//lBlinder.localScale = new Vector3 (lBlinder.transform.localScale.x, lBlinder.transform.localScale.y, origScale);
 
 		while (elapsed < duration) {
 

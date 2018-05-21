@@ -61,6 +61,11 @@ public class Intro : MonoBehaviour {
 				audSrc.Play();
 			}
 		} else if (state == 4){
+			if (audSrc.clip != clipDissolve && pct < 0.5f){
+				//pct = 1f;
+				audSrc.clip = clipDissolve;
+				audSrc.Play();
+			}
 				updateRes(origCam, 2, 1, 1024, 576, pct);
 				//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
 				pct -= (Time.deltaTime / 2f);
@@ -104,7 +109,8 @@ public class Intro : MonoBehaviour {
 				audSrc.Play();
 			}
 		} else if (state >= finalState){
-			if (audSrc.clip != clipDissolve){
+			
+			if (audSrc.clip != clipDissolve && pct < 0.5f){
 				//pct = 1f;
 				audSrc.clip = clipDissolve;
 				audSrc.Play();
@@ -124,8 +130,8 @@ public class Intro : MonoBehaviour {
 				Debug.Log("pct = " + pct);
 		}
 		if (Input.GetKeyDown(KeyCode.Space)){
-			state++;
-			if (state != 2 && state != 3 && state != 13 && state != 14) audSrc.PlayOneShot(clipMenu, 0.5f);
+			if (state != 4 && state != 5) state++;
+			if (state != 2 && state != 3 && state != 4 && state != 13 && state != 14) audSrc.PlayOneShot(clipMenu, 0.75f);
 		}
 
 		if (pct < 0f) {

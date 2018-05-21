@@ -324,7 +324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.77
-  m_Text: Original Score by Josie Brechner
+  m_Text: Original Score by Visager
 --- !u!222 &145855799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4650,7 +4650,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.77
-  m_Text: Original Score by Josie Brechner
+  m_Text: Original Score by Visager
 --- !u!222 &1799923417
 CanvasRenderer:
   m_ObjectHideFlags: 0

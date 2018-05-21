@@ -24,6 +24,7 @@ public class Outro : MonoBehaviour {
 	public float skyPct = 0f;
 	public float openingSpeed = 0.1f;
 	float fastSpeed;
+	public GameObject caption;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
@@ -39,12 +40,18 @@ public class Outro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown(KeyCode.Space) && state != -1 && state != 2) {
+			state++;
+			audSrc.PlayOneShot(clipMenu, 0.15f);
+		}
 		if (state == -1){
 
 			if (pct < 1f){
 				pct += (Time.deltaTime * openingSpeed);
 				if (pct > 0.08875f) openingSpeed = fastSpeed;
 				updateRes(origCam, 2, 1f, 1600f, 900f, pct);//1024f, 576f, pct);
+			} else {
+				if (Input.GetKeyDown(KeyCode.Space)) state++;
 			}
 		} else if (state == 0){ 
 				if (audSrc.clip != clipSwitch){
@@ -63,6 +70,7 @@ public class Outro : MonoBehaviour {
 				audSrc.clip = clipCrying;
 				audSrc.loop = true;
 				audSrc.Play();
+				caption.SetActive(true);
 			}
 			if (skyPct < 1f){
 				Color newColor = Color.Lerp(Color.red, skyColor, skyPct);
@@ -76,6 +84,7 @@ public class Outro : MonoBehaviour {
 				skyPct += (Time.deltaTime / 120f);
 
 			}  else {
+				caption.SetActive(false);
 				state++;
 			}
 		} else if (state == 3){
@@ -97,10 +106,6 @@ public class Outro : MonoBehaviour {
 			SceneManager.LoadScene(0);	
 		}
 
-		if (Input.GetKeyDown(KeyCode.Space) && state != 2) {
-			state++;
-			audSrc.PlayOneShot(clipMenu, 0.15f);
-		}
 
 		
 	}
