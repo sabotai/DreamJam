@@ -19,6 +19,8 @@ public class Score : MonoBehaviour {
 	public Platform plat;
 	public Text announce, announceShadow;
 	public static bool gameOver = false;
+	public static int recentWinner = -1;
+	public Color drawColor;
 
 	// Use this for initialization
 	void Start () {
@@ -70,12 +72,13 @@ public class Score : MonoBehaviour {
 
 		roundsWon[player]++;
 		nextRound = true;
+		recentWinner = player;
 
 		if (roundsWon[player] >= numRounds){
 			playerWin(player);
 		} else {
 			int pWin = player + 1;
-			string announceMe = "PLAYER " + pWin + "\n WINS THE ROUND";
+			string announceMe = "PLAYER " + pWin + " WINS\nTHE ROUND";
 			announce.text = announceMe.Replace("\\n", "\n");
 			announce.color = pScore[player].GetComponent<Text>().color;
 			announceShadow.text = announce.text;
@@ -89,7 +92,17 @@ public class Score : MonoBehaviour {
 		for (int i = 0; i < playerScore.Length; i++){
 			if ((int)(playerScore[i]) > highestScore) roundWinner = i;
 		}
-		if (roundWinner != -1)	roundWin(roundWinner); else advanceRound();
+		if (roundWinner != -1)	{
+			roundWin(roundWinner); 
+		} else {
+			//advanceRound();
+			recentWinner = -1;
+			string announceMe = "ROUND DRAW";
+			announce.text = announceMe;
+			announce.color = drawColor;//Color.Lerp(pScore[0].GetComponent<Text>().color, pScore[1].GetComponent<Text>().color, 0.5f);
+			announceShadow.text = announce.text;
+			nextRound = true;
+		}
 	}
 
 	public void advanceRound(){
@@ -145,7 +158,7 @@ public class Score : MonoBehaviour {
 	void playerWin(int winner){
 		announce.color = pScore[winner].GetComponent<Text>().color;
 		winner++;
-		string announceMe = "PLAYER " + winner + "\n WINS!";
+		string announceMe = "PLAYER " + winner + " WINS!";
 		announce.text = announceMe.Replace("\\n", "\n");
 		announceShadow.text = announce.text;
 		gameOver = true;

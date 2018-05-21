@@ -25,6 +25,7 @@ public class DemoMode : MonoBehaviour {
 				demoPlat.waves = false;
 			}
 		enableThisOne = enableOneOfThese[Random.Range(0, enableOneOfThese.Length)];
+        if (enableThisOne.name == "Platform-Conspiracy") RenderSettings.fog = true; else RenderSettings.fog = false;
 
 		spawners = GetComponents<Spawner>();
 	}
