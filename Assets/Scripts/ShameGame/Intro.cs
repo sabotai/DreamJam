@@ -19,6 +19,8 @@ public class Intro : MonoBehaviour {
 	public GameObject[] textObjects, textObjects2;
 	public GameObject room, laundromat;
 	public Camera origCam, newCam;
+	public Image endCover;
+	public Color startColor, endColor;
 	int finalState = 14;
 	// Use this for initialization
 	void Start () {
@@ -27,7 +29,7 @@ public class Intro : MonoBehaviour {
 		origSky = sky.color;
 		dirLight = GameObject.Find("Directional Light 2").GetComponent<Light>();
 
-		state -= textObjects.Length;
+		state -= textObjects.Length - 1;
 		//origCam = Camera.main;
 		//newCam = GameObject.Find("LaundryCam").GetComponent<Camera>();
 		laundromat.SetActive(false);
@@ -112,6 +114,13 @@ public class Intro : MonoBehaviour {
 				sky.color = Color.Lerp(Color.red, origSky, pct);
 				dirLight.color = sky.color;
 				pct -= (Time.deltaTime / 2f);
+
+				if (pct < 0.05f) {
+					endCover.color = Color.Lerp(startColor, endColor, pct * 20f);
+       				AudioListener.volume = pct * 20f;
+       			}
+				//Color.Lerp(startColor, endColor, pct);
+       			//AudioListener.volume = pct;
 				Debug.Log("pct = " + pct);
 		}
 		if (Input.GetKeyDown(KeyCode.Space)){
@@ -148,6 +157,7 @@ public class Intro : MonoBehaviour {
 		newRT.filterMode = FilterMode.Point;
 		cam.targetTexture = newRT;
 		canvasImage.texture = newRT;
+
 
 	}
 }

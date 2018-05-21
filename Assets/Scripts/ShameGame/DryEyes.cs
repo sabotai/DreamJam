@@ -32,6 +32,8 @@ public class DryEyes : MonoBehaviour {
 	public float eyeDistThresh = 0.5f;
 	public static float lifeAmt = 1f;
 	public static float minLife = 0.03f;
+	public bool autoRecovery = true;
+	public float autoRecoveryRate = 0.1f;
 	// Use this for initialization
 	void Start () {
 		lTarget = GameObject.Find("LTarget").transform;
@@ -65,6 +67,20 @@ public class DryEyes : MonoBehaviour {
 		lifeAmt = (Mathf.Min(lifeL, lifeR) * 2f) - minLife;
 		Debug.Log("lifeAmt = " + lifeAmt + " LLife = " + lifeL + " RLife = " + lifeR);
 		if (lifeAmt < 0f) GetComponent<CollisionSound>().restartStuff();
+		if (autoRecovery) {
+			xResL += (maxW - xResL) * autoRecoveryRate * Time.deltaTime;
+			yResL += (maxH - yResL) * autoRecoveryRate * Time.deltaTime;
+			xResR += (maxW - xResR) * autoRecoveryRate * Time.deltaTime;
+			yResR += (maxH - yResR) * autoRecoveryRate * Time.deltaTime;
+			xResL = Mathf.Min(xResL, maxW);
+			yResL = Mathf.Min(yResL, maxH);
+			xResR = Mathf.Min(xResR, maxW);
+			yResR = Mathf.Min(yResR, maxH);
+			if (Time.frameCount % 10 == 0) { //update ~6 times a second
+				updateRes(0, xResL, yResL);
+				updateRes(1, xResR, yResR);
+			}
+		}
 
 		eyeDist = Vector3.Distance(rTarget.position, lTarget.position) - initialDist;
 		//Debug.Log("eyeDist = " + eyeDist);

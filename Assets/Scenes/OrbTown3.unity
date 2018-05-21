@@ -11277,23 +11277,23 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f9ed1649879883b4da32fa961e3cde68, type: 3}
-    m_FontSize: 20
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 53
-    m_Alignment: 6
-    m_AlignByGeometry: 0
+    m_Alignment: 7
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Original concept and development by Juno Morrow. www.junomorrow.com  \t\tSound
-    design, original music and concept development by Josie Brechner. www.visager.us\t\nSpecial
+    design, original music and concept development by Josie Brechner. www.visager.us\t\nGame
+    and original assets (except audio) are licensed under Creative Commons Attribution-NonCommercial
+    4.0. github.com/sabotai/DreamJam\t\tAudio is \u24D2Josie Brechner 2018.\nSpecial
     thanks to Death by Audio Arcade and The Dreamhouse for the invitation, and Gabriel
-    Lee for all of their feedback! *INSERT ADDITIONAL FROM JOSIE*\nGame and original
-    assets (except audio) are licensed under Creative Commons Attribution-NonCommercial
-    4.0. github.com/sabotai/DreamJam\t\tAudio is \u24D2Josie Brechner 2018."
+    Lee for all of their feedback!\t *INSERT ADDITIONAL FROM JOSIE*"
 --- !u!222 &404275429
 CanvasRenderer:
   m_ObjectHideFlags: 0

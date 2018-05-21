@@ -66,6 +66,7 @@ public class CollisionSound : MonoBehaviour {
 			        if (!audSrc2.isPlaying)      {
 						Debug.Log("play restart sound");
 			            audSrc2.clip = clip_restart;
+			            audSrc2.pitch = 1.15f;
 			            audSrc2.Play();
 			        }
 	}
