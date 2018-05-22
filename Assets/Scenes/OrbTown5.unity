@@ -1211,6 +1211,16 @@ Prefab:
       propertyPath: m_Size.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -1405,6 +1415,10 @@ Prefab:
     - target: {fileID: 1536814850525152, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
       propertyPath: m_Name
       value: P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
@@ -2962,7 +2976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3221,7 +3235,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 116313234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3485,6 +3499,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b5609a9f0820a4da1688f520943247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &130275830 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1635500935}
+--- !u!114 &130275835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130275830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &130275836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130275830}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &131271436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,6 +3745,16 @@ Prefab:
         type: 2}
       propertyPath: m_Size.z
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -4366,6 +4498,16 @@ Prefab:
       propertyPath: m_Name
       value: P1
       objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
   m_IsPrefabParent: 0
@@ -4677,7 +4819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4957,6 +5099,114 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190186004}
   m_Mesh: {fileID: 4300000, guid: bfd0632986bf50c4d9b37424ff693186, type: 3}
+--- !u!1 &191847654 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 2137736450}
+--- !u!114 &191847659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 191847654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &191847660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 191847654}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &197828609
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,6 +6764,10 @@ Prefab:
       propertyPath: m_Name
       value: P2
       objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
   m_IsPrefabParent: 0
@@ -7628,6 +7882,114 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263752910}
   m_Mesh: {fileID: 4300018, guid: 21b692991e5190f488329cf10706692b, type: 3}
+--- !u!1 &264522116 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1913862513}
+--- !u!114 &264522121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 264522116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &264522122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 264522116}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &265080908
 GameObject:
   m_ObjectHideFlags: 0
@@ -7740,6 +8102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1884187867}
+  distThresh: 300
   useDistThresh: 0
   limitForward: 0
   limit: 85
@@ -8798,7 +9161,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 317334615}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -11839,11 +12202,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Original concept and development by Juno Morrow. www.junomorrow.com  \t\tSound
-    design, original music and concept development by Josie Brechner. www.visager.us\t\nGame
+    design, original music and concept development by Visager. www.visager.us\t\nGame
     and original assets (except audio) are licensed under Creative Commons Attribution-NonCommercial
-    4.0. github.com/sabotai/DreamJam\t\tAudio is \u24D2Josie Brechner 2018.\nSpecial
-    thanks to Death by Audio Arcade and The Dreamhouse for the invitation, and Gabriel
-    Lee for all of their feedback!\t *INSERT ADDITIONAL FROM JOSIE*"
+    4.0. github.com/sabotai/DreamJam\t\tAudio is \u24D2Visager 2018.\nSpecial thanks
+    to Death by Audio Arcade and The Dreamhouse for the invitation, and Gabriel Lee
+    for all of their feedback!"
 --- !u!222 &404275429
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12778,7 +13141,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429382735}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -14392,7 +14755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15062,7 +15425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -19810,7 +20173,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 668920293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -20960,6 +21323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  distThresh: 300
   useDistThresh: 1
   limitForward: 0
   limit: 85
@@ -22169,6 +22533,114 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756996220}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &757688096 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 1831836210}
+--- !u!114 &757688101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757688096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &757688102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757688096}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &760021213
 GameObject:
   m_ObjectHideFlags: 0
@@ -22330,7 +22802,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 766080239}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -23888,6 +24360,16 @@ Prefab:
       propertyPath: m_Name
       value: P1
       objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
   m_IsPrefabParent: 0
@@ -23988,6 +24470,222 @@ MonoBehaviour:
   waves: 0
   scale: 1
   randomize: 0
+--- !u!1 &809551165 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1588019978}
+--- !u!114 &809551170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 809551165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &809551171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 809551165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
+--- !u!1 &814355765 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 816576004}
+--- !u!114 &814355770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814355765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &814355771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814355765}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1001 &816576004
 Prefab:
   m_ObjectHideFlags: 0
@@ -24052,6 +24750,10 @@ Prefab:
     - target: {fileID: 1536814850525152, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
       propertyPath: m_Name
       value: P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
@@ -27857,7 +28559,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980976282}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -29953,6 +30655,114 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1056299028}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1061301515 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 173507611}
+--- !u!114 &1061301520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061301515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1061301521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061301515}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1063029653
 GameObject:
   m_ObjectHideFlags: 0
@@ -31162,6 +31972,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b5609a9f0820a4da1688f520943247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1096205416 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 139295264}
+--- !u!114 &1096205421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1096205416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1096205422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1096205416}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1096805785
 GameObject:
   m_ObjectHideFlags: 0
@@ -31193,6 +32111,114 @@ Transform:
   m_Father: {fileID: 914784075}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1101330040 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1227683677}
+--- !u!114 &1101330045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1101330040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1101330046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1101330040}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1105479034
 GameObject:
   m_ObjectHideFlags: 0
@@ -33037,6 +34063,114 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1175380476 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 1884187866}
+--- !u!114 &1175380481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175380476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1175380482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175380476}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1177397625
 GameObject:
   m_ObjectHideFlags: 0
@@ -34094,6 +35228,114 @@ Transform:
   m_Father: {fileID: 864596715}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1214160263 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 42852160}
+--- !u!114 &1214160268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214160263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1214160269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214160263}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1214889773
 GameObject:
   m_ObjectHideFlags: 0
@@ -34640,6 +35882,16 @@ Prefab:
     - target: {fileID: 1601495681827800, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
       propertyPath: m_Name
       value: P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
@@ -37146,6 +38398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  distThresh: 300
   useDistThresh: 1
   limitForward: 0
   limit: 85
@@ -37389,6 +38642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1588019979}
+  distThresh: 300
   useDistThresh: 0
   limitForward: 0
   limit: 85
@@ -39185,6 +40439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1588019979}
+  distThresh: 300
   useDistThresh: 0
   limitForward: 0
   limit: 85
@@ -44778,7 +46033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -44944,6 +46199,16 @@ Prefab:
       propertyPath: m_Name
       value: P1
       objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
   m_IsPrefabParent: 0
@@ -45016,6 +46281,10 @@ Prefab:
     - target: {fileID: 1536814850525152, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
       propertyPath: m_Name
       value: P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
@@ -46539,6 +47808,16 @@ Prefab:
       propertyPath: m_Mass
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
   m_IsPrefabParent: 0
@@ -47105,6 +48384,114 @@ Transform:
   m_Father: {fileID: 6309136}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1663376393 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 39679625}
+--- !u!114 &1663376398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1663376393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1663376399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1663376393}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1664425120
 GameObject:
   m_ObjectHideFlags: 0
@@ -48429,6 +49816,114 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1709113230}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1710094862 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 1821769624}
+--- !u!114 &1710094867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1710094862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1710094868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1710094862}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1712280445
 GameObject:
   m_ObjectHideFlags: 0
@@ -50706,6 +52201,10 @@ Prefab:
       propertyPath: m_Name
       value: P2
       objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
   m_IsPrefabParent: 0
@@ -50977,6 +52476,10 @@ Prefab:
     - target: {fileID: 1536814850525152, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
       propertyPath: m_Name
       value: P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
@@ -52169,6 +53672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  distThresh: 300
   useDistThresh: 1
   limitForward: 0
   limit: 85
@@ -52403,6 +53907,10 @@ Prefab:
       propertyPath: m_Name
       value: P2
       objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
   m_IsPrefabParent: 0
@@ -52580,6 +54088,114 @@ MonoBehaviour:
   waves: 0
   scale: 1
   randomize: 0
+--- !u!1 &1888731263 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 233252815}
+--- !u!114 &1888731268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888731263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &1888731269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888731263}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &1890329631
 GameObject:
   m_ObjectHideFlags: 0
@@ -53580,6 +55196,16 @@ Prefab:
     - target: {fileID: 1601495681827800, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
       propertyPath: m_Name
       value: P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: minPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150498778263616, guid: ee2ebc1269069374582a44f690e48cdc,
+        type: 2}
+      propertyPath: maxPitch
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee2ebc1269069374582a44f690e48cdc, type: 2}
@@ -55995,7 +57621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -56466,6 +58092,114 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2042096210 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1986255039413606, guid: ee2ebc1269069374582a44f690e48cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 806027766}
+--- !u!114 &2042096215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042096210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &2042096216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042096210}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &2046970655
 GameObject:
   m_ObjectHideFlags: 0
@@ -58188,7 +59922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2082460650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59028,6 +60762,114 @@ Transform:
   m_Father: {fileID: 1757080969}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2115430647 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65,
+    type: 2}
+  m_PrefabInternal: {fileID: 1588184655}
+--- !u!114 &2115430652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115430647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Josie
+  - Juno
+  - Fernando
+  - Haitham
+  - Nicole
+  - Elana
+  - Ayla
+  - Robert
+  - Andy
+  - Michael
+  - Eddie
+  - Jason
+  - Kyle
+  - Nick
+  - Matt
+  - Luna
+  - Arial
+  - Gabriel
+  - Blue
+  - Pink
+  - Toni
+  - Dreamhouse
+  - DBAA
+  - Jenn
+  - Cherry
+  - Flan
+  - Yuxin
+  - Quinn
+  - Jane
+  - Hyacinth
+  - GJ
+  - Jarryd
+  - Gay
+  - Trans
+  - Polyam
+  - Queer
+  - Homoromantic
+  - Also Gay
+  - Lillian
+  - Sleepy
+  - Burpo
+  - Ace
+  - Butch
+  - Femme
+  - Bi
+  - Non-binary
+--- !u!114 &2115430653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115430647}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648292f100ece4d4c971d8c5df851a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Dzmitry
+  - Eric
+  - Shaughn
+  - Jose
+  - Henzel
+  - Victor
+  - Eli
+  - Brendon
+  - Jose
+  - Texas
+  - Cleon
+  - Mark
+  - Jackie
+  - King
+  - Lui
+  - Victor
+  - Malik
+  - Juno
+  - Catherine
+  - Andy
+  - Marino
+  - Katherine
+  - Craig
+  - Dylan
+  - Rees
+  - Joe
+  - Manny
+  - Elijah
+  - AJ
+  - Jhon
+  - So fucking tired
+  - Sande
+  - Ayo
 --- !u!1 &2117047677
 GameObject:
   m_ObjectHideFlags: 0
@@ -59374,6 +61216,10 @@ Prefab:
     - target: {fileID: 1536814850525152, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
       propertyPath: m_Name
       value: P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631278412513580, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}
+      propertyPath: m_TagString
+      value: Label
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48cd1ffb08abe514d8d1930aacb41e65, type: 2}

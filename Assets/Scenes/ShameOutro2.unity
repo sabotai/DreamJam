@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.011
   m_CustomReflection: {fileID: 8900000, guid: b139af44edbe36e4f834e721f7dc3bba, type: 3}
   m_Sun: {fileID: 1130369436}
-  m_IndirectSpecularColor: {r: 0.018010192, g: 0.11619484, b: 0.13418561, a: 0.011}
+  m_IndirectSpecularColor: {r: 0.13461176, g: 0, b: 0.00026016138, a: 0.011}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2117,8 +2117,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d5c446537b014d24590450a3cb19390d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.9
-  m_Pitch: 1.15
+  m_Volume: 0.62
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2238,21 +2238,21 @@ AudioReverbFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1209686796}
   m_Enabled: 1
-  m_DryLevel: 0
+  m_DryLevel: -1609
   m_Room: -1000
-  m_RoomHF: -6000
-  m_DecayTime: 0.5
-  m_DecayHFRatio: 0.1
-  m_ReflectionsLevel: -1376
-  m_ReverbLevel: -1104
-  m_ReverbDelay: 0.004
+  m_RoomHF: -454
+  m_DecayTime: 0.4
+  m_DecayHFRatio: 0.83
+  m_ReflectionsLevel: -2991
+  m_ReverbLevel: -1167
+  m_ReverbDelay: 0.003
   m_Diffusion: 100
   m_Density: 100
   m_HFReference: 5000
   m_RoomLF: 0
   m_LFReference: 250
   m_ReflectionsDelay: 0
-  m_ReverbPreset: 5
+  m_ReverbPreset: 27
 --- !u!165 &1209686809
 AudioHighPassFilter:
   m_ObjectHideFlags: 0

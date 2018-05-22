@@ -324,7 +324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.77
-  m_Text: Original Score by Visager
+  m_Text: Original Music by Visager
 --- !u!222 &145855799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3431,11 +3431,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Created by Juno Morrow. www.junomorrow.com  \t\tOriginal Score by Josie
-    Brechner. www.visager.us\t\nGame and original assets (except the music) are licensed
-    under Creative Commons Attribution-NonCommercial 4.0. github.com/sabotai/DreamJam\t(Music
-    is \u24D2Josie Brechner 2018)\nSpecial thanks to Death by Audio Arcade and The
-    Dreamhouse for the invitation, and Gabriel Lee for all of their feedback!"
+  m_Text: "Created by Juno Morrow. www.junomorrow.com  \t\tOriginal Music by Visager.
+    www.visager.us\t\nGame and original assets (except the music) are licensed under
+    Creative Commons Attribution-NonCommercial 4.0. github.com/sabotai/DreamJam\t(Music
+    is \u24D2Visager 2018)\nSpecial thanks to Death by Audio Arcade and The Dreamhouse
+    for the invitation, and Gabriel Lee for all of their feedback!"
 --- !u!222 &1262168614
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ TagManager:
   - Label
   - Target
   - Boundary
+  - Label2
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,7 @@ public class Score : MonoBehaviour {
 	public static bool gameOver = false;
 	public static int recentWinner = -1;
 	public Color drawColor;
+	public static string p1Name, p2Name;
 
 	// Use this for initialization
 	void Start () {
@@ -78,7 +79,9 @@ public class Score : MonoBehaviour {
 			playerWin(player);
 		} else {
 			int pWin = player + 1;
-			string announceMe = "PLAYER " + pWin + " WINS\nTHE ROUND";
+			string winnerName = "";
+			if (pWin == 1) winnerName = p1Name; else if (pWin == 2) winnerName = p2Name;
+			string announceMe = winnerName + " WINS\nTHE ROUND";
 			announce.text = announceMe.Replace("\\n", "\n");
 			announce.color = pScore[player].GetComponent<Text>().color;
 			announceShadow.text = announce.text;
@@ -158,7 +161,9 @@ public class Score : MonoBehaviour {
 	void playerWin(int winner){
 		announce.color = pScore[winner].GetComponent<Text>().color;
 		winner++;
-		string announceMe = "PLAYER " + winner + " WINS!";
+		string winnerName = "";
+		if (winner == 1) winnerName = p1Name; else if (winner == 2) winnerName = p2Name;
+		string announceMe = winnerName + " WINS!";
 		announce.text = announceMe.Replace("\\n", "\n");
 		announceShadow.text = announce.text;
 		gameOver = true;
