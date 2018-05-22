@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +20,13 @@ public class PixelIntroOutro : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (Settings.timesPlayed() != 0) {
+			AudioListener.pause = false;
+       		AudioListener.volume = 1f;
+       	}
+		if (!Settings.instructions()) {
+			clearInstructions();
+		}
 		if (intro) pct = 0f; else pct = 1f;
 		lTexture = cams[0].targetTexture;
 		rTexture = cams[1].targetTexture;
@@ -28,7 +35,7 @@ public class PixelIntroOutro : MonoBehaviour {
 		maxH = lTexture.height;
 		
 		updateRes(minWidth, minHeight, maxW, maxH, 0.0f);
-		AudioListener.pause = true;
+		//AudioListener.pause = true;
 	}
 	
 	// Update is called once per frame
@@ -36,11 +43,7 @@ public class PixelIntroOutro : MonoBehaviour {
 		if (intro){
 			if (pct < 1f){
 				if (Input.GetKeyDown(KeyCode.Space)){
-					instructions.SetActive(false);
-					instructions.transform.parent.gameObject.GetComponent<Image>().color = endColor;
-					AudioListener.pause = false;
-					GetComponent<AudioSource>().Play();
-       				AudioListener.volume = 1f;
+					clearInstructions();
 				} else if (!instructions.activeSelf){
 					updateRes(minWidth, minHeight, maxW, maxH, pct);
 					pct += Time.deltaTime * speed;
@@ -57,15 +60,28 @@ public class PixelIntroOutro : MonoBehaviour {
 				updateRes(minWidth, minHeight, maxW, maxH, pct);
 				updateRes(minWidth, minHeight, maxW, maxH, pct);
 				pct -= Time.deltaTime * speed;
-				if (pct < 0.05f) {
+				if (pct < 0.05f && Settings.instructions()) {
+
 					instructions.transform.parent.gameObject.GetComponent<Image>().color = Color.Lerp(startColor, endColor, pct * 20f);
        				AudioListener.volume = pct * 20f;
+       			} else {
+       				instructions.transform.parent.gameObject.GetComponent<Image>().color = endColor;
+       				AudioListener.volume = 1f;
        			}
 			} else {
 				
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			}
 		}
+	}
+
+	void clearInstructions(){
+
+					instructions.SetActive(false);
+					instructions.transform.parent.gameObject.GetComponent<Image>().color = endColor;
+					AudioListener.pause = false;
+					GetComponent<AudioSource>().Play();
+       				AudioListener.volume = 1f;
 	}
 
 

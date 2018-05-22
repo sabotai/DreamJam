@@ -25,6 +25,8 @@ public class Intro : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
+		Settings.instructions(true);
+		Settings.timesPlayed(0);
 		sky.color = new Color(245f/255f, 78f/255f, 78f/255f, 1f);
 		origSky = sky.color;
 		dirLight = GameObject.Find("Directional Light 2").GetComponent<Light>();

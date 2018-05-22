@@ -42,6 +42,14 @@ public class CollisionSound : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col){
 		if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
+			if (Time.timeSinceLevelLoad > 10f) {
+				Settings.instructions(false);
+			} else {
+				if (Settings.timesPlayed() < 3)	Settings.instructions(true);
+			}
+			Settings.timesPlayed(Settings.timesPlayed() + 1);
+			
+			Debug.Log("timesPlayer = " + Settings.timesPlayed());
 			audSrc.PlayOneShot(clip_collision);
 			phone.gameObject.GetComponent<AudioSource>().PlayOneShot(clip_collision);
 

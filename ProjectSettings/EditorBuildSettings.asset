@@ -12,17 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/ShameIntro7.unity
     guid: f8a69e6edbbe06e4a8573164f6d4ffa1
   - enabled: 1
-    path: Assets/Scenes/Shame29.unity
-    guid: 440c6d4b9d749a14ba751a4127b2087a
+    path: Assets/Scenes/Shame30.unity
+    guid: 8300ce4834927454e93d928f24e4ec6a
   - enabled: 1
     path: Assets/Scenes/ShameOutro2.unity
     guid: 2b0822551233cdf4c803d3b989f4497c
   - enabled: 0
     path: Assets/Scenes/OrbTown3.unity
     guid: 796a7005bcc531c40bd1cc5b11a535ce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Shame28.unity
     guid: 3cfb6b4e3dc5fde4692e42831d7d47c9
+  - enabled: 0
+    path: Assets/Scenes/Shame29.unity
+    guid: 440c6d4b9d749a14ba751a4127b2087a
   - enabled: 0
     path: Assets/Scenes/OrbTown4.unity
     guid: f81629b8f75606049a0263248f13b798
