@@ -13,18 +13,88 @@ public class Cheat : MonoBehaviour {
     private int frames = 0;
     private float fps;
     public bool enableDebug = false;
+    public bool c, pC, pV, pN, pM, v, n, m;
+	public int buttonCount = 0;
 
 	// Use this for initialization
 	void Start () {
+		buttonCount = 0;
 		fpsObj = GameObject.Find("FPS").GetComponent<Text>();
 		lastInterval = Time.realtimeSinceStartup;
         frames = 0;
-		
+		c = false;
+		v = false;
+		n = false;
+		m = false;
+		pC = false;
+		pV = false;
+		pN = false;
+		pM = false;
         Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		/*
+		if (buttonCount >= 4) {
+			SceneManager.LoadScene(0);
+			} else {
+				buttonCount = 0;
+			}
+
+		//if (Time.frameCount % 2 == 0) buttonCount = 0;
+		if (Input.GetKey(KeyCode.C)) buttonCount++;
+		if (Input.GetKey(KeyCode.V)) buttonCount++;
+		if (Input.GetKey(KeyCode.N)) buttonCount++;
+		if (Input.GetKey(KeyCode.M)) buttonCount++;
+		if (Input.GetKeyUp(KeyCode.C)) buttonCount = 0;
+		if (Input.GetKeyUp(KeyCode.V)) buttonCount = 0;
+		if (Input.GetKeyUp(KeyCode.N)) buttonCount = 0;
+		if (Input.GetKeyUp(KeyCode.M)) buttonCount = 0;
+		*/
+		
+		c = Input.GetKey(KeyCode.C);
+		v = Input.GetKey(KeyCode.V);
+		n = Input.GetKey(KeyCode.N);
+		m = Input.GetKey(KeyCode.M);
+		if (pC && !c) c = true;
+		if (pV && !v) v = true;
+		if (pN && !n) n = true;
+		if (pM && !m) m = true;
+		if (c && v && n && m) SceneManager.LoadScene(0);
+		if (Input.GetKeyUp(KeyCode.C)) c = false;
+		if (Input.GetKeyUp(KeyCode.V)) v = false;
+		if (Input.GetKeyUp(KeyCode.N)) n = false;
+		if (Input.GetKeyUp(KeyCode.M)) m = false;
+		pC = c;
+		pV = v;
+		pN = n;
+		pM = m;
+		/*
+		if ((c || pC) && (v || pV) && (n || pN) && (m || pM)) {
+			SceneManager.LoadScene(0);
+			} else {
+				if (Time.frameCount % 2 == 0){
+					pC = c;
+					pV = v;
+					pN = n;
+					pM = m;
+				}
+			}
+		
+		/*
+		if (Input.GetKeyUp(KeyCode.C)) c = false;
+		if (Input.GetKeyUp(KeyCode.V)) v = false;
+		if (Input.GetKeyUp(KeyCode.N)) n = false;
+		if (Input.GetKeyUp(KeyCode.M)) m = false;
+		if (Input.GetKey(KeyCode.C)) c = true;
+		if (Input.GetKey(KeyCode.V)) v = true;
+		if (Input.GetKey(KeyCode.N)) n = true;
+		if (Input.GetKey(KeyCode.M)) m = true;
+
+		if (c && v && n && m) SceneManager.LoadScene(0);
+		*/
+
 		if (Input.GetKeyDown(KeyCode.Asterisk) || Input.GetKeyDown(KeyCode.Backspace)) enableDebug = !enableDebug;
 
 		if (enableDebug){
@@ -48,7 +118,7 @@ public class Cheat : MonoBehaviour {
 				Time.timeScale *= 1.2f;
 
 			if (Input.GetKeyDown(KeyCode.Y))
-				Time.timeScale /= 1.2f;
+				Time.timeScale = 1f;
 
 			if (Input.GetKeyDown(KeyCode.F)){
 

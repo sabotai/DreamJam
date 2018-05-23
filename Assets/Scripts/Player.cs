@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	AudioSource aud;
 	public AudioClip[] jumpClip; 
 	public AudioClip[] hitClip;
+	public AudioClip respawnSound;
 	public float bumpAmt = 1000f;
 	public float minPitch, maxPitch;
 	Transform myParent;
@@ -107,6 +108,8 @@ public class Player : MonoBehaviour {
      }
 
     public void Respawn(){
+    		aud.pitch = 1f;
+    		aud.PlayOneShot(respawnSound, 1f);
     		transform.parent = myParent;
             transform.position = mySpawner.transform.position;
             GetComponent<Rigidbody>().velocity = Vector3.down;

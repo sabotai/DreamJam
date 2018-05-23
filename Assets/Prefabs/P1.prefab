@@ -872,7 +872,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 79
   DopplerLevel: 2.93
   MinDistance: 2.14
   MaxDistance: 500
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: da0b226b9651c7e4eac9cc45e15d35a9, type: 3}
   - {fileID: 8300000, guid: 8aedda8520a4efa468b4ee56124b0bab, type: 3}
   - {fileID: 8300000, guid: 0e0485afad0ec8840b48d5a227f6a604, type: 3}
+  respawnSound: {fileID: 8300000, guid: 83a294da18cd4ab4fa99c8926756478f, type: 3}
   bumpAmt: 1000
   minPitch: 0.8
   maxPitch: 1.5
@@ -1104,6 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  distThresh: 300
   useDistThresh: 1
   limitForward: 0
   limit: 85

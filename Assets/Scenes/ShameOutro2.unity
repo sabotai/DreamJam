@@ -1126,7 +1126,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 84308cdcf8fbbc64097e38d4002c7df9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 69e3b7199d0f38d49a6f909d136d3f0e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.55
   m_Pitch: 0.5
@@ -2328,6 +2328,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showFPS: 0
   updateInterval: 0.5
+  enableDebug: 0
+  c: 0
+  pC: 0
+  pV: 0
+  pN: 0
+  pM: 0
+  v: 0
+  n: 0
+  m: 0
+  buttonCount: 0
 --- !u!168 &1209686807
 AudioEchoFilter:
   m_ObjectHideFlags: 0

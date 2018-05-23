@@ -17,16 +17,23 @@ public class PixelIntroOutro : MonoBehaviour {
 	float maxW, maxH;
 	public GameObject instructions;
 	public Color startColor, endColor;
+	public AudioClip musicClip;
+	public GameObject streetScene;
+	public AudioSource musicPlayer;
 
 	// Use this for initialization
 	void Start () {
-		if (Settings.timesPlayed() != 0) {
+       		//AudioListener.volume = 1f;
 			AudioListener.pause = false;
-       		AudioListener.volume = 1f;
-       	}
+					AudioListener.volume = 0.25f;
+		if (Settings.timesPlayed() != 0) {
+       		//musicPlayer.clip = musicClip;
+       	}  
+		streetScene.SetActive(false);
 		if (!Settings.instructions()) {
 			clearInstructions();
 		}
+			//musicPlayer.Play();
 		if (intro) pct = 0f; else pct = 1f;
 		lTexture = cams[0].targetTexture;
 		rTexture = cams[1].targetTexture;
@@ -63,7 +70,7 @@ public class PixelIntroOutro : MonoBehaviour {
 				if (pct < 0.05f && Settings.instructions()) {
 
 					instructions.transform.parent.gameObject.GetComponent<Image>().color = Color.Lerp(startColor, endColor, pct * 20f);
-       				AudioListener.volume = pct * 20f;
+       				AudioListener.volume = pct * 30f;
        			} else {
        				instructions.transform.parent.gameObject.GetComponent<Image>().color = endColor;
        				AudioListener.volume = 1f;
@@ -76,11 +83,12 @@ public class PixelIntroOutro : MonoBehaviour {
 	}
 
 	void clearInstructions(){
-
+		streetScene.SetActive(true);
+       		musicPlayer.clip = musicClip;
 					instructions.SetActive(false);
 					instructions.transform.parent.gameObject.GetComponent<Image>().color = endColor;
 					AudioListener.pause = false;
-					GetComponent<AudioSource>().Play();
+					musicPlayer.Play();
        				AudioListener.volume = 1f;
 	}
 

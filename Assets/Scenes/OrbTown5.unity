@@ -12211,8 +12211,8 @@ MonoBehaviour:
     design, original music and concept development by Visager. www.visager.us\t\nGame
     and original assets (except audio) are licensed under Creative Commons Attribution-NonCommercial
     4.0. github.com/sabotai/DreamJam\t\tAudio is \u24D2Visager 2018.\nSpecial thanks
-    to Death by Audio Arcade and The Dreamhouse for the invitation, and Gabriel Lee
-    for all of their feedback!"
+    to Death by Audio Arcade for the jam invitation, The Dreamhouse for hosting, and
+    to Gabriel Lee for all of their support!"
 --- !u!222 &404275429
 CanvasRenderer:
   m_ObjectHideFlags: 0

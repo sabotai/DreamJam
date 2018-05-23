@@ -17,14 +17,19 @@ public class Score : MonoBehaviour {
 	public static bool nextRound = false;
 	public int currentRound = 0;
 	public Platform plat;
-	public Text announce, announceShadow;
+	public Text announce, announceShadow, announceShadow2;
 	public static bool gameOver = false;
 	public static int recentWinner = -1;
 	public Color drawColor;
 	public static string p1Name, p2Name;
+	float origBounceMag, origBounceSpeed;
+	Vector3[] scoreOrigPos = new Vector3[2];
+	public static AudioSource[] scoreAudSrc = new AudioSource[2];
 
 	// Use this for initialization
 	void Start () {
+		scoreAudSrc[0] = GameObject.Find("P1 Score").GetComponent<AudioSource>();
+		scoreAudSrc[1] = GameObject.Find("P2 Score").GetComponent<AudioSource>();
 		startSize = pScore[0].fontSize;
 		roundsWon = new int[playerScore.Length];
 		for (int i = 0; i < roundsWon.Length; i++){
@@ -35,8 +40,15 @@ public class Score : MonoBehaviour {
 		//Platform.randomize = false;
 		announce.text = "";
 		announceShadow.text = "";
+		announceShadow2.text = "";
 		gameOver = false;
 		nextRound = false;
+		origBounceMag = pScore[0].gameObject.GetComponent<BounceTitle>().mag;
+		origBounceSpeed = pScore[0].gameObject.GetComponent<BounceTitle>().speed;
+		for (int i = 0; i < scoreOrigPos.Length; i++){
+			scoreOrigPos[i] = pScore[i].transform.position;
+
+		}
 	}
 	
 	void OnEnable () {
@@ -44,6 +56,7 @@ public class Score : MonoBehaviour {
 		//Platform.randomize = false;
 		announce.text = "";
 		announceShadow.text = "";
+		announceShadow2.text = "";
 	}
 	// Update is called once per frame
 	void Update () {
@@ -51,13 +64,25 @@ public class Score : MonoBehaviour {
 
 		if (!gameOver){
 			if (nextRound){
-				if (Input.GetKeyDown(KeyCode.Space)) advanceRound();
+				if (Input.GetKeyDown(KeyCode.Space)){
+					 advanceRound();
+
+					for (int i = 0; i < playerScore.Length; i++){
+						pScore[i].enabled = true;
+						pScore[i].transform.position = scoreOrigPos[i];
+					}
+					}
 			} else {
 				for (int i = 0; i < playerScore.Length; i++){
 					
 					pScore[i].text = playerScore[i].ToString();
 					pScore[i].fontSize = startSize + (int)( (playerScore[i] / scoreCap) * (maxFont - startSize));
+					//if (playerScore[i] > scoreCap * 0.9f) {
+						pScore[i].gameObject.GetComponent<BounceTitle>().mag = origBounceMag * (playerScore[i] / scoreCap) * 1f;
+						//pScore[i].gameObject.GetComponent<BounceTitle>().speed = origBounceSpeed * (playerScore[i] / scoreCap);
+						//} else {
 
+						//}
 					if (playerScore[i] > scoreCap) roundWin(i); 
 				}
 			}
@@ -68,6 +93,10 @@ public class Score : MonoBehaviour {
 	}
 
 	void roundWin(int player){
+
+		for (int i = 0; i < playerScore.Length; i++){
+			pScore[i].enabled = false;
+		}
 		roundScore[player].transform.GetChild(roundsWon[player]).gameObject.SetActive(true);
 		roundScore[player].transform.GetChild(roundsWon[player] + numRounds).gameObject.SetActive(false);
 
@@ -85,6 +114,7 @@ public class Score : MonoBehaviour {
 			announce.text = announceMe.Replace("\\n", "\n");
 			announce.color = pScore[player].GetComponent<Text>().color;
 			announceShadow.text = announce.text;
+			announceShadow2.text = announce.text;
 			//announceShadow = announce.color;
 		}
 	}
@@ -104,6 +134,7 @@ public class Score : MonoBehaviour {
 			announce.text = announceMe;
 			announce.color = drawColor;//Color.Lerp(pScore[0].GetComponent<Text>().color, pScore[1].GetComponent<Text>().color, 0.5f);
 			announceShadow.text = announce.text;
+			announceShadow2.text = announce.text;
 			nextRound = true;
 		}
 	}
@@ -111,6 +142,7 @@ public class Score : MonoBehaviour {
 	public void advanceRound(){
 		announce.text = "";
 		announceShadow.text = "";
+		announceShadow2.text = "";
 		Timer.startTime += Timer.roundTime;
 		GameObject[] pieces = GameObject.FindGameObjectsWithTag("Pieces");
 		foreach (GameObject piece in pieces)
@@ -166,6 +198,7 @@ public class Score : MonoBehaviour {
 		string announceMe = winnerName + " WINS!";
 		announce.text = announceMe.Replace("\\n", "\n");
 		announceShadow.text = announce.text;
+		announceShadow2.text = announce.text;
 		gameOver = true;
 	}
 

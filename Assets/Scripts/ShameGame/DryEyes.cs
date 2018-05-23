@@ -15,7 +15,7 @@ public class DryEyes : MonoBehaviour {
 	public AudioSource audSrc, audSrcL, audSrcR;
 	RenderTexture lTexture, rTexture;
 	float maxW, maxH;
-	Camera lCam, rCam;
+	public Camera lCam, rCam;
 	RawImage lScreen, rScreen;
 	public bool autoDry = false;
 	public bool blinkAvgPos = false;
@@ -53,8 +53,8 @@ public class DryEyes : MonoBehaviour {
 		lOrigPos = lTarget.localPosition;
 		rOrigPos = rTarget.localPosition;
 		newA = 0f;
-		lCam = GameObject.Find("LCam").GetComponent<Camera>();
-		rCam = GameObject.Find("RCam").GetComponent<Camera>();
+		if (lCam == null) lCam = GameObject.Find("LCam").GetComponent<Camera>();
+		if (rCam == null) rCam = GameObject.Find("RCam").GetComponent<Camera>();
 		lScreen = GameObject.Find("LScreen").GetComponent<RawImage>();
 		rScreen = GameObject.Find("RScreen").GetComponent<RawImage>();
 		lTexture = lCam.targetTexture;
@@ -69,7 +69,7 @@ public class DryEyes : MonoBehaviour {
 		float lifeL =  ((xResL / (maxW - minRes)) + (yResL / (maxH - minRes))) / 2f;
 		float lifeR = ((xResR / (maxW - minRes)) + (yResR / (maxH - minRes))) / 2f;
 		lifeAmt = (Mathf.Min(lifeL, lifeR) * 2f) - minLife;
-		Debug.Log("lifeAmt = " + lifeAmt + " LLife = " + lifeL + " RLife = " + lifeR);
+		//Debug.Log("lifeAmt = " + lifeAmt + " LLife = " + lifeL + " RLife = " + lifeR);
 		if (lifeAmt < 0f) GetComponent<CollisionSound>().restartStuff();
 		if (autoRecovery) {
 			xResL += (maxW - xResL) * autoRecoveryRate * Time.deltaTime;

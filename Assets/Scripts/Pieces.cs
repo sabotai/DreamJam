@@ -38,6 +38,9 @@ public class Pieces : MonoBehaviour {
 	         		if (other.gameObject && players[i]){
 	            	if (GetComponent<Renderer>().material.color == players[i].GetComponent<Renderer>().material.color){
 	            		manager.GetComponent<Score>().playerScore[i] += (int)(transform.lossyScale.x * 20f);
+	            		Score.scoreAudSrc[i].Play();
+	            		Debug.Log("volume = " + (transform.lossyScale.x / maxScale) * 2f);
+	            		Score.scoreAudSrc[i].volume = (transform.lossyScale.x / maxScale) * 2f;
 	            	}
 	            }
 	 	       	}

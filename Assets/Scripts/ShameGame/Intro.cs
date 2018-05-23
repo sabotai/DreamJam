@@ -110,6 +110,7 @@ public class Intro : MonoBehaviour {
 				audSrc.clip = clipChime;
 				audSrc.Play();
 			}
+			if (!audSrc.isPlaying) state++;
 		} else if (state >= finalState){
 			
 			if (audSrc.clip != clipDissolve && pct < 0.5f){
