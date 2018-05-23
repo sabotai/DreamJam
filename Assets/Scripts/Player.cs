@@ -109,7 +109,7 @@ public class Player : MonoBehaviour {
 
     public void Respawn(){
     		aud.pitch = 1f;
-    		aud.PlayOneShot(respawnSound, 1f);
+    		aud.PlayOneShot(respawnSound, 0.69f);
     		transform.parent = myParent;
             transform.position = mySpawner.transform.position;
             GetComponent<Rigidbody>().velocity = Vector3.down;

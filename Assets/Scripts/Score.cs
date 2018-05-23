@@ -25,6 +25,10 @@ public class Score : MonoBehaviour {
 	float origBounceMag, origBounceSpeed;
 	Vector3[] scoreOrigPos = new Vector3[2];
 	public static AudioSource[] scoreAudSrc = new AudioSource[2];
+	public AudioSource winPlayer;
+	public AudioClip winSound;
+	public Music music;
+
 
 	// Use this for initialization
 	void Start () {
@@ -65,6 +69,7 @@ public class Score : MonoBehaviour {
 		if (!gameOver){
 			if (nextRound){
 				if (Input.GetKeyDown(KeyCode.Space)){
+					music.newMusic();
 					 advanceRound();
 
 					for (int i = 0; i < playerScore.Length; i++){
@@ -191,6 +196,8 @@ public class Score : MonoBehaviour {
 	}
 
 	void playerWin(int winner){
+		winPlayer.clip = winSound;
+		winPlayer.Play();
 		announce.color = pScore[winner].GetComponent<Text>().color;
 		winner++;
 		string winnerName = "";
