@@ -53,6 +53,7 @@ public class Score : MonoBehaviour {
 			scoreOrigPos[i] = pScore[i].transform.position;
 
 		}
+		music.newMusic();
 	}
 	
 	void OnEnable () {

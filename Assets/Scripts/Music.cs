@@ -21,6 +21,9 @@ public class Music : MonoBehaviour {
 			aud.clip = tracks[newClip];
 			aud.Play();
 		//}
-		if (GameObject.Find("Platform-Conspiracy") != null) aud.Stop();
+		if (GameObject.Find("Platform-Conspiracy") != null) {
+			Debug.Log("stopping music for conspiracy theories");
+			aud.Stop();
+		}
 	}
 }
