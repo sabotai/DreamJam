@@ -29,12 +29,14 @@ public class Button : MonoBehaviour {
 		aud = GetComponent<AudioSource>();
 		
 		if (button == null)	button = transform;
+		if (plat == null) plat = GameObject.Find("PlatParent").GetComponent<Platform>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (buttonAvailable){
 			if (Input.GetKeyDown(KeyCode.Space)) {
+				if (plat.randomize) plat.randomizePlats();
 				direction *= -1f;
 				buttonDown = true;
 				buttonUp = false;

@@ -34,7 +34,7 @@ public class Platform : MonoBehaviour {
 		oldDir = Button.direction;
 
 		if (waves) makeWaves(); 
-		if (Input.GetKeyDown(KeyCode.Space) && randomize) randomizePlats();
+		//if (Input.GetKeyDown(KeyCode.Space) && randomize) randomizePlats();
 	}
 
 	public void ResetPos(){
