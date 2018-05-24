@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DemoMode : MonoBehaviour {
 
@@ -13,6 +14,9 @@ public class DemoMode : MonoBehaviour {
 	public static bool demoMode = true;
 	Platform demoPlat;
 	Spawner[] spawners;
+	public Score scoreMan;
+	public Text instructions;
+	public Text roundText;
 	//public Platform plat;
 	// Use this for initialization
 	void Start () {
@@ -43,28 +47,45 @@ public class DemoMode : MonoBehaviour {
 				}
 				demoMode = false;
 			}	
+			/*
 			if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
 				demoPlat.rotSpeed -= 0.5f;
 			}
 			if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
 				demoPlat.rotSpeed += 0.5f;
 			}
-			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)){
+			*/
+			if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
+				if (scoreMan.scoreCap > 20f) scoreMan.scoreCap-= 10;
+				updateInstructions(scoreMan.scoreCap + " TO WIN");
+			}
+			if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
+				if (scoreMan.scoreCap < 200f) scoreMan.scoreCap+= 10;
+				updateInstructions(scoreMan.scoreCap + " TO WIN");
+			}
+			if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
+				if (scoreMan.numRounds < 3) scoreMan.numRounds++;
+				
+				updateInstructions(scoreMan.numRounds + " ROUNDS");				/*
 				foreach (Spawner spawn in spawners){
 					spawn.spawnTime -= 0.1f;
 				}
+				*/
 			}
-			if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)){
+			if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
+				if (scoreMan.numRounds > 1) scoreMan.numRounds--;
+				updateInstructions(scoreMan.numRounds + " ROUNDS");				/*
 				foreach (Spawner spawn in spawners){
 					spawn.spawnTime += 0.1f;
 				}
-				
+				*/
 			}
 			if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.N)){
 				demoPlat.Reverse();
 			}
 			if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.M)){
 				demoPlat.waves = !demoPlat.waves;
+				demoPlat.rotSpeed = demoPlat.origSpeed;
 				demoPlat.ResetPos();
 			}
 		}
@@ -85,5 +106,11 @@ public class DemoMode : MonoBehaviour {
 		}
 	}
 
+	void updateInstructions(string text){
+		roundText.text = text;
+		roundText.GetComponent<UIFadeOut>().pct = 0f;
+		instructions.text = "The first player to score " + scoreMan.scoreCap + " takes the round. the first player to take " + scoreMan.numRounds + " rounds wins!";
+
+	}
 
 }

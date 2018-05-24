@@ -12,7 +12,7 @@ public class Score : MonoBehaviour {
 	public float scoreCap = 100f;
 	public GameObject[] roundScore;
 	int[] roundsWon;
-	int numRounds = 3;
+	public int numRounds = 1;
 	public float maxFont = 260;
 	public static bool nextRound = false;
 	public int currentRound = 0;
@@ -89,7 +89,7 @@ public class Score : MonoBehaviour {
 						//} else {
 
 						//}
-					if (playerScore[i] > scoreCap) roundWin(i); 
+					if (playerScore[i] >= scoreCap) roundWin(i); 
 				}
 			}
 		} else {
