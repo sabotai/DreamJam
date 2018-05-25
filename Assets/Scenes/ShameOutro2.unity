@@ -760,6 +760,7 @@ GameObject:
   - component: {fileID: 485450188}
   - component: {fileID: 485450190}
   - component: {fileID: 485450189}
+  - component: {fileID: 485450191}
   m_Layer: 5
   m_Name: Panel (4)
   m_TagString: Untagged
@@ -819,6 +820,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485450187}
+--- !u!114 &485450191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485450187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 8
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!224 &531488823 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224539801184456126, guid: 79a3f7e1775ab704084f873be1956e46,
@@ -975,6 +994,7 @@ GameObject:
   - component: {fileID: 693072300}
   - component: {fileID: 693072302}
   - component: {fileID: 693072301}
+  - component: {fileID: 693072303}
   m_Layer: 5
   m_Name: Panel (3)
   m_TagString: Untagged
@@ -1035,6 +1055,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 693072299}
+--- !u!114 &693072303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693072299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 120
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &715770170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1260,7 @@ GameObject:
   - component: {fileID: 742631822}
   - component: {fileID: 742631824}
   - component: {fileID: 742631823}
+  - component: {fileID: 742631825}
   m_Layer: 5
   m_Name: Panel (6)
   m_TagString: Untagged
@@ -1283,6 +1322,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 742631821}
+--- !u!114 &742631825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742631821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 120
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &768719421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1672,7 @@ GameObject:
   - component: {fileID: 911516433}
   - component: {fileID: 911516435}
   - component: {fileID: 911516434}
+  - component: {fileID: 911516436}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1674,6 +1732,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 911516432}
+--- !u!114 &911516436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 911516432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 120
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &1069234221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,6 +1960,7 @@ GameObject:
   - component: {fileID: 1169423882}
   - component: {fileID: 1169423884}
   - component: {fileID: 1169423883}
+  - component: {fileID: 1169423885}
   m_Layer: 5
   m_Name: Panel (5)
   m_TagString: Untagged
@@ -1943,6 +2020,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1169423881}
+--- !u!114 &1169423885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169423881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 120
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &1184103879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,6 +2048,7 @@ GameObject:
   - component: {fileID: 1184103880}
   - component: {fileID: 1184103882}
   - component: {fileID: 1184103881}
+  - component: {fileID: 1184103883}
   m_Layer: 5
   m_Name: Panel (7)
   m_TagString: Untagged
@@ -2012,6 +2108,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1184103879}
+--- !u!114 &1184103883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184103879}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 120
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &1209686796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,6 +3463,7 @@ GameObject:
   - component: {fileID: 1981960485}
   - component: {fileID: 1981960487}
   - component: {fileID: 1981960486}
+  - component: {fileID: 1981960488}
   m_Layer: 5
   m_Name: Panel (1)
   m_TagString: Untagged
@@ -3408,6 +3523,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1981960484}
+--- !u!114 &1981960488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1981960484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 120
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &2087827925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,6 +3551,7 @@ GameObject:
   - component: {fileID: 2087827926}
   - component: {fileID: 2087827928}
   - component: {fileID: 2087827927}
+  - component: {fileID: 2087827929}
   m_Layer: 5
   m_Name: Panel (2)
   m_TagString: Untagged
@@ -3478,6 +3612,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087827925}
+--- !u!114 &2087827929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087827925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 120
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &2117886398
 GameObject:
   m_ObjectHideFlags: 0

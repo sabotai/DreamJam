@@ -2272,7 +2272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0.8
-  m_Text: "PLAYER 1 WINS \nTHE ROUND"
+  m_Text: Still there?
 --- !u!222 &71946517
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10382,9 +10382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerAmt: 30
+  timerAmt: 20
   lastPress: 0
   countdown: 10
+  text: still there?
   announcements:
   - {fileID: 760021215}
   - {fileID: 1993996783}
@@ -10393,6 +10394,7 @@ MonoBehaviour:
   - {fileID: 431265416}
   - {fileID: 1425919078}
   - {fileID: 1639241455}
+  displayWarning: 1
 --- !u!1 &341783286
 GameObject:
   m_ObjectHideFlags: 0
@@ -13654,8 +13656,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -68.765}
+  m_SizeDelta: {x: 0, y: -137.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431265415
 MonoBehaviour:
@@ -13691,7 +13693,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 282668592c3a80240b146a4b719f0d3b, type: 3}
-    m_FontSize: 183
+    m_FontSize: 300
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -21198,7 +21200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6107817, g: 0.3726415, b: 1, a: 1}
+  m_Color: {r: 0.60784316, g: 0.4, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21218,7 +21220,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 3 rounds
+  m_Text: 1 round
 --- !u!222 &689677054
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23298,7 +23300,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0.75
-  m_Text: "PLAYER 1 WINS \nTHE ROUND"
+  m_Text: Still there?
 --- !u!222 &760021216
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31208,8 +31210,8 @@ MonoBehaviour:
   dir: -1
   speed: 1.5
   ui: 1
-  sleepTime: 4
-  awakeTime: 3
+  sleepTime: 5
+  awakeTime: 4
   popSound: {fileID: 0}
 --- !u!65 &1043561657
 BoxCollider:
@@ -31272,8 +31274,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: The first player to score 100 takes the round. the first player to take
-    3 rounds wins!
+  m_Text: The first player to score 100 wins!
 --- !u!222 &1043561660
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41481,7 +41482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.7456789, a: 1}
+  m_Color: {r: 0.79607844, g: 0.627451, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -41490,11 +41491,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 282668592c3a80240b146a4b719f0d3b, type: 3}
-    m_FontSize: 178
+    m_FontSize: 295
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 239
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -44804,8 +44805,8 @@ MonoBehaviour:
   dir: 1
   speed: 1.5
   ui: 1
-  sleepTime: 4
-  awakeTime: 3
+  sleepTime: 5
+  awakeTime: 4
   popSound: {fileID: 0}
 --- !u!1 &1537413096
 GameObject:
@@ -49884,11 +49885,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 282668592c3a80240b146a4b719f0d3b, type: 3}
-    m_FontSize: 178
+    m_FontSize: 295
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 239
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -57450,7 +57451,7 @@ MonoBehaviour:
   - {fileID: 1169631833}
   - {fileID: 1366911358}
   - {fileID: 1366911358}
-  - {fileID: 233160386}
+  - {fileID: 1169631833}
   scoreMan: {fileID: 335384496}
   instructions: {fileID: 1043561659}
   roundText: {fileID: 689677053}
@@ -59282,7 +59283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.7456789, a: 1}
+  m_Color: {r: 0.79235405, g: 0.6273585, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -59302,7 +59303,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0.8
-  m_Text: "PLAYER 1 WINS \nTHE ROUND"
+  m_Text: Still there?
 --- !u!222 &1993996784
 CanvasRenderer:
   m_ObjectHideFlags: 0

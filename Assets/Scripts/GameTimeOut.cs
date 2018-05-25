@@ -9,9 +9,10 @@ public class GameTimeOut : MonoBehaviour {
 	public float timerAmt = 30f;
 	public float lastPress = 0f;
 	public float countdown = 10f;
-	string text = "still there?";
+	public string text = "still there?";
 	public Text[] announcements;
 	public Text[] countdowns;
+	public bool displayWarning = true;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,7 @@ public class GameTimeOut : MonoBehaviour {
 		if (Input.anyKey) {
 
 			if (Time.time > lastPress + timerAmt){
+				if (displayWarning){
 				foreach (Text announcement in announcements){
 					announcement.text = "";
 				}
@@ -30,17 +32,20 @@ public class GameTimeOut : MonoBehaviour {
 					countdownObj.text = "";
 				}
 			}
+			}
 			lastPress = Time.time;
 
 		
 		} else {
 			if (Time.time > lastPress + timerAmt){
-				foreach (Text announcement in announcements){
-					announcement.text = text;
-				}
-				foreach (Text countdownObj in countdowns){
-					int timeLeft = (int)(lastPress + timerAmt + countdown - Time.time);
-					countdownObj.text = "" + timeLeft;
+				if (displayWarning){
+					foreach (Text announcement in announcements){
+						announcement.text = text;
+					}
+					foreach (Text countdownObj in countdowns){
+						int timeLeft = (int)(lastPress + timerAmt + countdown - Time.time);
+						countdownObj.text = "" + timeLeft;
+					}
 				}
 				if (Time.time > lastPress + timerAmt + countdown) SceneManager.LoadScene(0);
 			}

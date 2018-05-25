@@ -22,6 +22,7 @@ public class Intro : MonoBehaviour {
 	public Image endCover;
 	public Color startColor, endColor;
 	int finalState = 14;
+	public GameObject timeOut;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
@@ -35,6 +36,7 @@ public class Intro : MonoBehaviour {
 		//origCam = Camera.main;
 		//newCam = GameObject.Find("LaundryCam").GetComponent<Camera>();
 		laundromat.SetActive(false);
+		//timeOut = GameObject.Find("TimeOut");
 	}
 	
 	// Update is called once per frame
@@ -44,6 +46,7 @@ public class Intro : MonoBehaviour {
 				textObjects[textObjects.Length + state - 1].SetActive(true);
 			} else {
 				textObjects[0].SetActive(false);
+			timeOut.SetActive(true);
 				textObjects[textObjects.Length + state - 1].SetActive(true);
 			}
 		} else if (state == 1){
@@ -79,8 +82,10 @@ public class Intro : MonoBehaviour {
 				//dirLight.color = sky.color;
 				if (pct < 1f) {
 					pct += (Time.deltaTime / 2f);
-					} else {state++;}
 				Debug.Log("pct = " + pct);
+				} else {
+					
+				}
 		} else if (state == 6){
 
 			textObjects2[0].SetActive(true);
@@ -121,7 +126,9 @@ public class Intro : MonoBehaviour {
 				updateRes(newCam, 2, 1, 1024, 576, pct);
 				//sky.SetColor("_MainColor", Color.Lerp(Color.red, sky.GetColor("_MainColor"), pct));
 				sky.color = Color.Lerp(Color.red, origSky, pct);
-				dirLight.color = sky.color;
+        		RenderSettings.fogColor = sky.color;
+				dirLight.color = Color.Lerp(sky.color, dirLight.color, pct);
+
 				pct -= (Time.deltaTime / 2f);
 
 				if (pct < 0.05f) {
@@ -134,6 +141,7 @@ public class Intro : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.Space)){
 			if (state != 4 && state != 5) state++;
+			if (state == 5 && pct >= 1f) state++;
 			if (state != 2 && state != 3 && state != 4 && state != 13 && state != 14) audSrc.PlayOneShot(clipMenu, 0.75f);
 		}
 

@@ -1289,6 +1289,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 638499254}
+--- !u!1 &646514240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 646514241}
+  - component: {fileID: 646514242}
+  m_Layer: 0
+  m_Name: TimeOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &646514241
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646514240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 715770171}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &646514242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646514240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 30
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &683881612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,7 +1507,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 646514241}
   m_Father: {fileID: 1209686800}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3072,6 +3120,7 @@ GameObject:
   - component: {fileID: 1209686804}
   - component: {fileID: 1209686803}
   - component: {fileID: 1209686805}
+  - component: {fileID: 1209686806}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3259,6 +3308,7 @@ MonoBehaviour:
   endCover: {fileID: 683881614}
   startColor: {r: 0, g: 0, b: 0, a: 0.9098039}
   endColor: {r: 0, g: 0, b: 0, a: 0}
+  timeOut: {fileID: 646514240}
 --- !u!82 &1209686804
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3377,6 +3427,24 @@ MonoBehaviour:
   n: 0
   m: 0
   buttonCount: 0
+--- !u!114 &1209686806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1209686796}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0dfbc38aff3f4449b6367644db5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerAmt: 30
+  lastPress: 0
+  countdown: 0
+  text: 
+  announcements: []
+  countdowns: []
+  displayWarning: 0
 --- !u!1 &1262168611
 GameObject:
   m_ObjectHideFlags: 0

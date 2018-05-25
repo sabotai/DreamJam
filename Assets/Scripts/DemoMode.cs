@@ -74,7 +74,9 @@ public class DemoMode : MonoBehaviour {
 			}
 			if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
 				if (scoreMan.numRounds > 1) scoreMan.numRounds--;
-				updateInstructions(scoreMan.numRounds + " ROUNDS");				/*
+				if (scoreMan.numRounds == 1)  updateInstructions(scoreMan.numRounds + " ROUND");
+				else updateInstructions(scoreMan.numRounds + " ROUNDS");	
+							/*
 				foreach (Spawner spawn in spawners){
 					spawn.spawnTime += 0.1f;
 				}
@@ -109,7 +111,8 @@ public class DemoMode : MonoBehaviour {
 	void updateInstructions(string text){
 		roundText.text = text;
 		roundText.GetComponent<UIFadeOut>().pct = 0f;
-		instructions.text = "The first player to score " + scoreMan.scoreCap + " takes the round. the first player to take " + scoreMan.numRounds + " rounds wins!";
+		if (scoreMan.numRounds == 1)		instructions.text = "The first player to score " + scoreMan.scoreCap + " wins!";
+		else instructions.text = "The first player to score " + scoreMan.scoreCap + " takes the round. the first player to take " + scoreMan.numRounds + " rounds wins!";
 
 	}
 
