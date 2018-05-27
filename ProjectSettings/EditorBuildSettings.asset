@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/OrbTown7.unity
-    guid: 80332e28bf311ca44a8c927e798a5f06
-  - enabled: 1
     path: Assets/Scenes/ShameIntro7.unity
     guid: f8a69e6edbbe06e4a8573164f6d4ffa1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Shame33.unity
     guid: e637b2b89231a34469325342cdc43b06
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShameOutro2.unity
     guid: 2b0822551233cdf4c803d3b989f4497c
+  - enabled: 1
+    path: Assets/Scenes/OrbTown10.unity
+    guid: ab366f2df44b3594c97c57f0e129d433
   m_configObjects: {}

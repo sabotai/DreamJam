@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 114150498778263616}
   - component: {fileID: 82796163055835214}
   - component: {fileID: 114699826821323652}
+  - component: {fileID: 64749507219457660}
   m_Layer: 0
   m_Name: P1
   m_TagString: Players
@@ -752,12 +753,12 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601495681827800}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 70
   m_Drag: 0.5
   m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!64 &64300150442363624
@@ -788,6 +789,20 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 877c898439581894a87fca18e186b197, type: 3}
+--- !u!64 &64749507219457660
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1601495681827800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 7112a033244c11f4eb42b5b830a7c448, type: 3}
 --- !u!65 &65059761872577598
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -842,7 +857,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601495681827800}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6d9ce7c1e8ff7274cb11d6218b2cfb1a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

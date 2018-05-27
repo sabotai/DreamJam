@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 135367859431143740}
   - component: {fileID: 82626438651607374}
   m_Layer: 0
-  m_Name: BlueSphere
+  m_Name: BlueSphere 1
   m_TagString: Pieces
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1413574287978502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.08614102, y: 0.41541982, z: -1.209434}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,7 +87,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413574287978502}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54470818650863452
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -111,7 +111,7 @@ BoxCollider:
   m_GameObject: {fileID: 1413574287978502}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -238,7 +238,7 @@ SphereCollider:
   m_GameObject: {fileID: 1413574287978502}
   m_Material: {fileID: 13400000, guid: bdb6a44a6c1e86541b4ceb341b4afb0a, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

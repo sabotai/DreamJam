@@ -7,7 +7,7 @@ PhysicMaterial:
   m_PrefabInternal: {fileID: 0}
   m_Name: Cube
   dynamicFriction: 0.5
-  staticFriction: 0.3
+  staticFriction: 0.1
   bounciness: 0.5
   frictionCombine: 1
   bounceCombine: 0
