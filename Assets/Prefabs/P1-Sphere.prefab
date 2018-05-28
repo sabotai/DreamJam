@@ -1204,6 +1204,7 @@ MonoBehaviour:
   lKey: 97
   jump: 99
   resetKey: 118
+  pNumber: 1
   jumpClip:
   - {fileID: 8300000, guid: 962de136ad9d3544c8f82b1c54f75172, type: 3}
   - {fileID: 8300000, guid: 7dbaff489334918478391257e45e61ca, type: 3}
@@ -1216,8 +1217,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0e0485afad0ec8840b48d5a227f6a604, type: 3}
   respawnSound: {fileID: 8300000, guid: 83a294da18cd4ab4fa99c8926756478f, type: 3}
   bumpAmt: 1000
-  minPitch: 1.3
-  maxPitch: 5
+  minPitch: 0.8
+  maxPitch: 1.5
 --- !u!114 &114907700926270106
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	public float forceAmt = 3f;
 	public float jumpAmt = 10f;
 	public KeyCode fwdKey, backKey, rKey, lKey, jump, resetKey;
+	public int pNumber;
 	bool jumped = false;
 	Material myMat;
 	float myMass;
@@ -35,29 +36,29 @@ public class Player : MonoBehaviour {
 	void FixedUpdate () {
 		if (!Score.nextRound && !Score.gameOver){
 			myMat = GetComponent<Renderer>().material;
-			if (Input.GetKeyDown(KeyCode.Space) && Button.buttonDown) GetComponent<Rigidbody>().AddForce( (Vector3.up * bumpAmt + Random.insideUnitSphere) * (Time.deltaTime * 60f));
+			if (Input.GetButton("Shared") && Button.buttonDown) GetComponent<Rigidbody>().AddForce( (Vector3.up * bumpAmt + Random.insideUnitSphere) * (Time.deltaTime * 60f));
 
 
-			if (Input.GetKey(fwdKey)){
+			if (Input.GetAxis("Vertical_P" + pNumber) > 0){
 				rb.AddForce(Vector3.forward * forceAmt * rb.mass * (Time.deltaTime * 60f));
 			}
-			if (Input.GetKey(lKey)){
+			if (Input.GetAxis("Horizontal_P" + pNumber) < 0){
 				rb.AddForce(Vector3.left * forceAmt * rb.mass * (Time.deltaTime * 60f));
 			}
-			if (Input.GetKey(backKey)){
+			if (Input.GetAxis("Vertical_P" + pNumber) < 0){
 				rb.AddForce(-Vector3.forward * forceAmt * rb.mass * (Time.deltaTime * 60f));
 			}
-			if (Input.GetKey(rKey)){
+			if (Input.GetAxis("Horizontal_P" + pNumber) > 0){
 				rb.AddForce(Vector3.right * forceAmt * rb.mass * (Time.deltaTime * 60f));
 			}
-			if (Input.GetKey(jump) && !jumped){
+			if (Input.GetButton("Primary_P" + pNumber) && !jumped){
 				rb.AddForce(Vector3.up * jumpAmt * rb.mass * (Time.deltaTime * 60f));
 				aud.pitch = Mathf.Clamp(rb.velocity.y, minPitch, maxPitch);
 				aud.PlayOneShot(jumpClip[Random.Range(0, jumpClip.Length)]);
 				jumped = true;
 			}
 
-			if (Input.GetKeyDown(resetKey)){
+			if (Input.GetButtonDown("Alt_P" + pNumber)){
 				Respawn();
 			}
 		}

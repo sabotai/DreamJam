@@ -1059,6 +1059,7 @@ MonoBehaviour:
   lKey: 97
   jump: 99
   resetKey: 118
+  pNumber: 1
   jumpClip:
   - {fileID: 8300000, guid: 962de136ad9d3544c8f82b1c54f75172, type: 3}
   - {fileID: 8300000, guid: 7dbaff489334918478391257e45e61ca, type: 3}

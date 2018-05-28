@@ -37,7 +37,7 @@ public class DemoMode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (demoMode){
-			if (Input.GetKey(KeyCode.Space)){//} || Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.V) || Input.GetKey(KeyCode.N) || Input.GetKey(KeyCode.M)) {
+			if (Input.GetButton("Shared") || Input.GetButton("Primary_P1") || Input.GetButton("Primary_P2")){//} || Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.V) || Input.GetKey(KeyCode.N) || Input.GetKey(KeyCode.M)) {
 				for (int i = 0; i < enableThese.Length; i++){
 					enableThese[i].SetActive(true);
 					}
