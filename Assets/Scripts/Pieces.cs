@@ -25,7 +25,7 @@ public class Pieces : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//jump up
-		if (Input.GetKeyDown(KeyCode.Space) && Button.buttonDown) GetComponent<Rigidbody>().AddForce( Vector3.up * bumpAmt + Random.insideUnitSphere);
+		if (Input.GetButtonDown("Shared") && Button.buttonDown) GetComponent<Rigidbody>().AddForce( Vector3.up * bumpAmt + Random.insideUnitSphere);
 		if (demoPiece && !DemoMode.demoMode) gameObject.SetActive(false); // 
 	}
 

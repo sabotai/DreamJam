@@ -37,6 +37,17 @@ public class DemoMode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (demoMode){
+			if (Input.GetKeyDown("1")) enableThisOne = enableOneOfThese[1];
+			if (Input.GetKeyDown("2")) enableThisOne = enableOneOfThese[2];
+			if (Input.GetKeyDown("3")) enableThisOne = enableOneOfThese[3];
+			if (Input.GetKeyDown("4")) enableThisOne = enableOneOfThese[4];
+			if (Input.GetKeyDown("5")) enableThisOne = enableOneOfThese[5];
+			if (Input.GetKeyDown("6")) enableThisOne = enableOneOfThese[6];
+			if (Input.GetKeyDown("7")) enableThisOne = enableOneOfThese[7];
+			if (Input.GetKeyDown("8")) enableThisOne = enableOneOfThese[8];
+			if (Input.GetKeyDown("9")) enableThisOne = enableOneOfThese[9];
+			if (Input.GetKeyDown("0")) enableThisOne = enableOneOfThese[0];
+			if (Input.GetButtonDown("Cancel")) Application.Quit();
 			if (Input.GetButton("Shared") || Input.GetButton("Primary_P1") || Input.GetButton("Primary_P2")){//} || Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.V) || Input.GetKey(KeyCode.N) || Input.GetKey(KeyCode.M)) {
 				for (int i = 0; i < enableThese.Length; i++){
 					enableThese[i].SetActive(true);
@@ -55,41 +66,68 @@ public class DemoMode : MonoBehaviour {
 				demoPlat.rotSpeed += 0.5f;
 			}
 			*/
-			if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
-				if (scoreMan.scoreCap > 20f) scoreMan.scoreCap-= 10;
-				updateInstructions(scoreMan.scoreCap + " TO WIN");
-			}
-			if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
-				if (scoreMan.scoreCap < 200f) scoreMan.scoreCap+= 10;
-				updateInstructions(scoreMan.scoreCap + " TO WIN");
-			}
-			if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
-				if (scoreMan.numRounds < 3) scoreMan.numRounds++;
-				
-				updateInstructions(scoreMan.numRounds + " ROUNDS");				/*
-				foreach (Spawner spawn in spawners){
-					spawn.spawnTime -= 0.1f;
+			if (Input.anyKeyDown){
+				if (Input.GetAxisRaw("Horizontal_P1") < 0 || Input.GetAxisRaw("Horizontal_P2") < 0){
+					if (scoreMan.scoreCap > 20f) scoreMan.scoreCap-= 10;
+					updateInstructions(scoreMan.scoreCap + " TO WIN");
 				}
+				if (Input.GetAxisRaw("Horizontal_P1") > 0 || Input.GetAxisRaw("Horizontal_P2") > 0){
+					if (scoreMan.scoreCap < 200f) scoreMan.scoreCap+= 10;
+					updateInstructions(scoreMan.scoreCap + " TO WIN");
+				}
+				if (Input.GetAxisRaw("Vertical_P1") > 0 || Input.GetAxisRaw("Vertical_P2") > 0){
+					if (scoreMan.numRounds < 3) scoreMan.numRounds++;
+					
+					updateInstructions(scoreMan.numRounds + " ROUNDS");			
+				}
+				if (Input.GetAxisRaw("Vertical_P1") < 0 || Input.GetAxisRaw("Vertical_P2") < 0){
+					if (scoreMan.numRounds > 1) scoreMan.numRounds--;
+					if (scoreMan.numRounds == 1)  updateInstructions(scoreMan.numRounds + " ROUND");
+					else updateInstructions(scoreMan.numRounds + " ROUNDS");	
+				}
+				//if (Input.GetButtonDown("Primary_P1") || Input.GetButtonDown("Primary_P2")){
+				if (Input.GetButtonDown("Alt_P1")){
+					demoPlat.Reverse();
+				}
+				if (Input.GetButtonDown("Alt_P2")){
+					demoPlat.waves = !demoPlat.waves;
+					demoPlat.rotSpeed = demoPlat.origSpeed;
+					demoPlat.ResetPos();
+				}
+				/* old method with keys
+				if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
+					if (scoreMan.scoreCap > 20f) scoreMan.scoreCap-= 10;
+					updateInstructions(scoreMan.scoreCap + " TO WIN");
+				}
+				if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
+					if (scoreMan.scoreCap < 200f) scoreMan.scoreCap+= 10;
+					updateInstructions(scoreMan.scoreCap + " TO WIN");
+				}
+				if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
+					if (scoreMan.numRounds < 3) scoreMan.numRounds++;
+					
+					updateInstructions(scoreMan.numRounds + " ROUNDS");			
+				}
+				if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
+					if (scoreMan.numRounds > 1) scoreMan.numRounds--;
+					if (scoreMan.numRounds == 1)  updateInstructions(scoreMan.numRounds + " ROUND");
+					else updateInstructions(scoreMan.numRounds + " ROUNDS");	
+				}
+				if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.N)){
+					demoPlat.Reverse();
+				}
+				if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.M)){
+					demoPlat.waves = !demoPlat.waves;
+					demoPlat.rotSpeed = demoPlat.origSpeed;
+					demoPlat.ResetPos();
+				}
+
 				*/
 			}
-			if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
-				if (scoreMan.numRounds > 1) scoreMan.numRounds--;
-				if (scoreMan.numRounds == 1)  updateInstructions(scoreMan.numRounds + " ROUND");
-				else updateInstructions(scoreMan.numRounds + " ROUNDS");	
-							/*
-				foreach (Spawner spawn in spawners){
-					spawn.spawnTime += 0.1f;
-				}
-				*/
-			}
-			if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.N)){
-				demoPlat.Reverse();
-			}
-			if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.M)){
-				demoPlat.waves = !demoPlat.waves;
-				demoPlat.rotSpeed = demoPlat.origSpeed;
-				demoPlat.ResetPos();
-			}
+
+		} else {
+
+			if (Input.GetButtonDown("Cancel")) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 
 		if (menuReset && !demoMode){

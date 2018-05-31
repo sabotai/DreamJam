@@ -20,7 +20,10 @@ public class LookAtWinner : MonoBehaviour {
 		if (Score.gameOver || Score.nextRound && Score.recentWinner != -1){
 
 			transform.LookAt(players[Score.recentWinner].position + Vector3.up * 0.2f);
-			GetComponent<Camera>().fieldOfView = closeFOV;
+			if (GetComponent<Camera>().fieldOfView != closeFOV) {
+				GetComponent<Camera>().fieldOfView = closeFOV;
+				players[Score.recentWinner].gameObject.GetComponent<Player>().Respawn();
+			}
 		} else {
 			transform.rotation = origRot;
 			GetComponent<Camera>().fieldOfView = defaultFOV;

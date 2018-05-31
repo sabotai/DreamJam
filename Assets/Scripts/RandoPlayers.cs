@@ -10,9 +10,20 @@ public class RandoPlayers : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		string name = names[Random.Range(0, names.Length)];
-		GetComponent<TextMesh>().text = name;
-		if (transform.parent.name == "P1") Score.p1Name = name;
-		if (transform.parent.name == "P2") Score.p2Name = name;
+		
+		if (transform.parent.name == "P1"){
+			if (Score.p1Name == "" || Score.p1Name == null || Score.p1Name == " ") {
+				Score.p1Name = name;
+			} 
+			GetComponent<TextMesh>().text = Score.p1Name;
+		} 
+		
+		if (transform.parent.name == "P2"){
+			if (Score.p2Name == "" || Score.p2Name == null || Score.p2Name == " ") {
+				Score.p2Name = name;
+			} 
+			GetComponent<TextMesh>().text = Score.p2Name;
+		} 
 		/*
 		GameObject[] labels = GameObject.FindGameObjectsWithTag("Label");
 		foreach (GameObject label in labels)

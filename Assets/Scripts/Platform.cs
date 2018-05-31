@@ -5,7 +5,7 @@ using UnityEngine;
 public class Platform : MonoBehaviour {
 	public Vector3 rotDir;
 	public float rotSpeed;
-	float escalationRate = 1.4f;
+	float escalationRate = 1.45f;
 	public float origSpeed;
 	public bool autoSlow = true;
 	float oldDir;

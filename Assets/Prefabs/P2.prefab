@@ -170,7 +170,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536814850525152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 2.766, z: 0.13223}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.13178298, y: 0.13178298, z: 0.13178298}
   m_Children:
   - {fileID: 4845842138877540}
@@ -725,7 +725,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 79
-  DopplerLevel: 2.93
+  DopplerLevel: 2
   MinDistance: 2.14
   MaxDistance: 500
   Pan2D: 0
@@ -762,7 +762,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.69
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -852,8 +852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4651f52fc17bc24478ff360e323b9d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmt: 3
-  jumpAmt: 100
+  forceAmt: 3.6
+  jumpAmt: 120
   fwdKey: 273
   backKey: 274
   rKey: 275
@@ -875,6 +875,7 @@ MonoBehaviour:
   bumpAmt: 1000
   minPitch: 0.8
   maxPitch: 1.5
+  slaveMaster: {fileID: 0}
 --- !u!114 &114173449698742116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -915,13 +916,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3f9ac1dd7307c4c8c2966b078f4218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnSound: {fileID: 8300000, guid: 83a294da18cd4ab4fa99c8926756478f, type: 3}
 --- !u!114 &114979495705133428
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121720041422274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735a4bd989897b4408a3381d53f1ebb3, type: 3}
   m_Name: 

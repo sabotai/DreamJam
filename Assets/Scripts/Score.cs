@@ -69,7 +69,7 @@ public class Score : MonoBehaviour {
 
 		if (!gameOver){
 			if (nextRound){
-				if (Input.GetKeyDown(KeyCode.Space)){
+				if (Input.GetButtonDown("Shared")){
 					music.newMusic();
 					 advanceRound();
 
@@ -93,7 +93,7 @@ public class Score : MonoBehaviour {
 				}
 			}
 		} else {
-			if (Input.GetKeyDown(KeyCode.Space)) reset();
+			if (Input.GetButtonDown("Shared")) reset();
 		}
 
 	}
