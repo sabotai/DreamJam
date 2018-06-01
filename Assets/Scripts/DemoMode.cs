@@ -47,8 +47,14 @@ public class DemoMode : MonoBehaviour {
 			if (Input.GetKeyDown("8")) enableThisOne = enableOneOfThese[8];
 			if (Input.GetKeyDown("9")) enableThisOne = enableOneOfThese[9];
 			if (Input.GetKeyDown("0")) enableThisOne = enableOneOfThese[0];
+
+	        if (enableThisOne.name == "Platform-Conspiracy") RenderSettings.fog = true; else RenderSettings.fog = false;
+
 			if (Input.GetButtonDown("Cancel")) Application.Quit();
 			if (Input.GetButton("Shared") || Input.GetButton("Primary_P1") || Input.GetButton("Primary_P2")){//} || Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.V) || Input.GetKey(KeyCode.N) || Input.GetKey(KeyCode.M)) {
+				
+				Score.p1Name = "";
+				Score.p2Name = "";
 				for (int i = 0; i < enableThese.Length; i++){
 					enableThese[i].SetActive(true);
 					}

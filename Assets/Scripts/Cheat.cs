@@ -61,7 +61,9 @@ public class Cheat : MonoBehaviour {
 		if (pV && !v) v = true;
 		if (pN && !n) n = true;
 		if (pM && !m) m = true;
-		if (c && v && n && m) SceneManager.LoadScene(0);
+		if (c && v && n && m) {
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
 		if (Input.GetKeyUp(KeyCode.C)) c = false;
 		if (Input.GetKeyUp(KeyCode.V)) v = false;
 		if (Input.GetKeyUp(KeyCode.N)) n = false;

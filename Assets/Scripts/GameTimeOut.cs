@@ -47,7 +47,7 @@ public class GameTimeOut : MonoBehaviour {
 						countdownObj.text = "" + timeLeft;
 					}
 				}
-				if (Time.time > lastPress + timerAmt + countdown) SceneManager.LoadScene(0);
+				if (Time.time > lastPress + timerAmt + countdown) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}
 	}

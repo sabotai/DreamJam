@@ -222,6 +222,8 @@ public class Score : MonoBehaviour {
 		}
 		//Platform.waves = false;
 		//Platform.randomize = false;
+		p1Name = "";
+		p2Name = "";
 		DemoMode.menuReset = true;	
 		
 	}
