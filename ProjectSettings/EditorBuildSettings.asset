@@ -8,19 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PreloadScene.unity
     guid: 1d27df6547025c541984bf649e15d15e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ShameIntro7.unity
     guid: f8a69e6edbbe06e4a8573164f6d4ffa1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Shame34.unity
     guid: 9824dcff290416b4da223793ab24c6f1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ShameOutro2.unity
     guid: 2b0822551233cdf4c803d3b989f4497c
   - enabled: 0
     path: Assets/Scenes/OrbTown10.unity
     guid: ab366f2df44b3594c97c57f0e129d433
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Orbtown11.unity
     guid: 919c06f8ce1268c4e8619ce247bc4c80
   m_configObjects: {}
