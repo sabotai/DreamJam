@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	Material myMat;
 	float myMass;
 	GameObject mySpawner;
+	public Vector3 startPos;
 	AudioSource aud;
 	public AudioClip[] jumpClip; 
 	public AudioClip[] hitClip;
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour {
 	public float minPitch, maxPitch;
 	Transform myParent;
 	float landingThresh = 2f;
+
+	public GameObject slaveMaster;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -31,35 +34,52 @@ public class Player : MonoBehaviour {
 		myParent = transform.parent;
 		jumped = true;
 	}
+	void OnEnable(){
+
+		rb = GetComponent<Rigidbody>();
+		aud = GetComponent<AudioSource>();
+
+	}
+	void Awake(){
+
+		rb = GetComponent<Rigidbody>();
+		aud = GetComponent<AudioSource>();
+		startPos = transform.position;
+	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () {	
+				if (slaveMaster != null) {
+					GetComponent<Renderer>().material = slaveMaster.GetComponent<Renderer>().material;
+				}
 		if (!Score.nextRound && !Score.gameOver){
-			myMat = GetComponent<Renderer>().material;
-			if (Input.GetButton("Shared") && Button.buttonDown) GetComponent<Rigidbody>().AddForce( (Vector3.up * bumpAmt + Random.insideUnitSphere) * (Time.deltaTime * 60f));
+			if (Input.GetButtonDown("Shared") && Button.buttonDown) {
+				GetComponent<Rigidbody>().AddForce( (Vector3.up * bumpAmt + Random.insideUnitSphere));
 
+			}
+			myMat = GetComponent<Renderer>().material;
 
 			if (Input.GetAxis("Vertical_P" + pNumber) > 0){
-				rb.AddForce(Vector3.forward * forceAmt * rb.mass * (Time.deltaTime * 60f));
+				rb.AddForce(Vector3.forward * forceAmt * rb.mass);
 			}
 			if (Input.GetAxis("Horizontal_P" + pNumber) < 0){
-				rb.AddForce(Vector3.left * forceAmt * rb.mass * (Time.deltaTime * 60f));
+				rb.AddForce(Vector3.left * forceAmt * rb.mass);
 			}
 			if (Input.GetAxis("Vertical_P" + pNumber) < 0){
-				rb.AddForce(-Vector3.forward * forceAmt * rb.mass * (Time.deltaTime * 60f));
+				rb.AddForce(-Vector3.forward * forceAmt * rb.mass);
 			}
 			if (Input.GetAxis("Horizontal_P" + pNumber) > 0){
-				rb.AddForce(Vector3.right * forceAmt * rb.mass * (Time.deltaTime * 60f));
+				rb.AddForce(Vector3.right * forceAmt * rb.mass);
 			}
 			if (Input.GetButton("Primary_P" + pNumber) && !jumped){
-				rb.AddForce(Vector3.up * jumpAmt * rb.mass * (Time.deltaTime * 60f));
+				rb.AddForce(Vector3.up * jumpAmt * rb.mass);
 				aud.pitch = Mathf.Clamp(rb.velocity.y, minPitch, maxPitch);
 				aud.PlayOneShot(jumpClip[Random.Range(0, jumpClip.Length)]);
 				jumped = true;
 			}
 
 			if (Input.GetButtonDown("Alt_P" + pNumber)){
-				Respawn();
+				Respawn(true);
 			}
 		}
 	}
@@ -101,18 +121,63 @@ public class Player : MonoBehaviour {
 	         
 	     }
      }
+
 	void OnTriggerEnter(Collider other) {
+         if (other.gameObject.name == "FallTrigger")  {
+         	aud.pitch = 1f;
+    		aud.PlayOneShot(respawnSound, 0.69f);
+         }
          if (other.gameObject.name == "net") {
             //SceneManager.LoadScene(0);
             Respawn();
          }
+
      }
 
     public void Respawn(){
     		aud.pitch = 1f;
-    		aud.PlayOneShot(respawnSound, 0.69f);
-    		transform.parent = myParent;
-            transform.position = mySpawner.transform.position;
+    		//aud.PlayOneShot(respawnSound, 0.69f);
+    		transform.parent = null;
+    		if (Score.gameOver) {
+    			transform.position = startPos + Vector3.up * 3f;
+    		} else {
+    			/*
+	    		if (slaveMaster != null) {
+	    			transform.position = slaveMaster.GetComponent<Player>().startPos + Vector3.up * 2f;
+	    			} else {
+*/
+
+				if (slaveMaster != null) startPos = slaveMaster.GetComponent<Player>().startPos;
+	    		transform.position = startPos - Vector3.up * 3f;//mySpawner.transform.position;
+//	    			}
+	    	}
+            GetComponent<Rigidbody>().velocity = Vector3.down;
+            enabled = false;
+     }
+
+    public void Respawn(bool playSound){ //manual respawn
+    		transform.parent = null;
+    		if (playSound){
+    			aud.pitch = 2f;
+    			aud.PlayOneShot(respawnSound, 0.3f);
+
+				if (slaveMaster != null) startPos = slaveMaster.GetComponent<Player>().startPos;
+    			transform.position = startPos - Vector3.up * 4f;
+    		} else {
+    			if (Score.gameOver) {
+    				transform.position = startPos + Vector3.up * 3f;
+    			} else {
+		    		/*if (slaveMaster != null) {
+		    			transform.position = slaveMaster.GetComponent<Player>().startPos + Vector3.up * 2f;
+	    			} else {
+	    				*/
+
+				if (slaveMaster != null) startPos = slaveMaster.GetComponent<Player>().startPos;
+	    				transform.position = startPos;//mySpawner.transform.position;
+	    			//}
+	    		}
+
+    		}
             GetComponent<Rigidbody>().velocity = Vector3.down;
             enabled = false;
      }

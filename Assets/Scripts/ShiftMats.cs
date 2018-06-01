@@ -41,11 +41,15 @@ public class ShiftMats : MonoBehaviour {
 					}
 				pScore[i].color = playerMats[i].color;
 				players[i].GetComponent<Renderer>().material = playerMats[i];
+				if (players[i].GetComponent<Player>().slaveMaster != null) 
+					players[i].GetComponent<Player>().slaveMaster.GetComponent<Renderer>().material = playerMats[i];
+				/*
 				for (int j = 0; j < players[i].transform.childCount; j++){
 					if (players[i].transform.GetChild(j).gameObject.tag != "Label"){
 						players[i].transform.GetChild(j).gameObject.GetComponent<Renderer>().material = playerMats[i];
 					}
 				}
+				*/
 			}
 }
 }

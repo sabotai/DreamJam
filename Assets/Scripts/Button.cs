@@ -35,7 +35,7 @@ public class Button : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (buttonAvailable){
-			if (Input.GetKeyDown(KeyCode.Space)) {
+			if (Input.GetButtonDown("Shared")) {
 				if (plat.randomize) plat.randomizePlats();
 				direction *= -1f;
 				buttonDown = true;
@@ -49,7 +49,7 @@ public class Button : MonoBehaviour {
 				buttonPress(false, origAvailableY);
 			}
 		}
-		if (Input.GetKeyUp(KeyCode.Space)) {
+		if (Input.GetButtonUp("Shared")) {
 			if (buttonDown) aud.PlayOneShot(upClip);
 			buttonUp = true;
 			buttonDown = false;
@@ -72,7 +72,7 @@ public class Button : MonoBehaviour {
 			if (button.localPosition.y > target){
 				button.localPosition = new Vector3(button.localPosition.x, button.localPosition.y - (1.5f * pushSpeed * Time.deltaTime), button.localPosition.z);
 			} else {
-				if (!Input.GetKey(KeyCode.Space))	{
+				if (!Input.GetButton("Shared"))	{
 				button.localPosition = new Vector3(button.localPosition.x, target, button.localPosition.z);
 					buttonDown = false;
 				}
