@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
 	Material myMat;
 	float myMass;
 	GameObject mySpawner;
-	Vector3 startPos;
+	public Vector3 startPos;
 	AudioSource aud;
 	public AudioClip[] jumpClip; 
 	public AudioClip[] hitClip;
@@ -33,7 +33,6 @@ public class Player : MonoBehaviour {
 		mySpawner = GameObject.Find(gameObject.name + "Spawner");
 		myParent = transform.parent;
 		jumped = true;
-		startPos = transform.position;
 	}
 	void OnEnable(){
 
@@ -45,6 +44,7 @@ public class Player : MonoBehaviour {
 
 		rb = GetComponent<Rigidbody>();
 		aud = GetComponent<AudioSource>();
+		startPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -137,22 +137,45 @@ public class Player : MonoBehaviour {
     public void Respawn(){
     		aud.pitch = 1f;
     		//aud.PlayOneShot(respawnSound, 0.69f);
-    		transform.parent = myParent;
-    		if (Score.gameOver) transform.position = startPos + Vector3.up * 3f;
-    		else transform.position = startPos - Vector3.up * 3f;;//mySpawner.transform.position;
+    		transform.parent = null;
+    		if (Score.gameOver) {
+    			transform.position = startPos + Vector3.up * 3f;
+    		} else {
+    			/*
+	    		if (slaveMaster != null) {
+	    			transform.position = slaveMaster.GetComponent<Player>().startPos + Vector3.up * 2f;
+	    			} else {
+*/
+
+				if (slaveMaster != null) startPos = slaveMaster.GetComponent<Player>().startPos;
+	    		transform.position = startPos - Vector3.up * 3f;//mySpawner.transform.position;
+//	    			}
+	    	}
             GetComponent<Rigidbody>().velocity = Vector3.down;
             enabled = false;
      }
 
-    public void Respawn(bool playSound){
-    		transform.parent = myParent;
+    public void Respawn(bool playSound){ //manual respawn
+    		transform.parent = null;
     		if (playSound){
     			aud.pitch = 2f;
     			aud.PlayOneShot(respawnSound, 0.3f);
+
+				if (slaveMaster != null) startPos = slaveMaster.GetComponent<Player>().startPos;
     			transform.position = startPos - Vector3.up * 4f;
     		} else {
-    			if (Score.gameOver) transform.position = startPos + Vector3.up * 3f;
-    			else transform.position = startPos;//mySpawner.transform.position;
+    			if (Score.gameOver) {
+    				transform.position = startPos + Vector3.up * 3f;
+    			} else {
+		    		/*if (slaveMaster != null) {
+		    			transform.position = slaveMaster.GetComponent<Player>().startPos + Vector3.up * 2f;
+	    			} else {
+	    				*/
+
+				if (slaveMaster != null) startPos = slaveMaster.GetComponent<Player>().startPos;
+	    				transform.position = startPos;//mySpawner.transform.position;
+	    			//}
+	    		}
 
     		}
             GetComponent<Rigidbody>().velocity = Vector3.down;

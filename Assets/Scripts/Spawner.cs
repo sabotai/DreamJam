@@ -9,10 +9,11 @@ public class Spawner : MonoBehaviour {
 	float startTime = 0f;
 	public GameObject spawnObject;
 	public GameObject man;
+	public GameObject swapObj;
 	// Use this for initialization
 	void Start () {
 		startTime = Time.time;
-		man = GameObject.Find("Level7");
+		man = GameObject.Find("PlatParent");
 		origSpawnTime = spawnTime;
 	}
 	
@@ -23,7 +24,16 @@ public class Spawner : MonoBehaviour {
 				Instantiate(spawnObject, transform.position, Quaternion.identity);
 				startTime = Time.time;
 			}
-			spawnTime = origSpawnTime / Mathf.Abs(man.GetComponent<Platform>().rotDir.y);
+			spawnTime = origSpawnTime / Mathf.Abs(man.GetComponent<Platform>().rotSpeed / (1.5f * man.GetComponent<Platform>().origSpeed));
+			spawnTime = Mathf.Max(spawnTime, 1f);
+
+			if (swapObj != null){
+				if (Button.buttonDown && Input.GetButton("Shared") && Input.anyKeyDown) {
+					GameObject old = spawnObject;
+					spawnObject = swapObj;
+					swapObj = old;
+				}
+			}
 		}
 	}
 }

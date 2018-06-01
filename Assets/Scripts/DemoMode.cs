@@ -141,7 +141,7 @@ public class DemoMode : MonoBehaviour {
 			}
 			menuReset = false;
 			demoMode = true;
-			SceneManager.LoadScene(0);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
 		}
 	}
