@@ -40,6 +40,9 @@ public class Outro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetButtonDown("Cancel")) {
+			Application.Quit();
+		}
 		if (Input.GetKeyDown(KeyCode.Space) && state != -1 && state != 2) {
 			state++;
 			audSrc.PlayOneShot(clipMenu, 0.15f);
