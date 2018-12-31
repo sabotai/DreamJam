@@ -40,9 +40,6 @@ public class Outro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Cancel")) {
-			Application.Quit();
-		}
 		if (Input.GetKeyDown(KeyCode.Space) && state != -1 && state != 2) {
 			state++;
 			audSrc.PlayOneShot(clipMenu, 0.15f);
@@ -101,12 +98,11 @@ public class Outro : MonoBehaviour {
 			textObjects[4].SetActive(true);
 		} else if (state == 7){
 			textObjects[5].SetActive(true);
-		}  else if (state == 7){
-			for (int i = 0; i < textObjects.Length; i++){
+		}  else {
+			for (int i = 0; i < 5; i++){
 				textObjects[i].SetActive(false);
 			}
-		} else {
-			SceneManager.LoadScene(0);	
+			textObjects[6].SetActive(true);
 		}
 
 

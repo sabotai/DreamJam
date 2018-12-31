@@ -29,6 +29,7 @@ public class DryEyes : MonoBehaviour {
 	public float xResR = 256f;
 	public float yResR = 288f;
 	public float minRes = 20f;
+	public float maxResMulti = 1f;
 	public float eyeDistThresh = 0.5f;
 	public static float lifeAmt = 1f;
 	public static float minLife = 0.03f;
@@ -59,13 +60,16 @@ public class DryEyes : MonoBehaviour {
 		rScreen = GameObject.Find("RScreen").GetComponent<RawImage>();
 		lTexture = lCam.targetTexture;
 		rTexture = rCam.targetTexture;
-		maxW = lTexture.width;
-		maxH = lTexture.height;
+		maxW = lTexture.width * maxResMulti;
+		maxH = lTexture.height * maxResMulti;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		maxW = lTexture.width * maxResMulti;
+		maxH = lTexture.height * maxResMulti;
+		
 		float lifeL =  ((xResL / (maxW - minRes)) + (yResL / (maxH - minRes))) / 2f;
 		float lifeR = ((xResR / (maxW - minRes)) + (yResR / (maxH - minRes))) / 2f;
 		lifeAmt = (Mathf.Min(lifeL, lifeR) * 2f) - minLife;

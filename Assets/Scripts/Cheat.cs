@@ -12,7 +12,7 @@ public class Cheat : MonoBehaviour {
     private double lastInterval;
     private int frames = 0;
     private float fps;
-    public bool enableDebug = false;
+    public static bool enableDebug = false;
     public bool c, pC, pV, pN, pM, v, n, m;
 	public int buttonCount = 0;
 
@@ -117,7 +117,7 @@ public class Cheat : MonoBehaviour {
 			if (Input.GetKey(KeyCode.Alpha8))
 				SceneManager.LoadScene(7);
 			if (Input.GetKeyDown(KeyCode.T))
-				Time.timeScale *= 1.2f;
+				Time.timeScale *= 2f;
 
 			if (Input.GetKeyDown(KeyCode.Y))
 				Time.timeScale = 1f;

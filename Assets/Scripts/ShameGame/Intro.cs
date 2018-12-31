@@ -41,9 +41,11 @@ public class Intro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
 		if (Input.GetButtonDown("Cancel")) {
 			Application.Quit();
 		}
+		*/
 		if (state > -textObjects.Length && state < 1){
 			if (state == -textObjects.Length + 1){
 				textObjects[textObjects.Length + state - 1].SetActive(true);

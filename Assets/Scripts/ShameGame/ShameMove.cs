@@ -43,13 +43,14 @@ public class ShameMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		/*
 		if (Input.GetButtonDown("Cancel")) {
 			Application.Quit();
 		}
+		*/
 		rotSpeed = Mathf.Min(rotSpeed, maxRot);
-		if (Input.GetKey(KeyCode.E)) GetComponent<BoxCollider>().enabled = false;
-		if (Input.GetKey(KeyCode.R)) GetComponent<BoxCollider>().enabled = true;
+		if (Cheat.enableDebug && Input.GetKey(KeyCode.E)) GetComponent<BoxCollider>().enabled = false;
+		if (Cheat.enableDebug && Input.GetKey(KeyCode.R)) GetComponent<BoxCollider>().enabled = true;
 
 		Quaternion lRot = lEye.rotation;
 		Quaternion rRot = rEye.rotation;
