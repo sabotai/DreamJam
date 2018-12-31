@@ -67,9 +67,6 @@ public class DryEyes : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		maxW = lTexture.width * maxResMulti;
-		maxH = lTexture.height * maxResMulti;
-		
 		float lifeL =  ((xResL / (maxW - minRes)) + (yResL / (maxH - minRes))) / 2f;
 		float lifeR = ((xResR / (maxW - minRes)) + (yResR / (maxH - minRes))) / 2f;
 		lifeAmt = (Mathf.Min(lifeL, lifeR) * 2f) - minLife;
