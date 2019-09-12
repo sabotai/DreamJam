@@ -25,6 +25,7 @@ public class Outro : MonoBehaviour {
 	public float openingSpeed = 0.1f;
 	float fastSpeed;
 	public GameObject caption;
+	public Text helperText;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
@@ -53,6 +54,8 @@ public class Outro : MonoBehaviour {
 			} else {
 				if (Input.GetKeyDown(KeyCode.Space)) state++;
 			}
+
+			helperText.enabled = true;
 		} else if (state == 0){ 
 				if (audSrc.clip != clipSwitch){
 					audSrc.clip = clipSwitch;
@@ -65,6 +68,7 @@ public class Outro : MonoBehaviour {
 			textObjects[0].SetActive(true);
 			
 		} else if (state == 2){
+			helperText.enabled = false;
 			textObjects[0].SetActive(false);
 			if (audSrc.clip != clipCrying){
 				audSrc.clip = clipCrying;
@@ -88,6 +92,7 @@ public class Outro : MonoBehaviour {
 				state++;
 			}
 		} else if (state == 3){
+			helperText.enabled = true;
 				audSrc.Stop();
 			textObjects[1].SetActive(true);
 		} else if (state == 4){
@@ -102,6 +107,7 @@ public class Outro : MonoBehaviour {
 			for (int i = 0; i < 5; i++){
 				textObjects[i].SetActive(false);
 			}
+			helperText.enabled = false;
 			textObjects[6].SetActive(true);
 		}
 

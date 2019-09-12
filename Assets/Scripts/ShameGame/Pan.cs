@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pan : MonoBehaviour {
-	public Vector3 dir;
+	public Vector2 dir;
 	public float speed = 1f;
 	public bool paused = false;
 	// Use this for initialization
@@ -17,7 +18,8 @@ public class Pan : MonoBehaviour {
 			paused = !paused;
 		} else {
 			if (!paused){
-				transform.position += (dir * speed);
+				//transform.position += (dir * speed * ((1f / 60f) / Time.deltaTime));
+				GetComponent<RectTransform>().pivot -= (dir * speed);
 			}
 		}
 	}

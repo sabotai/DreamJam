@@ -15,13 +15,15 @@ public class ColorPulse : MonoBehaviour {
 	public Platform plat;
 	float maxSpeed = 8f;
 	public bool ui;
+	public bool basic = false;
 	// Use this for initialization
 	void Start () {
 		current = 0f;
 		if (dir == 0) dir = 1;
 		else if (dir == -1) current = 1f;
 		initSpeed = speed;
-		if (!plat) plat = GameObject.Find("PlatParent").GetComponent<Platform>();
+		if (!plat && !basic) plat = GameObject.Find("PlatParent").GetComponent<Platform>();
+		//GetComponent<Text>().material.color = c1;
 	}
 	
 	// Update is called once per frame
@@ -34,7 +36,7 @@ public class ColorPulse : MonoBehaviour {
 		current += (speed * dir * Time.deltaTime);
 		if ((current > 1f || current < 0f) && pulse) dir *= -1;
 
-		if (pulse && speedBind) speed = 0.1f * (plat.rotSpeed / initSpeed);
+		if (pulse && speedBind && (plat != null)) speed = 0.1f * (plat.rotSpeed / initSpeed);
 		speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
 		current = Mathf.Clamp(current, 0f, 1f);
 	}

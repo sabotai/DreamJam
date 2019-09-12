@@ -41,7 +41,7 @@ public class CollisionSound : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-		if (col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
+		if (col.collider.CompareTag("Stranger") || col.collider.CompareTag("Obstacle") || col.collider.CompareTag("Hazard") ){ //
 			if (Time.timeSinceLevelLoad > 10f) {
 				Settings.instructions(false);
 			} else {
@@ -56,6 +56,8 @@ public class CollisionSound : MonoBehaviour {
 			//if (col.collider.CompareTag("Stranger") || col.collider.CompareTag("Hazard") ){
 			restartStuff();
 		  //  }
+		} else if (col.collider.CompareTag("Obstacle")){
+			GetComponent<ShameMove>().backstep();
 		}
 	}
 

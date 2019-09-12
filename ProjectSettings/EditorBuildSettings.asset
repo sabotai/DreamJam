@@ -20,9 +20,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Shame35.unity
     guid: 995a1cdfb46078044bef341a5c068ff6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Shame36.unity
     guid: 3b528f76f72270b4f8a525ef5c76e49c
+  - enabled: 1
+    path: Assets/Scenes/Shame37.unity
+    guid: dae6b57160d4e304f91debe9e04dfe2f
   - enabled: 0
     path: Assets/Scenes/ShameOutro2.unity
     guid: 2b0822551233cdf4c803d3b989f4497c

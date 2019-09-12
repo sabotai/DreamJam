@@ -23,6 +23,7 @@ public class Intro : MonoBehaviour {
 	public Color startColor, endColor;
 	int finalState = 14;
 	public GameObject timeOut;
+	public Text helperText;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent< AudioSource>();
@@ -49,11 +50,14 @@ public class Intro : MonoBehaviour {
 		if (state > -textObjects.Length && state < 1){
 			if (state == -textObjects.Length + 1){
 				textObjects[textObjects.Length + state - 1].SetActive(true);
+				helperText.enabled = false;
 			} else {
 				textObjects[0].SetActive(false);
-			timeOut.SetActive(true);
+				timeOut.SetActive(true);
 				textObjects[textObjects.Length + state - 1].SetActive(true);
+				helperText.enabled = true;
 			}
+			//helperText.enabled = false;
 		} else if (state == 1){
 			for (int i = 0; i < textObjects.Length; i++){
 				textObjects[i].SetActive(false);
@@ -71,6 +75,7 @@ public class Intro : MonoBehaviour {
 				audSrc.Play();
 			}
 		} else if (state == 4){
+				helperText.enabled = false;
 			if (audSrc.clip != clipDissolve && pct < 0.5f){
 				//pct = 1f;
 				audSrc.clip = clipDissolve;
@@ -89,10 +94,11 @@ public class Intro : MonoBehaviour {
 					pct += (Time.deltaTime / 2f);
 				Debug.Log("pct = " + pct);
 				} else {
-					
+					helperText.enabled = true;
 				}
 		} else if (state == 6){
 
+			helperText.enabled = true;
 			textObjects2[0].SetActive(true);
 		} else if (state == 7){
 
@@ -113,6 +119,7 @@ public class Intro : MonoBehaviour {
 		} else if (state == 12){
 			textObjects2[6].SetActive(true);
 		} else if (state == 13){
+			helperText.enabled = false;
 			for (int i = 0; i < textObjects2.Length; i++){
 				textObjects2[i].SetActive(false);
 			}

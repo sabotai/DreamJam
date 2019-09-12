@@ -76,8 +76,13 @@ public class ShameMove : MonoBehaviour {
 			if (DryEyes.blinking) rate = slowSpeed;
 			 else if (RaisePhone.phoneRaised) rate = walkSpeed;
 			 else rate = normalSpeed;
+			 //GetComponent<Rigidbody>().velocity = (transform.forward * rate * Time.deltaTime * 6f);
 	        transform.position += transform.forward * rate * Time.deltaTime;
 		}
+	}
+
+	public void backstep(){
+		transform.position -= transform.forward * rate * Time.deltaTime * 1.5f;
 	}
 
 
