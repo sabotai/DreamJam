@@ -11,6 +11,7 @@ public class CollisionSound : MonoBehaviour {
 	public float timerAmt = 2f;
 	float startTime;
 	public Rigidbody phone;
+	public GameObject skipText;
 	// Use this for initialization
 	void Start () {
 		audSrc = GetComponent<AudioSource>();
@@ -20,6 +21,14 @@ public class CollisionSound : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Settings.timesPlayed() >= 5)	{
+			skipText.SetActive(true);
+			if (Input.GetKeyDown(KeyCode.F12)) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		}
+		else {skipText.SetActive(false);}
+		//79 - 119
+		//49-103
+		
 		if (startTime != 0f){
 			/*
 			if (Time.time > startTime + timerAmt - clip_restart.length){
@@ -47,6 +56,7 @@ public class CollisionSound : MonoBehaviour {
 			} else {
 				if (Settings.timesPlayed() < 3)	Settings.instructions(true);
 			}
+
 			Settings.timesPlayed(Settings.timesPlayed() + 1);
 			
 			Debug.Log("timesPlayer = " + Settings.timesPlayed());
